@@ -1,4 +1,7 @@
 node_modules/
+data/collections.json
+data/prices.json
+data/auctions.json
 package-lock.json
 .env
 package-lock.json
