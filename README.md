@@ -20,11 +20,14 @@ Node.js >= 14
 
 ### Setup:
 
+<<<<<<< HEAD
+1. Clone the repository using `git clone https://github.com/DuckySoLucky/QwackAPI`
+=======
 1. Clone the repository using
    `git clone https://github.com/DuckySoLucky/QwackAPI.git`
+>>>>>>> 617abadfb99f46de894412606429d2c471feffc4
 
-2. Install all dependencies using NPM by going into the `SkyHelperAPI` folder
-   `npm install`
+2. Install all dependencies using NPM by going into the `QwackAPI` folder `npm install`
 
 3. Set up the [environment variables](#Environment-Variables)
 
@@ -43,15 +46,9 @@ The API automatically updates upon starting. If you wish to not want that, chang
 
 # Endpoints:
 
-### `GET` /v1/profiles/:user
-
-### `GET` /v1/profile/:user/:profile
-
-### `GET` /v1/items/:user
-
-### `GET` /v1/items/:user/:profile
-
 ### `GET` /v1/auctions/:user
+
+### `GET` /v1/auctionhouse/:name/:lore/:rarity/:category/:bin/:lowest_price/:highest_price/:user
 
 ### `GET` /v1/bingo/:user
 
@@ -59,15 +56,35 @@ The API automatically updates upon starting. If you wish to not want that, chang
 
 ### `GET` /v1/fetchur
 
-| Parameter | Description                                |
-| --------- | ------------------------------------------ |
-| user      | This can be the UUID of a user or the name |
-| profile   | This can be the users profile id or name   |
+### `GET` /v1/items/:user
+
+### `GET` /v1/items/:user/:profile
+
+### `GET` /v1/profile/:user/:profile
+
+### `GET` /v1/profiles/:user
+
+| Parameter     | Description                                |
+| ------------- | ------------------------------------------ |
+| user          | This can be the UUID of a user or the name |
+| profile       | This can be the users profile id or name   |
+| name          | Name of the item                           |
+| lore          | Lore of the item                           |
+| rarity        | Rarity of the item                         |
+| bin           | Bin (true or false)                        |
+| category      | Category of them item                      |
+| lowest_price  | Lowest price of the item                   |
+| highest_price | Highest price of the item                  |
 
 # Features:
 
 | Feature        | Description                                                             | Endpoint               |
 | -------------- | ----------------------------------------------------------------------- | ---------------------- |
+| auctions       | Get a player's active and ended auctions and information about them     | auctions               |
+| auctionhouse   | Get currently active auctions and details about them                    | auctionhouse           |
+| bingo          | Get a player's bingo profile and progress                               | bingo                  |
+| calendar       | Get Skyblock's calendar including all events                            | calendar               |
+| items          | Check what item fetchur wants today including description of the item   | fetchur                |
 | skills         | Get a player's skills                                                   | profile/profiles       |
 | networth       | Get a player's networth including all information about the calculation | profile/profiles       |
 | weight         | Get a player's Senither and Lily weight                                 | profile/profiles       |
@@ -100,17 +117,17 @@ The API automatically updates upon starting. If you wish to not want that, chang
 | personal vault | Get player's personal vault                                             | items                  |
 | inventory      | Get player's inventory                                                  | items                  |
 | candy bag      | Get player's candy bag                                                  | items                  |
-| items          | Check what item fetchur wants today                                     | fetchur                |
-| auctions       | Get a player's active and ended auctions and information about them     | auctions               |
-| bingo          | Get a player's bingo profile and progress                               | bingo                  |
-| calendar       | Get Skyblock's calendar including all events                            | calendar               |
 
-**Documentation**: https://api.altpapier.dev
+# Credits:
 
-# Credit:
+- https://github.com/Altpapier
+
+- https://github.com/MattTheCuber
 
 - https://github.com/zt3h/MaroAPI
 
 - https://github.com/Senither/hypixel-skyblock-facade
 
 - https://github.com/SkyCryptWebsite/SkyCrypt
+
+- https://github.com/slothpixel/core/
