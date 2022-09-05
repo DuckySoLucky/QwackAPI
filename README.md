@@ -20,12 +20,7 @@ Node.js >= 14
 
 ### Setup:
 
-<<<<<<< HEAD
 1. Clone the repository using `git clone https://github.com/DuckySoLucky/QwackAPI`
-=======
-1. Clone the repository using
-   `git clone https://github.com/DuckySoLucky/QwackAPI.git`
->>>>>>> 617abadfb99f46de894412606429d2c471feffc4
 
 2. Install all dependencies using NPM by going into the `QwackAPI` folder `npm install`
 
