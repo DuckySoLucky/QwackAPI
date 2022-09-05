@@ -6,11 +6,11 @@ A hypixel skyblock API wrapper containing features that the [SkyHelper](https://
 
 This API was made using the [skyHelperAPI](https://github.com/altpapier/skyhelperAPI)
 
-## Why QwackAPI is better than SkyHelperAPI
+## What does QwackAPI have but SkyHelper doesn't?
 
-・ more details about player's pets (lore, abilities, perks, skin url etc..)
-・`auctionHouse` Endpoint
-・More coming soon..
+- more details about player's pets (lore, abilities, perks, skin url etc..) <br/>
+- `auctionHouse` Endpoint <br/>
+- More coming soon.. <br/>
 
 # Installing
 
@@ -21,7 +21,7 @@ Node.js >= 14
 ### Setup:
 
 1. Clone the repository using
-   `git clone https://github.com/Altpapier/SkyHelperAPI.git`
+   `git clone https://github.com/DuckySoLucky/QwackAPI.git`
 
 2. Install all dependencies using NPM by going into the `SkyHelperAPI` folder
    `npm install`
