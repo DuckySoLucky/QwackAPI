@@ -548,5 +548,6 @@ module.exports = {
     ARTIFACT_OF_CONTROL: { name: "Artifact of Control", rarity: "legendary" },
     PANDORAS_BOX: { name: "Pandora's Box", rarity: "common" },
     SHENS_REGALIA: { name: "Shen's Regalia", rarity: "legendary" },
+    CHUMMING_TALISMAN: { name: "Chumming Talisman", rarity: "uncommon" },
   },
 };
