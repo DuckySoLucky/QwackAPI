@@ -16,22 +16,18 @@ function isUuid(uuid) {
 
 function validateUuid(uuid, res) {
   if (uuid == undefined) {
-    res
-      .status(400)
-      .json({
-        status: 400,
-        reason: "Invalid UUID provided, you must provide a valid UUID",
-      });
+    res.status(400).json({
+      status: 400,
+      reason: "Invalid UUID provided, you must provide a valid UUID",
+    });
     return;
   }
 
   if (!isUuid(uuid)) {
-    res
-      .status(400)
-      .json({
-        status: 400,
-        reason: "Invalid UUID provided, you must provide a valid UUID",
-      });
+    res.status(400).json({
+      status: 400,
+      reason: "Invalid UUID provided, you must provide a valid UUID",
+    });
     return;
   }
 

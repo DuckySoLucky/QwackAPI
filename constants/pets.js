@@ -2976,7 +2976,10 @@ class Ammonite extends Pet {
     return {
       name: "§6Expert Cave Fisher",
       desc: [
-        `§7The Fishing Speed reduction from being underground is attenuated by §a${round(this.level * mult, 2)}%&7.`,
+        `§7The Fishing Speed reduction from being underground is attenuated by §a${round(
+          this.level * mult,
+          2
+        )}%&7.`,
       ],
     };
   }
@@ -2988,9 +2991,13 @@ class Ammonite extends Pet {
     return {
       name: "§6Gift of the Ammonite",
       desc: [
-        `§7Each Mining and Fishing level grants §b+${round(this.level * fSpeed, 3)} ${
-          symbols.fishing_speed.symbol
-        } Fishing Speed§7, &f+${round(this.level * speed, 2)} ${symbols.speed.symbol} Speed &7and §a+${round(
+        `§7Each Mining and Fishing level grants §b+${round(
+          this.level * fSpeed,
+          3
+        )} ${symbols.fishing_speed.symbol} Fishing Speed§7, &f+${round(
+          this.level * speed,
+          2
+        )} ${symbols.speed.symbol} Speed &7and §a+${round(
           this.level * def,
           2
         )} ${symbols.defense.symbol} Defense&7.`,
@@ -3733,7 +3740,11 @@ class MooshroomCow extends Pet {
   }
 
   get first() {
-    const mult = getValue(this.rarity, { common: 0.2, uncommon: 0.25, epic: 0.3 });
+    const mult = getValue(this.rarity, {
+      common: 0.2,
+      uncommon: 0.25,
+      epic: 0.3,
+    });
 
     return {
       name: "§6Efficient Mushrooms",

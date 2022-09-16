@@ -28,9 +28,11 @@
       <h1 id="skyhelper-api">Qwack API</h1>
       <h1 id="credits">Credits</h1>
       <p>
-        This API was originally made by Altpapier and MattTheCuber, huge credits to them.<br />
-        Support them by subscribing to <a href="https://www.patreon.com/skyhelper">Patreon</a>
-      </p> 
+        This API was originally made by Altpapier and MattTheCuber, huge credits
+        to them.<br />
+        Support them by subscribing to
+        <a href="https://www.patreon.com/skyhelper">Patreon</a>
+      </p>
       <h1 id="authentication">Authentication</h1>
       <p>
         The Qwack API uses their own API keys to authenticate requests.<br />
@@ -94,9 +96,9 @@
           <tr>
             <td>500</td>
             <td>
-              There was an error in the Qwack API or the Hypixel API
-              returned an unknown error code. Please report these errors back on
-              <a href="https://github.com/Altpapier/SkyHelperAPI/issues"
+              There was an error in the Qwack API or the Hypixel API returned an
+              unknown error code. Please report these errors back on
+              <a href="https://github.com/DuckySoLucky/QwackAPI/issues"
                 >GitHub</a
               >
             </td>
@@ -128,9 +130,14 @@
         <code>GET</code> /v1/items/:user/:profile
       </h3>
       <h3 id="get-v1auctions"><code>GET</code> /v1/auctions/:user</h3>
+      <h3 id="get-v1auctionhouse">
+        <code>GET</code>
+        /v1/auctionhouse/:name/:lore/:rarity/:category/:bin/:lowest_price/:higehst_price/:user
+      </h3>
       <h3 id="get-v1bingo"><code>GET</code> /v1/bingo/:user</h3>
       <h3 id="get-v1calendar"><code>GET</code> /v1/calendar</h3>
       <h3 id="get-v1fetchur"><code>GET</code> /v1/fetchur</h3>
+      <h3 id="get-v1networth"><code>GET</code> /v1/networth/:user/:profile</h3>
 
       <table>
         <thead>
@@ -191,7 +198,10 @@
         <tbody>
           <tr>
             <td>auctions</td>
-            <td>Get a player's active and ended auctions and information about them</td>
+            <td>
+              Get a player's active and ended auctions and information about
+              them
+            </td>
             <td>auctions</td>
           </tr>
           <tr>
@@ -211,7 +221,10 @@
           </tr>
           <tr>
             <td>items</td>
-            <td>Check what item fetchur wants today including description of the item</td>
+            <td>
+              Check what item fetchur wants today including description of the
+              item
+            </td>
             <td>fetchur</td>
           </tr>
           <tr>
@@ -389,9 +402,9 @@
       <h1 id="credit">Credit</h1>
       <p>
         This API has been made possible by
-        <a href="https://github.com/Altpapier">Altpapier</a>, 
-        <a href="https://github.com/MattTheCuber">MattTheCuber</a>, 
-        <a href="https://hypixel-api.senither.com">Hypixel Skyblock Facade</a>, 
+        <a href="https://github.com/Altpapier">Altpapier</a>,
+        <a href="https://github.com/MattTheCuber">MattTheCuber</a>,
+        <a href="https://hypixel-api.senither.com">Hypixel Skyblock Facade</a>,
         <a href="https://sky.shiiyu.moe">SkyCrypt</a> and
         <a href="https://github.com/zt3h/MaroAPI">MaroAPI</a> and a lot of the
         code comes from them. Make sure to check them out!

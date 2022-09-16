@@ -33,12 +33,10 @@ module.exports = {
       playerRes.data.hasOwnProperty("player") &&
       playerRes.data.player == null
     ) {
-      return res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no Player data for a user with a UUID of '${uuid}'`,
-        });
+      return res.status(404).json({
+        status: 404,
+        reason: `Found no Player data for a user with a UUID of '${uuid}'`,
+      });
     }
     const data = playerRes.data.player;
     const achievements = data.achievements;
@@ -74,12 +72,10 @@ module.exports = {
       profileRes.data.hasOwnProperty("profiles") &&
       profileRes.data.profiles == null
     ) {
-      return res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}' and profile of '${profileid}'`,
-        });
+      return res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}' and profile of '${profileid}'`,
+      });
     }
     if (!isUuid(profileid)) {
       for (const profile of profileRes.data?.profiles || []) {
@@ -93,21 +89,17 @@ module.exports = {
       (a) => a.profile_id === profileid
     );
     if (!profileData) {
-      return res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}' and profile of '${profileid}'`,
-        });
+      return res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}' and profile of '${profileid}'`,
+      });
     }
 
     if (!isValidProfile(profileData.members, uuid)) {
-      return res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'`,
-        });
+      return res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'`,
+      });
     }
 
     const profile = profileData.members[uuid];
@@ -165,12 +157,10 @@ module.exports = {
       profileRes.data.hasOwnProperty("profiles") &&
       profileRes.data.profiles == null
     ) {
-      return res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
-        });
+      return res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
+      });
     }
 
     const result = [];
@@ -231,12 +221,10 @@ module.exports = {
       });
     }
     if (result.length == 0)
-      res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
-        });
+      res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
+      });
     return result.sort((a, b) => b.last_save - a.last_save);
   },
   parseProfileItems: async function parseProfileItems(
@@ -250,12 +238,10 @@ module.exports = {
       profileRes.data.hasOwnProperty("profiles") &&
       profileRes.data.profiles == null
     ) {
-      return res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}' and profile of '${profileid}'`,
-        });
+      return res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}' and profile of '${profileid}'`,
+      });
     }
 
     if (!isUuid(profileid)) {
@@ -270,21 +256,17 @@ module.exports = {
       (a) => a.profile_id === profileid
     );
     if (!profileData) {
-      return res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}' and profile of '${profileid}'`,
-        });
+      return res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}' and profile of '${profileid}'`,
+      });
     }
 
     if (!isValidProfile(profileData.members, uuid)) {
-      return res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'`,
-        });
+      return res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'`,
+      });
     }
 
     const profile = profileData.members[uuid];
@@ -309,12 +291,10 @@ module.exports = {
       profileRes.data.hasOwnProperty("profiles") &&
       profileRes.data.profiles == null
     ) {
-      return res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
-        });
+      return res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
+      });
     }
 
     const result = [];
@@ -335,12 +315,10 @@ module.exports = {
       });
     }
     if (result.length == 0)
-      res
-        .status(404)
-        .json({
-          status: 404,
-          reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
-        });
+      res.status(404).json({
+        status: 404,
+        reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
+      });
     return result.sort((a, b) => b.last_save - a.last_save);
   },
   parseBingoProfile: function parseBingoProfile(profile, bingo, uuid) {
