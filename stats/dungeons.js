@@ -53,13 +53,13 @@ module.exports = (player, profile) => {
       master_mode_floors[`floor_${i}`] = {
         completions: master_catacombs?.tier_completions[i] ?? 0,
         best_score: {
-          score: master_catacombs?.best_score[i] ?? 0,
+          score: master_catacombs?.best_score?.[i] ?? 0,
           name: getScoreName(master_catacombs?.best_score[i] ?? 0),
         },
-        fastest: master_catacombs?.fastest_time[i] ?? 0,
-        fastest_s: master_catacombs?.fastest_time_s[i] ?? 0,
-        fastest_s_plus: master_catacombs?.fastest_time_s_plus[i] ?? 0,
-        mobs_killed: master_catacombs?.mobs_killed[i] ?? 0,
+        fastest: master_catacombs?.fastest_time?.[i] ?? 0,
+        fastest_s: master_catacombs?.fastest_time_s?.[i] ?? 0,
+        fastest_s_plus: master_catacombs?.fastest_time_s_plus?.[i] ?? 0,
+        mobs_killed: master_catacombs?.mobs_killed?.[i] ?? 0,
       };
     }
 
