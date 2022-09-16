@@ -8,9 +8,14 @@ This API was made using the [skyHelperAPI](https://github.com/altpapier/skyhelpe
 
 ## What does QwackAPI have but SkyHelper doesn't?
 
-- more details about player's pets (lore, abilities, perks, skin url etc..) <br/>
+- `auctions` Endpoint <br/>
 - `auctionHouse` Endpoint <br/>
-- More coming soon.. <br/>
+- `bingo` Endpoint <br/>
+- `calendar` Endpoint <br/>
+- Description in `fetchur` Endpoint <br/>
+- `farming`, `enchanting`, `auto_pet` tag in `/profile(s)` Endpoints <br/>
+- Better pets display in `/profile(s)` Endpoint <br/>
+- And more coming soon.. <br/>
 
 # Installing
 
