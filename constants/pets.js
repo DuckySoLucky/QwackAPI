@@ -3733,7 +3733,7 @@ class MooshroomCow extends Pet {
   }
 
   get first() {
-    const mult = getValue(this.rarity, { common: 0.2, rare: 0.3 });
+    const mult = getValue(this.rarity, { common: 0.2, uncommon: 0.25, epic: 0.3 });
 
     return {
       name: "§6Efficient Mushrooms",
@@ -3747,12 +3747,12 @@ class MooshroomCow extends Pet {
   }
 
   get second() {
-    const mult = getValue(this.rarity, { rare: 0.99 });
+    const mult = getValue(this.rarity, { rare: 0.1 });
     return {
       name: "§6Mushroom Eater",
       desc: [
         `§7When breaking crops, there is a §a${round(
-          this.level * mult + 1.01,
+          this.level * mult,
           1
         )}% §7chance that a mushroom will drop`,
       ],

@@ -1,12 +1,15 @@
-//CREDIT: https://github.com/Senither/hypixel-skyblock-facade (Modified)cconst auctionhouse = require('./routes/v1/auctionHouse')
-const auctionsRoute = require('./routes/v1/auctions')
+//CREDIT: https://github.com/Senither/hypixel-skyblock-facade (Modified)
+
+const auctionsRoute = require('./routes/v1/auctions');
 const bingoRoute = require('./routes/v1/bingo');
 const calendarRoute = require('./routes/v1/calendar')
-const FetchurRoute = require('./routes/v1/fetchur');
-const ProfileRoute = require('./routes/v1/profile');
-const ProfilesRoute = require('./routes/v1/profiles');
-const ProfileItemsRoute= require('./routes/v1/profileItems')
-const ProfilesItemsRoute = require('./routes/v1/profilesItems')
+const fetchurRoute = require('./routes/v1/fetchur');
+const profileRoute = require('./routes/v1/profile');
+const profilesRoute = require('./routes/v1/profiles');
+const profileItemsRoute = require('./routes/v1/profileItems')
+const profilesItemsRoute = require('./routes/v1/profilesItems')
+const networthRoute = require('./routes/v1/networth');
+
 const NotFound = require('./middleware/notfound');
 const Auth = require('./middleware/auth');
 const ErrorHandler = require('./middleware/errorhandler');
@@ -37,17 +40,19 @@ app.use(express.static(__dirname + '/public'));
 app.use(limiter);
 app.use(Auth);
 app.use(require('cors')());
-app.use(express.json());
+app.use(express.json({ limit: '15mb' }));
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/v1/fetchur', FetchurRoute);
-app.get('/v1/profile/:uuid/:profileid', ProfileRoute);
-app.get('/v1/profiles/:uuid', ProfilesRoute);
-app.get('/v1/items/:uuid/:profileid', ProfileItemsRoute);
-app.get('/v1/items/:uuid', ProfilesItemsRoute);
+app.get('/v1/fetchur', fetchurRoute);
+app.get('/v1/profile/:uuid/:profileid', profileRoute);
+app.get('/v1/profiles/:uuid', profilesRoute);
+app.get('/v1/items/:uuid/:profileid', profileItemsRoute);
+app.get('/v1/items/:uuid', profilesItemsRoute);
 app.get('/v1/bingo/:uuid', bingoRoute)
 app.get('/v1/calendar', calendarRoute)
 app.get('/v1/auctions/:uuid', auctionsRoute)
 app.get('/v1/auctionhouse', auctionsRoute)
+app.get('/v1/networth', networthRoute);
 
 app.use(NotFound);
 app.use(ErrorHandler);
