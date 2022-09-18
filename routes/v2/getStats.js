@@ -9,11 +9,13 @@ const getEquipment = require('../../stats/equipment');
 const getCollections = require('../../stats/collections');
 const getMining = require('../../stats/mining');
 const getFarming = require('../../stats/farming')
+const getTalismans = require('../../stats/talismans');
 
 const bonuses = require("../../constants/bonuses");
 const xp_tables = require('../../constants/xp_tables')
 const misc = require("../../constants/misc");
 const potions = require('../../constants/potions');
+const reforges = require('../../constants/reforges')
 
 const { toFixed } = require("../../constants/functions");
 const { symbols } = require('../../constants/symbols');
@@ -21,7 +23,7 @@ const { decodeData } = require("../../utils/nbt");
 
 let BASE_STATS = {
     health: 100,
-    absorption: 0,
+    //absorption: 0, Not in hypixel's menu
     defense: 0,
     intelligence: 100,
     true_defense: 0,
@@ -65,8 +67,6 @@ async function getStats(player, profileData, profile, uuid, res) {
     // ! INACURRATE DATE:
     // ! - Intelligence, this is due to hypixel not having "Defuse Kit" in an API, so intelligence will be offset by 1-10 points.
     // ! - -15 Magic find and -25 Wisdom, this is due to Hypixel not having booster cookie in API
-    // TODO: Hard code every reforge (https://wiki.hypixel.net/Powers#Magical_Power)
-    // TODO: Boost Cookie (magic find)
     // TODO: Crab Hat intelligence
     // TODO: Magic find isn't correct
 
@@ -82,9 +82,10 @@ async function getStats(player, profileData, profile, uuid, res) {
     const farming = getFarming(player, profile)
     let statsMultiplier = 0;
 
-    const [armor, equipment, accessories, inventory, cakebag,] =
+    const [armor, talismans, equipment, accessories, inventory, cakebag,] =
     await Promise.all([
         getArmor(profile),
+        getTalismans(profile),
         getEquipment(profile),
         decodeData(Buffer.from(profile.talisman_bag.data, "base64")),
         decodeData(Buffer.from(profile.inv_contents.data, "base64")),
@@ -181,12 +182,14 @@ async function getStats(player, profileData, profile, uuid, res) {
     for (const item of Object.keys(accessories.i)) {
         const talisman = accessories.i[item]
         if (Object.keys(talisman).length === 0) continue;
+
         for (const [stat, value] of Object.entries(getStatsFromItem(talisman))) {
             BASE_STATS[stat] += value;
         }
+
         if (talisman.tag.ExtraAttributes.id == 'NIGHT_CRYSTAL' || talisman.tag.ExtraAttributes.id == 'DAY_CRYSTAL') {
             // ? Temporary talisman dupe fix
-            if (talismanDupes.includes('NIGHT_CRYSTAL') || talismanDupes.includes('DAY_CRYSTAL')) continue;
+            if (talismanDupes.includes(talisman.tag.ExtraAttributes.id)) continue;
             talismanDupes.push(talisman.tag.ExtraAttributes.id)
 
             BASE_STATS['health'] += 5;
@@ -195,13 +198,26 @@ async function getStats(player, profileData, profile, uuid, res) {
     }
 
     // ? Tunings
-    // TODO: Hard code every reforge (https://wiki.hypixel.net/Powers#Magical_Power)
-    /*
-    for (const data in profile.accessory_bag_storage) {
-        if (data == 'bag_upgrades_purchased' || data == 'unlocked_powers') continue;
-        console.log(profile.accessory_bag_storage[data])
+    let magicalPower = 0;
+    talismanDupes = [];
+    const currentReforge = profile.accessory_bag_storage['selected_power']
+    for (const type in talismans) {
+        if (type == 'tunings' || type == 'currentReforge' || type == 'talismanBagUpgrades' || type == 'unlockedReforges' || type == 'tuningsSlots') continue;
+        for (const talisman of talismans[type]) {
+            if (talismanDupes.includes(talisman.id)) continue;
+            talismanDupes.push(talisman.id)
+            magicalPower += getMagicalPower(talisman.rarity.toLowerCase())
+        }
     }
-    */
+
+    for (const [stat, value] of Object.entries(reforges[currentReforge].reforge)) {
+        console.log(stat, value * magicalPower)
+        BASE_STATS[stat] += value * magicalPower;
+    }
+
+    for (const [stat, value] of Object.entries(reforges[currentReforge].power_bonus)) {
+        BASE_STATS[stat] += value;
+    }
 
    // ? Heart of the Mountain
    const miningSpeed = (mining.hotM_tree.perks.find(p => p.id == 'mining_speed'))?.level ?? 0; // Level * 20
@@ -782,6 +798,21 @@ function getPetScore(pets) {
     if (Object.values(highestRarity).reduce((a, b) => a + b, 0) > 25) return 2
     if (Object.values(highestRarity).reduce((a, b) => a + b, 0) > 10) return 1
     return 0;
+}
+
+function getMagicalPower(rarity) {
+    const power = {
+        common: 3,
+        uncommon: 5,
+        rare: 8,
+        epic: 12,
+        legendary: 16,
+        mythic: 22,
+        special: 3,
+        very_special: 5,
+    };
+
+    return power[rarity];
 }
 
 module.exports = { getStats }                                         

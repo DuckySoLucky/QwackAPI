@@ -82,7 +82,7 @@ module.exports = {
                 name: "Absorption 8 Potion",
                 description: `Grants a boost to absorption health.`,
                 bonus: {
-                    absorption: 375,
+                    //absorption: 375,
                 }
             }
         },
@@ -184,7 +184,7 @@ module.exports = {
                 name: "Adrenaline 8 Potion",
                 description: `Grants 300 absorption and +40 ${symbols.speed.symbol} Speed.`,
                 bonus: {
-                    absorption: 300,
+                    //absorption: 300,
                     speed: 40,
                 }
             }
