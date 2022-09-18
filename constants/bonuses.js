@@ -4,6 +4,8 @@ module.exports = {
     1: { health: 2, farming_fortune: 4 },
     15: { health: 3, farming_fortune: 4 },
     20: { health: 4, farming_fortune: 4 },
+    // ! Hypixel Admins made a mistake here, Farming 25 for some reason doesn't give any stats
+    25: { health: 0, farming_fortune: 0 },
     26: { health: 5, farming_fortune: 4 },
   },
   skill_mining: {
@@ -39,7 +41,11 @@ module.exports = {
     51: { health: 0 },
   },
   skill_social: {},
-  skill_carpentry: {},
+  skill_carpentry: {
+    1: { health: 1},
+    // ! Hypixel Admins made a mistake here, Carpentry 50 for some reason doesn't give health
+    50: { health: 49 }
+  },
   skill_runecrafting: {},
   // ? Slayers
   slayer_zombie: {

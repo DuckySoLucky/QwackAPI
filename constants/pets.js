@@ -3596,10 +3596,32 @@ class Bingo extends Pet {
 
 class Wisp extends Pet {
   get stats() {
+    const health = getValue(this.rarity, {
+      common: 0,
+      uncommon: 1,
+      rare: 2.5,
+      epic: 4,
+      legendary: 6,
+    });
+    const intelligence = getValue(this.rarity, {
+      common: 0,
+      uncommon: 0,
+      rare: 0.5,
+      epic: 1.25,
+      legendary: 2.5,
+    });
+    const trueDefense = getValue(this.rarity, {
+      common: 0,
+      uncommon: 0,
+      rare: 0.15,
+      epic: 0.3,
+      legendary: 0.35,
+    });
+
     return {
-      true_defense: this.level * 0.1,
-      health: this.level * 1,
-      intelligence: this.level * 0.5,
+      true_defense: this.level * trueDefense,
+      health: this.level * health,
+      intelligence: this.level * intelligence,
     };
   }
 

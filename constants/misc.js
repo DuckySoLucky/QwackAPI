@@ -108,6 +108,25 @@ module.exports = {
         100000: 300,
         200000: 310,
         300000: 315,
-    }
-
+    },
+    WISP_PET_KILLS: [
+        { kills: 0, defense: 0, true_defense: 0 },
+        { kills: 100, defense: 30, true_defense: 3 },
+        { kills: 200, defense: 60, true_defense: 6 },
+        { kills: 300, defense: 90, true_defense: 9 },
+        { kills: 500, defense: 135, true_defense: 14 },
+        { kills: 800, defense: 180, true_defense: 18 },
+        { kills: 1200, defense: 225, true_defense: 23 },
+        { kills: 1750, defense: 270, true_defense: 27 },
+        { kills: 2500, defense: 315, true_defense: 32 },
+        { kills: 3500, defense: 360, true_defense: 36 },
+        { kills: 5000, defense: 405, true_defense: 41 },
+        { kills: 10000, defense: 465, true_defense: 47 },
+        { kills: 25000, defense: 500, true_defense: 50 },
+        { kills: 50000, defense: 535, true_defense: 53 },
+        { kills: 100000, defense: 570, true_defense: 57 },
+        { kills: 125000, defense: 585, true_defense: 58 },
+        { kills: 150000, defense: 595, true_defense: 59 },
+        { kills: 200000, defense: 600, true_defense: 60 },
+    ],
 }

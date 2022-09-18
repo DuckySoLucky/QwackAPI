@@ -141,6 +141,7 @@ module.exports = (profile) => {
       pet.level,
       pet.extra
     );
+    pet.extra = pet.extra;
     pet.stats = Object.assign({}, petInstance.stats);
     pet.ref = petInstance;
 
