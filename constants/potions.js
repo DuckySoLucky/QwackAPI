@@ -49,7 +49,9 @@ module.exports = {
             4: {
                 name: "Experience 4 Potion",
                 description: "Gain 40% more experience orbs.",
-                bonus: {}
+                bonus: {
+                    combat_wisdom: 10,
+                }
             }
         },
         rabbit: {

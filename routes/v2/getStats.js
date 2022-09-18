@@ -22,34 +22,36 @@ const { symbols } = require('../../constants/symbols');
 const { decodeData } = require("../../utils/nbt");
 
 let BASE_STATS = {
-    health: 100,
     //absorption: 0, Not in hypixel's menu
+    health: 100,
     defense: 0,
-    intelligence: 100,
-    true_defense: 0,
     effective_health: 100,
     strength: 0,
-    speed: 100,
+    intelligence: 0,
     crit_chance: 30,
     crit_damage: 50,
     bonus_attack_speed: 0,
-    intelligence: 100,
-    sea_creature_chance: 20,
-    magic_find: 0,
-    pet_luck: 0,
-    ferocity: 0,
     ability_damage: 0,
+    true_defense: 0,
+    ferocity: 0,
+    health_regen: 100,
+    vitality: 100,
+    mending: 100,
+
     mining_speed: 0,
     mining_fortune: 0,
     farming_fortune: 0,
     foraging_fortune: 0,
     pristine: 0,
+
+    speed: 100,
+    magic_find: 0,
+    pet_luck: 0,
+    sea_creature_chance: 20,
+    fishing_speed: 0,
+
     //damage: 0,
     //damage_increase: 0,
-    fishing_speed: 0,
-    health_regen: 100,
-    vitality: 100,
-    mending: 100,
     combat_wisdom: 0,
     mining_wisdom: 0,
     farming_wisdom: 0,
@@ -68,7 +70,6 @@ async function getStats(player, profileData, profile, uuid, res) {
     // ! - Intelligence, this is due to hypixel not having "Defuse Kit" in an API, so intelligence will be offset by 1-10 points.
     // ! - -15 Magic find and -25 Wisdom, this is due to Hypixel not having booster cookie in API
     // TODO: Crab Hat intelligence
-    // TODO: Magic find isn't correct
 
     const bestiaryLevel = toFixed(((getBestiary(profile)).level), 0);
     const catacombsLevel = toFixed((getDungeons(player, profile)).catacombs.skill.level, 0);
@@ -92,9 +93,9 @@ async function getStats(player, profileData, profile, uuid, res) {
         getCakeBag(profile),   
     ]);
 
-    
     // ? Bestiary
     if (bestiaryLevel) BASE_STATS['health'] += (toFixed(bestiaryLevel, 0) * 2);
+    
     // ? Cakebag
     if (cakebag.length > 0) BASE_STATS['health'] += cakebag.length * 2;
 
@@ -211,7 +212,6 @@ async function getStats(player, profileData, profile, uuid, res) {
     }
 
     for (const [stat, value] of Object.entries(reforges[currentReforge].reforge)) {
-        console.log(stat, value * magicalPower)
         BASE_STATS[stat] += value * magicalPower;
     }
 
@@ -443,9 +443,6 @@ async function getStats(player, profileData, profile, uuid, res) {
         BASE_STATS['health'] += BASE_STATS['health'] * petData.healthMultiplier
         BASE_STATS['defense'] += BASE_STATS['defense'] * petData.defenseMultiplier
         BASE_STATS['bonus_attack_speed'] += BASE_STATS['bonus_attack_speed'] * petData.bonusAttackSpeedMultiplier
-
-        // ? WISDOM
-            // * COOKIE
     }
 
     // ? Speed Cap 
