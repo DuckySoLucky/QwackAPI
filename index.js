@@ -14,6 +14,7 @@ const profilesItemsRoute = require("./routes/v1/profilesItems");
 const profileV2Route = require("./routes/v2/profile");
 const profilesV2Route = require("./routes/v2/profiles");
 const networthRoute = require("./routes/v2/networth");
+const statsRoute = require("./routes/v2/stats");
 
 const NotFound = require("./middleware/notfound");
 const Auth = require("./middleware/auth");
@@ -61,6 +62,7 @@ app.get("/v1/auctionhouse", auctionsRoute);
 app.get("/v2/profile/:uuid/:profileid", profileV2Route);
 app.get("/v2/profiles/:uuid", profilesV2Route);
 app.get("/v2/networth", networthRoute);
+app.get("/v2/stats/:uuid/:profileid", statsRoute);
 
 app.use(NotFound);
 app.use(ErrorHandler);
