@@ -7,7 +7,7 @@ module.exports = {
                 name: "True Resistance 4 Potion",
                 description: `Increases ${symbols.true_defense.symbol} True Defense, which reduces true damage you receive.`,
                 bonus: {
-                    true_defense: 40,
+                    true_defense: 20,
                 }
             },
         },
@@ -25,7 +25,7 @@ module.exports = {
                 name: "Regeneration 9 Potion",
                 description: `Grants ${symbols.health_regen} Health Regen.`,
                 bonus: {
-                    health_regen: 60,
+                    health_regen: 63,
                 }
             }
         },
@@ -121,7 +121,7 @@ module.exports = {
                 name: "Resistance 8 Potion",
                 description: `Increases ${symbols.defense.symbol} Defense.`,
                 bonus: {
-                    defense: 60
+                    defense: 66
                 }
             }
         },
@@ -157,6 +157,7 @@ module.exports = {
                 bonus: {
                     crit_chance: 25,
                     crit_damage: 40,
+                    magic_find: 10,
                 }
             }
         },
@@ -207,10 +208,10 @@ module.exports = {
         spirit: {
             4: {
                 name: "Spirit 4 Potion",
-                description: `Grants +40 ${symbols.speed.symbol} Speed and +40 ${symbols.strength.symbol} Strength.`,
+                description: `Grants +40 ${symbols.speed.symbol} Speed and +40 ${symbols.crit_damage.symbol} Crit Damage.`,
                 bonus: {
                     speed: 40,
-                    strength: 40,
+                    crit_damage: 40,
                 }
             }
         },

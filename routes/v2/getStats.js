@@ -21,6 +21,7 @@ const { decodeData } = require("../../utils/nbt");
 
 let BASE_STATS = {
     health: 100,
+    absorption: 0,
     defense: 0,
     intelligence: 100,
     true_defense: 0,
@@ -65,18 +66,10 @@ async function getStats(player, profileData, profile, uuid, res) {
     // ! - Intelligence, this is due to hypixel not having "Defuse Kit" in an API, so intelligence will be offset by 1-10 points.
     // ! - -15 Magic find and -25 Wisdom, this is due to Hypixel not having booster cookie in API
     // TODO: Hard code every reforge (https://wiki.hypixel.net/Powers#Magical_Power)
-    // TODO: ~~Add potion effects (every effect has to be hard coded ;-;)~~ (God potion only for now)
-    // TODO: ~~Black Cat Pet Speed Cap~~
-    // TODO: ~~Add Custom pet's abilities, Silverfish, GDrag, Wolf etc..~~
-    // TODO: ~~Add HOTM (Mining speed and fortune)~~
-    // TODO: ~~Add Jacob's farming fortune~~
-    // TODO: ~~Add Gestomes~~
-    // TODO: ~~Carpentry skill~~
-    // TODO: ~~Add Wisdom calculation~~
     // TODO: Boost Cookie (magic find)
-    // TODO: ~~Seasoned Mineman (HOTM)~~+
     // TODO: Crab Hat intelligence
-    // TODO: ~~Slayer Bosses Combat Wisdom~~
+    // TODO: Magic find isn't correct
+
     const bestiaryLevel = toFixed(((getBestiary(profile)).level), 0);
     const catacombsLevel = toFixed((getDungeons(player, profile)).catacombs.skill.level, 0);
     const slayer = getSlayer(profile)
@@ -229,6 +222,7 @@ async function getStats(player, profileData, profile, uuid, res) {
        ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune * 5) + 
        ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2 * 5) + 
        ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness);
+
 
     // ? Harp 
     for (const harp in profile.harp_quest) {
@@ -450,10 +444,8 @@ async function getStats(player, profileData, profile, uuid, res) {
     
     // ? Active Potion Effects
     for (const effect of profile.active_effects) {
-        //console.log(potions.MAXED_EFFECTS[effect.effect][effect.level])
         for (const [stat, value] of Object.entries(potions.MAXED_EFFECTS[effect.effect][effect.level].bonus)) {
-            //console.log(stat, value)
-            //BASE_STATS[stat] += value;
+            BASE_STATS[stat] += value;
         }
     }
 
