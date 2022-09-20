@@ -293,6 +293,46 @@ module.exports = {
                     magic_find: 3,
                 }
             }
+        },
+        GABAGOEY: {
+            1: {
+                name: "Gabagoey Mixin",
+                description: `Increases your ${symbols.true_defense.symbol} True Defense by 5.`,
+                bonus: {
+                    true_defense: 5,
+                }
+            }
+        },
+        END_PORTAL_FUMES: {
+            1: {
+                name: "End Portal Fumes",
+                description: `${symbols.soulflow.symbol} Soulflow conversions provide +30% more ${symbols.overflow_mana.symbol} Overflow.`,
+                bonus: {}
+            }
+        },
+        SPIDER_EGG: {
+            1: {
+                name: "Spider Egg Mixin",
+                description: `Gain 5% dodge chance!`,
+                bonus: {}
+            }
+        },
+        ZOMBIE_BRAIN: {
+            1: {
+                name: "Zombie Brain Mixin",
+                description: `Gain +10 ${symbols.ferocity.symbol} Ferocity!`,
+                description: {
+                    ferocity: 10,
+                }
+            }
+        },
+        WOLF_FUR: {
+            1: {
+                name: "Wolf Fur Mixin", 
+                Description: `Gain +7 ${symbols.magic_find.symbol} Magic Find when slaying monsters in one hit!`,
+                bonus: {}
+            }
         }
+
     }
 }

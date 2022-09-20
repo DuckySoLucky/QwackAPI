@@ -158,8 +158,8 @@ module.exports = {
             strength: 0.184,
         }
     },
-    bizzare: {
-        prefix: "Bizzare",
+    bizarre: {
+        prefix: "Bizarre",
         name: "Eccentric Painting",
         power_bonus: {
             ability_damage: 5,
