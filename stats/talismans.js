@@ -21,7 +21,7 @@ module.exports = async (profile) => {
       special: [],
       very: [],
     };
-    delete talismans.tunings.highest_unlocked_slot;
+    delete talismans?.tunings?.highest_unlocked_slot;
     const talisman_bag = (
       await decodeData(Buffer.from(profile.talisman_bag.data, "base64"))
     ).i;

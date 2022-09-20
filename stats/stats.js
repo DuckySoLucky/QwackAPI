@@ -1,25 +1,25 @@
-const getSkills = require("../../stats/skills");
-const getSlayer = require("../../stats/slayer");
-const getPets = require("../../stats/pets");
-const getBestiary = require("../../stats/bestiary");
-const getDungeons = require("../../stats/dungeons");
-const getCakeBag = require('../../stats/cakebag');
-const getArmor = require('../../stats/armor');
-const getEquipment = require('../../stats/equipment');
-const getCollections = require('../../stats/collections');
-const getMining = require('../../stats/mining');
-const getFarming = require('../../stats/farming')
-const getTalismans = require('../../stats/talismans');
+const getSkills = require("./skills");
+const getSlayer = require("./slayer");
+const getPets = require("./pets");
+const getBestiary = require("./bestiary");
+const getDungeons = require("./dungeons");
+const getCakeBag = require('./cakebag');
+const getArmor = require('./armor');
+const getEquipment = require('./equipment');
+const getCollections = require('./collections');
+const getMining = require('./mining');
+const getFarming = require('./farming')
+const getTalismans = require('./talismans');
 
-const bonuses = require("../../constants/bonuses");
-const xp_tables = require('../../constants/xp_tables')
-const misc = require("../../constants/misc");
-const potions = require('../../constants/potions');
-const reforges = require('../../constants/reforges')
+const bonuses = require("../constants/bonuses");
+const xp_tables = require('../constants/xp_tables')
+const misc = require("../constants/misc");
+const potions = require('../constants/potions');
+const reforges = require('../constants/reforges')
 
-const { toFixed, capitalize } = require("../../constants/functions");
-const { symbols } = require('../../constants/symbols');
-const { decodeData } = require("../../utils/nbt");
+const { toFixed, capitalize } = require("../constants/functions");
+const { symbols } = require('../constants/symbols');
+const { decodeData } = require("../utils/nbt");
 
 let BASE_STATS = {
     //absorption: 0, Not in hypixel's menu

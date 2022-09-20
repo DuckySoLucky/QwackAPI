@@ -2,7 +2,7 @@
 const { isUuid } = require("../../utils/uuid");
 const { makeRequest, wrap } = require("../../utils/request");
 const { parseHypixel } = require("../../utils/hypixel");
-const { getStats } = require('./getStats.js')
+const { getStats } = require('../../stats/stats')
 
 module.exports = wrap(async function (req, res) {
   const profileid = req.params.profileid;
