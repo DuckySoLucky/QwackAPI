@@ -168,7 +168,7 @@ module.exports = {
                 name: "Speed 8 Potion",
                 description: `Grants +40 ${symbols.speed.symbol} Speed.`,
                 bonus: {
-                    speed: 40,
+                    speed: 48,
                 }
             }
         },
@@ -194,9 +194,9 @@ module.exports = {
         spelunker: {
             5: {
                 name: "Spelunker 5 Potion",
-                description: `Increases 20 ${symbols.mining_fortune.symbol} Mining Fortune.`,
+                description: `Increases 25 ${symbols.mining_fortune.symbol} Mining Fortune.`,
                 bonus: {
-                    mining_fortune: 20,
+                    mining_fortune: 25,
                 }
             }
         },

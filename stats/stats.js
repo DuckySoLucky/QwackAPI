@@ -16,6 +16,7 @@ const xp_tables = require('../constants/xp_tables')
 const misc = require("../constants/misc");
 const potions = require('../constants/potions');
 const reforges = require('../constants/reforges')
+const armorSets = require('../constants/armor')
 
 const { toFixed, capitalize } = require("../constants/functions");
 const { symbols } = require('../constants/symbols');
@@ -64,15 +65,24 @@ let BASE_STATS = {
     social_wisdom: 0,
 
     health_cap: null,
-    speed_cap: null,
+    speed_cap: 400,
 };
+
+let calculation = {};
+for (const stat in BASE_STATS) {
+    calculation[stat] = [];
+}
+
+calculation['strengthMultiplier'] ??= [];
+calculation['healthMultiplier'] ??= [];
+calculation['defenseMultiplier'] ??= [];
+calculation['bonusAttackSpeedMultiplier'] ??= [];
 
 async function getStats(player, profileData, profile, uuid, res) {
     // ! INACURRATE DATE:
     // ! - Intelligence, this is due to hypixel not having "Defuse Kit" in an API, so intelligence will be offset by 1-10 points.
     // ! - -15 Magic find and -25 Wisdom, this is due to Hypixel not having booster cookie in AP
 
-    const calculation = {}
     const bestiaryLevel = toFixed(((getBestiary(profile)).level), 0);
     const catacombsLevel = toFixed((getDungeons(player, profile)).catacombs.skill.level, 0);
     const slayer = getSlayer(profile)
@@ -96,43 +106,47 @@ async function getStats(player, profileData, profile, uuid, res) {
     ]);
 
     // ? Bestiary
-    if (bestiaryLevel) BASE_STATS['health'] += (toFixed(bestiaryLevel, 0) * 2);
-    calculation['health'] ??= []
-    calculation['health'].push(`Bestiary Level Bonus: ${toFixed(bestiaryLevel, 0) * 2} | ${bestiaryLevel} * 2`);
+    if (bestiaryLevel) {
+        BASE_STATS['health'] += (toFixed(bestiaryLevel, 0) * 2);
+        calculation['health'].push(`Bestiary Level Bonus: ${toFixed(bestiaryLevel, 0) * 2} | ${bestiaryLevel} * 2`);
+    }
 
     // ? Cakebag
-    if (cakebag.length > 0) BASE_STATS['health'] += cakebag.length * 2;
-    calculation['health'] ??= []
-    calculation['health'].push(`Cakebag Bonus: ${cakebag.length * 2} | ${cakebag.length} * 2`);
+    if (cakebag.length > 0) {
+        BASE_STATS['health'] += cakebag.length * 2;
+        calculation['health'].push(`Cakebag Bonus: ${cakebag.length * 2} | ${cakebag.length} * 2`);
+    }
 
     // ? Catacombs
-    if (catacombsLevel) toFixed(catacombsLevel, 0) * 2 > 50 ?  BASE_STATS['health'] += 50 : BASE_STATS['health'] += (toFixed(catacombsLevel, 0) * 2);
-    calculation['health'] ??= []
-    calculation['health'].push(`Catacombs Levels Bonus: ${toFixed(catacombsLevel, 0) * 2} | ${catacombsLevel} * 2`);
+    if (catacombsLevel) {
+        toFixed(catacombsLevel, 0) * 2 > 50 ?  BASE_STATS['health'] += 50 : BASE_STATS['health'] += (toFixed(catacombsLevel, 0) * 2);
+        calculation['health'].push(`Catacombs Levels Bonus: ${toFixed(catacombsLevel, 0) * 2} | ${toFixed(catacombsLevel, 0) * 2 > 50 ? 50 : catacombsLevel} * 2`);
+    }
 
     // ? Reaper Peppers
-    if (profile.reaper_peppers_eaten) BASE_STATS['health'] += (profile.reaper_peppers_eaten * 2);
-    calculation['health'] ??= [] 
-    calculation['health'].push(`Reaper Peppers Eaten: ${profile.reaper_peppers_eaten * 2} | ${profile.reaper_peppers_eaten} * 2`);
+    if (profile.reaper_peppers_eaten) {
+        BASE_STATS['health'] += (profile.reaper_peppers_eaten * 2);
+        calculation['health'].push(`Reaper Peppers Eaten: ${profile.reaper_peppers_eaten * 2} | ${profile.reaper_peppers_eaten} * 2`);
+    }
 
     // ? Unique Pets
-    if (pets.pet) BASE_STATS['magic_find'] += getPetScore(pets.pets)
-    calculation['magic_find'] ??= [] 
-    calculation['magic_find'].push(`Unique Pets Score: ${getPetScore(pets.pets)} | ${pets.pets.length} * 2`);
+    if (getPetScore(pets.pets) > 0) {
+        BASE_STATS['magic_find'] += getPetScore(pets.pets)
+        calculation['magic_find'].push(`Unique Pets Score: ${getPetScore(pets.pets)} | ${getPetScore(pets.pets)} * 2`);
+    }
 
     // ? Jacob's Farming Shop
-    if (farming.jacob.perks.double_drops) BASE_STATS['farming_fortune'] += farming.jacob.perks.double_drops * 2;
-    calculation['farming_fortune'] ??= []
-    calculation['farming_fortune'].push(`Jacob's Farming Shop: ${farming.jacob.perks.double_drops} * 2 = ${farming.jacob.perks.double_drops * 2}`);
+    if (farming.jacob.perks.double_drops) {
+        BASE_STATS['farming_fortune'] += farming.jacob.perks.double_drops * 2;
+        calculation['farming_fortune'].push(`Jacob's Farming Shop: ${farming.jacob.perks.double_drops} * 2 = ${farming.jacob.perks.double_drops * 2}`);
+    }
 
     // ? Permanent stats from Wither Essence Shop 
     if (profile.perks) {
         for (const [name, perkData] of Object.entries(profile.perks)) {
-            if (name.startsWith('permanent_')) {
-                BASE_STATS[name.replaceAll('permanent_', '')] += (misc.FORBIDDEN_STATS[name.replaceAll('permanent_', '')] * perkData ?? 0)
-                calculation[name.replaceAll('permanent_', '')] ??= [] 
-                calculation[name.replaceAll('permanent_', '')].push(`Wither Essence Shop: ${misc.FORBIDDEN_STATS[name.replaceAll('permanent_', '')]} * ${perkData ?? 0} = ${misc.FORBIDDEN_STATS[name.replaceAll('permanent_', '')] * perkData ?? 0}`);
-            }
+            if (!name.startsWith('permanent_')) continue;
+            BASE_STATS[name.replaceAll('permanent_', '')] += (misc.FORBIDDEN_STATS[name.replaceAll('permanent_', '')] * perkData ?? 0)
+            calculation[name.replaceAll('permanent_', '')].push(`Wither Essence Shop: ${misc.FORBIDDEN_STATS[name.replaceAll('permanent_', '')]} * ${perkData ?? 0} = ${misc.FORBIDDEN_STATS[name.replaceAll('permanent_', '')] * perkData ?? 0}`);
         }
     }
 
@@ -141,7 +155,6 @@ async function getStats(player, profileData, profile, uuid, res) {
         const bonusStats = getFairyBonus(profile.fairy_exchanges);
         for (const [key, value] of Object.entries(bonusStats)) {
             BASE_STATS[key] += value;
-            calculation[key] ??= []
             calculation[key].push(`Fairy Souls: ${value} | ${profile.fairy_exchanges} Exchanges`);
         }
     }
@@ -154,14 +167,8 @@ async function getStats(player, profileData, profile, uuid, res) {
                 if (!data) continue;
                 for (const [key, value] of Object.entries(data)) {
                     BASE_STATS[key] += value;
-                    temp += value
-                    if (!templist.includes(key)) templist.push(key)
+                    calculation[key].push(`${capitalize(name)} Slayer ${i + 1} Reward: ${value} | ${value}`);
                 }
-            }
-
-            for (const key of templist) {
-                calculation[key] ??= []
-                calculation[key].push(`${capitalize(name)} Slayer: ${temp} | ${temp}`);
             }
 
             temp = 0;
@@ -178,8 +185,7 @@ async function getStats(player, profileData, profile, uuid, res) {
                 }
             }
 
-            calculation['combat_wisdom'] ??= []
-            calculation['combat_wisdom'].push(`Slayer Tier Completion: ${temp} | ${temp}`);
+            if (temp != 0) calculation['combat_wisdom'].push(`Slayer Tier Completion: ${temp} | ${temp}`);
         }
     }
 
@@ -188,7 +194,6 @@ async function getStats(player, profileData, profile, uuid, res) {
         for (const [skill, data] of Object.entries(skills)) {
             for (const [key, value] of Object.entries(getBonusStats(data.level, `skill_${skill}`, xp_tables.max_levels[skill]))) {
                 BASE_STATS[key] += value;
-                calculation[key] ??= []
                 calculation[key].push(`${capitalize(skill)} Level: ${value} | ${value}`);
             }
         }
@@ -199,7 +204,6 @@ async function getStats(player, profileData, profile, uuid, res) {
         for (const century_cake of profile.temp_stat_buffs) {
             if (!century_cake.key.startsWith('cake_')) continue;
             BASE_STATS[misc.CENTURY_CAKES[century_cake.key.replaceAll('cake_', '')] ?? century_cake.key.replaceAll('cake_', '')] += century_cake.amount;
-            calculation[misc.CENTURY_CAKES[century_cake.key.replaceAll('cake_', '')] ?? century_cake.key.replaceAll('cake_', '')] ??= []
             calculation[misc.CENTURY_CAKES[century_cake.key.replaceAll('cake_', '')] ?? century_cake.key.replaceAll('cake_', '')].push(`Century Cake: ${century_cake.amount} | ${century_cake.amount}`);
         }
     }
@@ -209,7 +213,6 @@ async function getStats(player, profileData, profile, uuid, res) {
         if (Object.keys(data).length === 0) continue;
         for (const [stat, value] of Object.entries(getStatsFromItem(data))) {
             BASE_STATS[stat] += value;
-            calculation[stat] ??= []
             calculation[stat].push(`Equipment ${capitalize(type)}: ${value} | ${value}`);
         }
     }
@@ -220,28 +223,25 @@ async function getStats(player, profileData, profile, uuid, res) {
         const talisman = accessories.i[item]
         if (Object.keys(talisman).length === 0) continue;
 
+        // ? Temporary talisman dupe fix
+        if (talismanDupes.includes(talisman.tag.ExtraAttributes.id)) continue;
+        talismanDupes.push(talisman.tag.ExtraAttributes.id)
+
         for (const [stat, value] of Object.entries(getStatsFromItem(talisman))) {
             BASE_STATS[stat] += value;
-            calculation[stat] ??= []
             calculation[stat].push(`${capitalize(talisman.tag.ExtraAttributes.id)}: ${value} | ${value}`);
         }
 
         if (talisman.tag.ExtraAttributes.id == 'NIGHT_CRYSTAL' || talisman.tag.ExtraAttributes.id == 'DAY_CRYSTAL') {
-            
-            // ? Temporary talisman dupe fix
-            if (talismanDupes.includes(talisman.tag.ExtraAttributes.id)) continue;
-            talismanDupes.push(talisman.tag.ExtraAttributes.id)
-
+            talismanDupes.push('NIGHT_CRYSTAL'); talismanDupes.push('DAY_CRYSTAL');
             BASE_STATS['health'] += 5;
             BASE_STATS['strength'] += 5;
-            calculation['health'] ??= []
             calculation['health'].push(`${capitalize(talisman.tag.ExtraAttributes.id)} Ability: 5 | 5`);
-            calculation['strength'] ??= []
             calculation['strength'].push(`${capitalize(talisman.tag.ExtraAttributes.id)} Ability: 5 | 5`);
         }        
     }
 
-    // ? Tunings
+    // ? Magical Power
     let magicalPower = 0;
     talismanDupes = [];
     const currentReforge = profile.accessory_bag_storage['selected_power']
@@ -254,15 +254,15 @@ async function getStats(player, profileData, profile, uuid, res) {
         }
     }
 
+    // ? Accessory reforge
     for (const [stat, value] of Object.entries(reforges[currentReforge].reforge)) {
         BASE_STATS[stat] += value * magicalPower;
-        calculation[stat] ??= []
         calculation[stat].push(`${capitalize(currentReforge)} Reforge: ${value * magicalPower} | ${value} * ${magicalPower}`);
     }
 
+     // ? Power Bonus from Reforge
     for (const [stat, value] of Object.entries(reforges[currentReforge].power_bonus)) {
         BASE_STATS[stat] += value;
-        calculation[stat] ??= []
         calculation[stat].push(`${currentReforge} Reforge Bonus: ${value} | ${value}`);
     }
 
@@ -275,22 +275,11 @@ async function getStats(player, profileData, profile, uuid, res) {
    const seasonedMineman = (mining.hotM_tree.perks.find(p => p.id == 'seasoned_mineman'))?.level ?? 0; // 5 + (Level * 0.1)
 
    BASE_STATS['mining_wisdom'] += 5 + seasonedMineman * 0.1;
+   BASE_STATS['mining_speed'] += ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed * 20) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2 * 40) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness);
+   BASE_STATS['mining_fortune'] += ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2 * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness);
 
-   BASE_STATS['mining_speed'] += 
-       ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed * 20) + 
-       ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2 * 40) + 
-       ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness);
-
-   BASE_STATS['mining_fortune'] += 
-       ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune * 5) + 
-       ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2 * 5) + 
-       ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness);
-
-    calculation['mining_wisdom'] ??= []
-    calculation['mining_wisdom'].push(`Seasoned Mineman: ${5 + seasonedMineman * 0.1} | 5 + (${seasonedMineman} * 0.1)`);
-    calculation['mining_speed'] ??= []
+    if (seasonedMineman != 0) calculation['mining_wisdom'].push(`Seasoned Mineman: ${5 + seasonedMineman * 0.1} | 5 + (${seasonedMineman} * 0.1)`);
     calculation['mining_speed'].push(`Mining Speed: ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed * 20) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2 * 40) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness)} | ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed)} * 20 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2)} * 40 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50)} * ${miningMadness}`);
-    calculation['mining_fortune'] ??= []
     calculation['mining_fortune'].push(`Mining Fortune: ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2 * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness)} | ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune)} * 5 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2)} * 5 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50)} * ${miningMadness}`);
     
     // ? Harp 
@@ -298,7 +287,6 @@ async function getStats(player, profileData, profile, uuid, res) {
         if (harp.endsWith('_best_completion')) {
             if (harp < 1) continue;
             BASE_STATS['intelligence'] += misc.HARP_QUEST[harp] ?? 0;
-            calculation['intelligence'] ??= []
             calculation['intelligence'].push(`${capitalize(harp)}: ${misc.HARP_QUEST[harp] ?? 0} | ${misc.HARP_QUEST[harp] ?? 0}`);
         }
     }
@@ -310,43 +298,28 @@ async function getStats(player, profileData, profile, uuid, res) {
 
         for (const [stat, value] of Object.entries(getStatsFromItem(data))) {
             BASE_STATS[stat] += value;
-            calculation[stat] ??= []
             calculation[stat].push(`${capitalize(data.tag.ExtraAttributes.id)}: ${value} | ${value}`);
         }
 
-        // *
-        // * Armor Pieces
-        // *
-        if (data.tag.ExtraAttributes.id.includes('BOOTS') || data.tag.ExtraAttributes.id.includes('SLIPPERS') || data.tag.ExtraAttributes.id.includes('SHOES')) {
-            armorPiece['boots'] = data ?? null;
-        }
-        else if (data.tag.ExtraAttributes.id.includes('LEGGINGS')) {
-            armorPiece['leggings'] = data ?? null;;
-        } else if (data.tag.ExtraAttributes.id.includes('CHESTPLATE')) {
-            armorPiece['chestplate'] = data ?? null;;
-        } else {
-            armorPiece['helmet'] = data ?? null;;
-        }
+        if (data.tag.ExtraAttributes.id.includes('BOOTS') || data.tag.ExtraAttributes.id.includes('SLIPPERS') || data.tag.ExtraAttributes.id.includes('SHOES')) armorPiece['boots'] = data ?? null;
+        if (data.tag.ExtraAttributes.id.includes('LEGGINGS')) armorPiece['leggings'] = data ?? null;
+        if (data.tag.ExtraAttributes.id.includes('CHESTPLATE')) armorPiece['chestplate'] = data ?? null;
+        else armorPiece['helmet'] = data ?? null;
         
-        // *
+        
         // * REFORGES
-        // *
 
         // ? Loving (Increases ability damage by 5%)
-        // ? Reforge doesn't seem to work, tested with multiple armor pieces. You get 0% boost from reforge.
+        // * Reforge doesn't seem to work, tested with multiple armor pieces. You get 0% boost from reforge.
         //if (data.tag.ExtraAttributes.reforge == 'loving') BASE_STATS['ability_damage'] += 5;
 
         // ? Renown (Increases most of stats by 1%)
         if (data.tag.ExtraAttributes.reforge == 'renowned') {
             statsMultiplier += 0.01;
-            calculation['statsMultiplier'] ??= []
             calculation['statsMultiplier'].push(`Renowned Armor Reforge: 1% | 1%`);
         }
 
-        // *
         // * INVENTORY
-        // *
-
         for (const inv of Object.keys(inventory)) {
             for(const item of inventory[inv]) {
                 if (Object.keys(item).length === 0) continue;
@@ -362,118 +335,51 @@ async function getStats(player, profileData, profile, uuid, res) {
     // * ARMOR ABILTIES
     // *
     if (armorPiece) {
-        // ? Superior Dragon Armor
-        // Most of your stats are increased by 5%
-        if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'SUPERIOR_DRAGON_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'SUPERIOR_DRAGON_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'SUPERIOR_DRAGON_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'SUPERIOR_DRAGON_BOOTS') {
-            statsMultiplier += 0.05;
-            calculation['statsMultiplier'] ??= []
-            calculation['statsMultiplier'].push(`Superior Dragon Armor: 5%| 5%`);
+        for (const armorSet of Object.keys(armorSets)) {
+            if (armorPiece['helmet']?.tag.ExtraAttributes.id == armorSets[armorSet].helmet && armorPiece['chestplate']?.tag.ExtraAttributes.id == armorSets[armorSet].chestplate && armorPiece['leggings']?.tag.ExtraAttributes.id == armorSets[armorSet].leggings && armorPiece['boots']?.tag.ExtraAttributes.id == armorSets[armorSet].boots) {
+                for (const [stat, value] of Object.entries(armorSets[armorSet].bonus)) { 
+                    stat.includes('_cap') ?  BASE_STATS[stat] = value : BASE_STATS[stat] += value;
+                    calculation[stat].push(`${armorSets[armorSet].name} Ability: ${value} | ${value}`);
+                }
+            }
         }
 
-        // ? Young Dragon Armor
-        // Increases speed by 75
-        if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'YOUNG_DRAGON_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'YOUNG_DRAGON_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'YOUNG_DRAGON_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'YOUNG_DRAGON_BOOTS') {
-            BASE_STATS['speed'] += 75;
-            BASE_STATS['speed_cap'] = 500;
-            calculation['speed'] ??= []
-            calculation['speed'].push(`Young Dragon Armor: 75 | 75`);
-            calculation['speed_cap'] ??= []
-            calculation['speed_cap'].push(`Young Dragon Armor: 500 | 500`);
-        }
-
-        // ? Holy Dragon Armor
-        // Increases health regen by 200
-        if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'HOLY_DRAGON_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'HOLY_DRAGON_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'HOLY_DRAGON_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'HOLY_DRAGON_BOOTS') {
-            BASE_STATS['health_regen'] += 200;
-            calculation['health_regen'] ??= []
-            calculation['health_regen'].push(`Holy Dragon Armor: 200 | 200`);
-        }
-
+        // TODO: Make Special Abilities work with format above
+        // * Special armor abilities
         // ? Mastiff Armor
-        // +50 Health every 1 Crit Damage
-        // Your crit damage is 50% less effective
         if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'MASTIFF_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'MASTIFF_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'MASTIFF_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'MASTIFF_BOOTS') {
             BASE_STATS['health'] += BASE_STATS['crit_damage'] * 50;
             BASE_STATS['crit_damage'] = BASE_STATS['crit_damage'] / 2;
-            calculation['health'] ??= []
             calculation['health'].push(`Mastiff Armor: ${BASE_STATS['crit_damage'] * 50} | ${BASE_STATS['crit_damage'] * 50}`);
-            calculation['crit_damage'] ??= []
             calculation['crit_damage'].push(`Mastiff Armor: ${BASE_STATS['crit_damage'] / 2} | ${BASE_STATS['crit_damage'] / 2}`);
         }
 
-        // ? Lapis Armor
-        // Increases the wearer's maximum health by 60
-        if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'LAPIS_ARMOR_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'LAPIS_ARMOR_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'LAPIS_ARMOR_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'LAPIS_ARMOR_BOOTS') {
-            BASE_STATS['health'] += 60;
-            calculation['health'] ??= []
-            calculation['health'].push(`Lapis Armor: 60 | 60`);
-        }
-
-        // ? Cheap Tuxedo
-        // Max health set to 75
-        // Deal 50% more damage
-        if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'CHEAP_TUXEDO_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'CHEAP_TUXEDO_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'CHEAP_TUXEDO_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'CHEAP_TUXEDO_BOOTS') {
-            BASE_STATS['health_cap'] = 75;
-            // BASE_STATS['damage'] = BASE_STATS['damage'] * 1.5;
-            calculation['health_cap'] ??= []
-            calculation['health_cap'].push(`Cheap Tuxedo: 75 | 75`);
-        }
-
-        // ? Fancy Tuxedo
-        // Max health set to 150
-        // Deal 100% more damage
-        if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'FANCY_TUXEDO_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'FANCY_TUXEDO_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'FANCY_TUXEDO_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'FANCY_TUXEDO_BOOTS') {
-            BASE_STATS['health_cap'] = 150;
-            // BASE_STATS['damage'] = BASE_STATS['damage'] * 2;
-            calculation['health_cap'] ??= []
-            calculation['health_cap'].push(`Fancy Tuxedo: 150 | 150`);
-        }
-
-        // ? Elegant Tuxedo
-        // Max health set to 250
-        // Deal 150% more damage
-        if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'ELEGANT_TUXEDO_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'ELEGANT_TUXEDO_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'ELEGANT_TUXEDO_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'ELEGANT_TUXEDO_BOOTS') {
-            BASE_STATS['health_cap'] = 250;
-            // BASE_STATS['damage'] = BASE_STATS['damage'] * 2.5;
-            calculation['health_cap'] ??= []
-            calculation['health_cap'].push(`Elegant Tuxedo: 250 | 250`);
-        }
-
         // ? Obsidian Chestplate
-        // 1 Speed for every 20 pieces of Obsidian
         if (armorPiece['chestplate']?.tag.ExtraAttributes.id == 'OBSIDIAN_CHESTPLATE') {
             itemCount['OBSIDIAN'] ??= 0;
             BASE_STATS['speed'] += itemCount['OBSIDIAN'] / 20 ? toFixed((itemCount['OBSIDIAN'] / 20), 0) : 0;
-            calculation['speed'] ??= []
             calculation['speed'].push(`Obsidian Chestplate: ${itemCount['OBSIDIAN'] / 20 ? toFixed((itemCount['OBSIDIAN'] / 20), 0) : 0} | ${itemCount['OBSIDIAN'] / 20 ? toFixed((itemCount['OBSIDIAN'] / 20), 0) : 0}`);
         }
 
         // ? Glacite Armor
-        // Gain 1 Mining Speed every Mining Level
         if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'GLACITE_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'GLACITE_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'GLACITE_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'GLACITE_BOOTS') {
             BASE_STATS['mining_speed'] += miningLevel * 2;
-            calculation['mining_speed'] ??= []
             calculation['mining_speed'].push(`Glacite Armor: ${miningLevel * 2} | ${miningLevel} * `);
         }
 
         // ? Fairy Armor
-        // Gain 1 Health per Fairy soul
         if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'FAIRY_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'FAIRY_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'FAIRY_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'FAIRY_BOOTS') {
             BASE_STATS['health'] += profile.fairy_souls_collected ?? 0;
-            calculation['health'] ??= []
             calculation['health'].push(`Fairy Armor: ${profile.fairy_souls_collected ?? 0} | ${profile.fairy_souls_collected ?? 0}`);
         }
 
         // ? Emerald Armor
-        // Increases Health by +1 and Defense +1 for every 3,000 Emeralds in your collection. Max 350 each.
         if (armorPiece['helmet']?.tag.ExtraAttributes.id == 'EMERALD_ARMOR_HELMET' && armorPiece['chestplate']?.tag.ExtraAttributes.id == 'EMERALD_ARMOR_CHESTPLATE' && armorPiece['leggings']?.tag.ExtraAttributes.id == 'EMERALD_ARMOR_LEGGINGS' && armorPiece['boots']?.tag.ExtraAttributes.id == 'EMERALD_ARMOR_BOOTS') {
             const emeraldCollection = collection.find(c => c.id == 'EMERALD');
             const amount = emeraldCollection.amount ?? 0;
             BASE_STATS['health'] += toFixed((amount / 3000), 0) > 350 ? 350 : toFixed((amount / 3000), 0)
             BASE_STATS['defense'] += toFixed((amount / 3000), 0) > 350 ? 350 : toFixed((amount / 3000), 0)
-            calculation['health'] ??= []
             calculation['health'].push(`Emerald Armor: ${toFixed((amount / 3000), 0) > 350 ? 350 : toFixed((amount / 3000), 0)} | ${amount} / 3000`);
-            calculation['defense'] ??= []
             calculation['defense'].push(`Emerald Armor: ${toFixed((amount / 3000), 0) > 350 ? 350 : toFixed((amount / 3000), 0)} | ${amount} / 3000`);
         }
 
@@ -491,7 +397,6 @@ async function getStats(player, profileData, profile, uuid, res) {
                     }
                 }
                 BASE_STATS['defense'] += defense;
-                calculation['defense'] ??= []
                 calculation['defense'].push(`Enderman Slayer Armor Kill Bonus: ${defense} | ${kills} kills`);
             }
 
@@ -504,7 +409,6 @@ async function getStats(player, profileData, profile, uuid, res) {
                     }
                 }
                 BASE_STATS['defense'] += defense;
-                calculation['defense'] ??= []
                 calculation['defense'].push(`Tarantula Slayer Armor Kill Bonus: ${defense} | ${kills} kills`);
             }
 
@@ -517,7 +421,6 @@ async function getStats(player, profileData, profile, uuid, res) {
                     }
                 }
                 BASE_STATS['defense'] += defense;
-                calculation['defense'] ??= []
                 calculation['defense'].push(`Zombie Slayer Armor Kill Bonus: ${defense} | ${kills} kills`);
             }
         }
@@ -528,29 +431,21 @@ async function getStats(player, profileData, profile, uuid, res) {
         if (!pet.active) continue;
         for (const [stat, value] of Object.entries(pet.stats)) {
             BASE_STATS[stat] += value;
+            calculation[stat].push(`${pet.name} Pet: ${value} | ${value / pet.level} * ${pet.level}`);
         }
 
-        const petData = getPetData(BASE_STATS, mining, collection, profile, profileData, pet, miningLevel, fishingLevel);
+        const petData = getPetData(calculation, BASE_STATS, mining, collection, profile, profileData, pet, miningLevel, fishingLevel);
+        statsMultiplier += petData.statsMultiplier ?? 0;
+        BASE_STATS = petData.BASE_STATS;
+        calculation = [];
+        calculation = petData.calculation; 
 
-        statsMultiplier += petData.statsMultiplier
-
-        calculation['statsMultiplier'] ??= []
         if (petData.statsMultiplier) calculation['statsMultiplier'].push(`Active Pet: ${petData.statsMultiplier} | ${petData.statsMultiplier}`);
 
-        BASE_STATS = petData.BASE_STATS;
         BASE_STATS['strength'] += BASE_STATS['strength'] * petData.strengthMultiplier
         BASE_STATS['health'] += BASE_STATS['health'] * petData.healthMultiplier
         BASE_STATS['defense'] += BASE_STATS['defense'] * petData.defenseMultiplier
         BASE_STATS['bonus_attack_speed'] += BASE_STATS['bonus_attack_speed'] * petData.bonusAttackSpeedMultiplier
-
-        calculation['strengthMultiplier'] ??= []
-        if (petData.strengthMultiplier) calculation['strengthMultiplier'].push(`Active Pet: ${petData.strengthMultiplier} | ${petData.strengthMultiplier}`);
-        calculation['healthMultiplier'] ??= []
-        if (petData.healthMultiplier) calculation['healthMultiplier'].push(`Active Pet: ${petData.healthMultiplier} | ${petData.healthMultiplier}`);
-        calculation['defenseMultiplier'] ??= []
-        if (petData.defenseMultiplier) calculation['defenseMultiplier'].push(`Active Pet: ${petData.defenseMultiplier} | ${petData.defenseMultiplier}`);
-        calculation['bonusAttackSpeedMultiplier'] ??= []
-        if (petData.bonusAttackSpeedMultiplier) calculation['bonusAttackSpeedMultiplier'].push(`Active Pet: ${petData.bonusAttackSpeedMultiplier} | ${petData.bonusAttackSpeedMultiplier}`);
     }
 
     if (statsMultiplier > 0) {
@@ -565,12 +460,12 @@ async function getStats(player, profileData, profile, uuid, res) {
         if (!potions.MAXED_EFFECTS[effect.effect][effect.level]?.bonus) continue;
         for (const [stat, value] of Object.entries(potions.MAXED_EFFECTS[effect.effect][effect.level]?.bonus)) {
             BASE_STATS[stat] += value;
-            calculation[stat] ??= []
-            calculation[stat].push(`Active Potion Effect: ${value} | ${effect.effect}`);
+            calculation[stat].push(`Active Potion Effect: ${value} | ${potions.MAXED_EFFECTS[effect.effect][effect.level]?.name ?? effect.effect}`);
         }
     }
 
-    BASE_STATS['effective_health'] = BASE_STATS['health'] * ( 1 + (BASE_STATS['defense'] / 100) );
+    BASE_STATS['effective_health'] = BASE_STATS['health'] * ( 1 + (BASE_STATS['defense'] / 100));
+    calculation['effective_health'].push(`${BASE_STATS['health'] * ( 1 + (BASE_STATS['defense'] / 100))} | ${BASE_STATS['health']} * ( 1 + (${BASE_STATS['defense']} / 100))`);
 
     // ? Speed Cap 
     if (BASE_STATS['speed'] > BASE_STATS['speed_cap']) BASE_STATS['speed'] = BASE_STATS['speed_cap'];
@@ -584,12 +479,13 @@ async function getStats(player, profileData, profile, uuid, res) {
     };
 }
 
-function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, miningLevel, fishingLevel) {
+function getPetData(calculation, BASE_STATS, mining, collection, profile, profileData, pet, miningLevel, fishingLevel) {
     let statsMultiplier = 0, healthMultiplier = 0, defenseMultiplier = 0, strengthMultiplier = 0, bonusAttackSpeedMultiplier = 0; 
     // ? OVERALL
     if (pet.type == 'ENDER_DRAGON') {
         if (pet.tier != 'LEGENDARY') {
             statsMultiplier += 0.001 * pet.level;
+            calculation['statsMultiplier'].push(`Ender Dragon Pet: ${0.001 * pet.level} | ${pet.level} * 0.001`);
         }
     } 
 
@@ -605,60 +501,80 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
         if (pet.tier == 'LEGENDARY') {
             BASE_STATS['defense'] += ((miningLevel * (0.02 * pet.level)) + (fishingLevel * (0.02 * pet.level)));
             BASE_STATS['speed'] += ((miningLevel * (0.02 * pet.level)) + (fishingLevel * (0.02 * pet.level)))
+            calculation['defense'].push(`Ammonite Pet: ${((miningLevel * (0.02 * pet.level)) + (fishingLevel * (0.02 * pet.level)))} | (${miningLevel} * (0.02 * ${pet.level})) + (${fishingLevel} * (0.02 * ${pet.level}))`);
+            calculation['speed'].push(`Ammonite Pet: ${((miningLevel * (0.02 * pet.level)) + (fishingLevel * (0.02 * pet.level)))} | (${miningLevel} * (0.02 * ${pet.level})) + (${fishingLevel} * (0.02 * ${pet.level}))`);
         }
     }
 
     if (pet.type == 'ELEPHANT') {
         if (pet.tier == 'COMMON' || pet.tier == 'UNCOMMON') {
             BASE_STATS['defense'] += (BASE_STATS['speed'] / 100) * 0.15 * pet.level;
+            calculation['defense'].push(`Elephant Pet: ${((BASE_STATS['speed'] / 100) * 0.15 * pet.level)} | (${BASE_STATS['speed']} / 100) * 0.15 * ${pet.level}`);
         } 
         if (pet.tier == 'RARE') {
             BASE_STATS['defense'] += (BASE_STATS['speed'] / 100) * 0.15 * pet.level;
             BASE_STATS['health'] += (BASE_STATS['defense'] / 10) * 0.01 * pet.level;
+            calculation['defense'].push(`Elephant Pet: ${((BASE_STATS['speed'] / 100) * 0.15 * pet.level)} | (${BASE_STATS['speed']} / 100) * 0.15 * ${pet.level}`);
+            calculation['health'].push(`Elephant Pet: ${((BASE_STATS['defense'] / 10) * 0.01 * pet.level)} | (${BASE_STATS['defense']} / 10) * 0.01 * ${pet.level}`);
         }
         if (pet.tier == 'EPIC') {
             BASE_STATS['defense'] += (BASE_STATS['speed'] / 100) * 0.2 * pet.level;
             BASE_STATS['health'] += (BASE_STATS['defense'] / 10) * 0.01 * pet.level;
+            calculation['defense'].push(`Elephant Pet: ${((BASE_STATS['speed'] / 100) * 0.2 * pet.level)} | (${BASE_STATS['speed']} / 100) * 0.2 * ${pet.level}`);
+            calculation['health'].push(`Elephant Pet: ${((BASE_STATS['defense'] / 10) * 0.01 * pet.level)} | (${BASE_STATS['defense']} / 10) * 0.01 * ${pet.level}`);
         }
         if (pet.tier == 'LEGENDARY') {
             BASE_STATS['defense'] += (BASE_STATS['speed'] / 100) * 0.15 * pet.level;
             BASE_STATS['health'] += (BASE_STATS['defense'] / 10) * 0.01 * pet.level;
             BASE_STATS['farming_fortune'] += 1.8 * pet.level
+            calculation['defense'].push(`Elephant Pet: ${((BASE_STATS['speed'] / 100) * 0.15 * pet.level)} | (${BASE_STATS['speed']} / 100) * 0.15 * ${pet.level}`);
+            calculation['health'].push(`Elephant Pet: ${((BASE_STATS['defense'] / 10) * 0.01 * pet.level)} | (${BASE_STATS['defense']} / 10) * 0.01 * ${pet.level}`);
+            calculation['farming_fortune'].push(`Elephant Pet: ${1.8 * pet.level} | 1.8 * ${pet.level}`);
         }
     }
 
     if (pet.type == 'BABY_YETI') {
         if (pet.tier == 'EPIC') {
             BASE_STATS['defense'] += BASE_STATS['strength'] / (0.5 * pet.level);
+            calculation['defense'].push(`Baby Yeti Pet: ${BASE_STATS['strength'] / (0.5 * pet.level)} | ${BASE_STATS['strength']} / (0.5 * ${pet.level})`);
         } if (pet.tier == 'LEGENDARY') {
             BASE_STATS['defense'] += BASE_STATS['strength'] / (0.75 * pet.level);
+            calculation['defense'].push(`Baby Yeti Pet: ${BASE_STATS['strength'] / (0.75 * pet.level)} | ${BASE_STATS['strength']} / (0.75 * ${pet.level})`);
         }
     } 
 
     if (pet.type == 'SILVERFISH') {
         if (pet.tier == 'COMMON') {
             BASE_STATS['true_defense'] += 0.05 * pet.level;
+            calculation['true_defense'].push(`Silverfish Pet: ${0.05 * pet.level} | 0.05 * ${pet.level}`);
         }
         if (pet.tier == 'UNCOMMON') {
             BASE_STATS['true_defense'] += 0.1 * pet.level;
+            calculation['true_defense'].push(`Silverfish Pet: ${0.1 * pet.level} | 0.1 * ${pet.level}`);
         }
         if (pet.tier == 'RARE') {
             BASE_STATS['true_defense'] += 0.1 * pet.level;
             BASE_STATS['mining_wisdom'] += 0.25 * pet.level;
+            calculation['true_defense'].push(`Silverfish Pet: ${0.1 * pet.level} | 0.1 * ${pet.level}`);
         }
         if (pet.tier == 'EPIC') {
             BASE_STATS['true_defense'] += 0.15 * pet.level;
             BASE_STATS['mining_wisdom'] += 0.3 * pet.level;
+            calculation['true_defense'].push(`Silverfish Pet: ${0.15 * pet.level} | 0.15 * ${pet.level}`);
+            calculation['mining_wisdom'].push(`Silverfish Pet: ${0.3 * pet.level} | 0.3 * ${pet.level}`);
         }
         if (pet.tier == 'LEGENDARY') {
             BASE_STATS['true_defense'] += 0.15 * pet.level;
             BASE_STATS['mining_wisdom'] += 0.3 * pet.level;
+            calculation['true_defense'].push(`Silverfish Pet: ${0.15 * pet.level} | 0.15 * ${pet.level}`);
+            calculation['mining_wisdom'].push(`Silverfish Pet: ${0.3 * pet.level} | 0.3 * ${pet.level}`);
         }
     }
 
     if (pet.type == 'TURTLE') {
         if (pet.tier == 'EPIC' || pet.tier == 'LEGENDARY') {
             defenseMultiplier += 0.33 + 0.27 * pet.level;
+            calculation['defenseMultiplier'].push(`Turtle Pet: ${0.33 + 0.27 * pet.level} | 0.33 + 0.27 * ${pet.level}`);
         }
     }
 
@@ -686,18 +602,23 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
 
         if (pet.type == 'DROPLET_WISP') {
             BASE_STATS['combat_wisdom'] += 0.3 * pet.level;
+            calculation['combat_wisdom'].push(`Droplet Wisp Pet: ${0.3 * pet.level} | 0.3 * ${pet.level}`);
         }
     
         if (pet.type == 'FROST_WISP') {
             BASE_STATS['combat_wisdom'] += 0.4 * pet.level;
+            calculation['combat_wisdom'].push(`Frost Wisp Pet: ${0.4 * pet.level} | 0.4 * ${pet.level}`);
         }
     
         if (pet.type == 'GLACIAL_WISP') {
             BASE_STATS['combat_wisdom'] += 0.45 * pet.level;
+            calculation['combat_wisdom'].push(`Glacial Wisp Pet: ${0.45 * pet.level} | 0.45 * ${pet.level}`);
         }
     
         if (pet.type == 'SUBZERO_WISP') {
             BASE_STATS['combat_wisdom'] += 0.5 * pet.level;
+            calculation['combat_wisdom'].push(`Subzero Wisp Pet: ${0.5 * pet.level} | 0.5 * ${pet.level}`);
+
         }
     }
 
@@ -708,11 +629,14 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
         const digits = Math.max(Math.floor(Math.log10(Math.abs(goldCollection.amount))), 0) + 1
         BASE_STATS['strength'] += digits * 10;
         BASE_STATS['magic_find'] += digits * 2;
+        calculation['strength'].push(`Golden Dragon Pet: ${digits * 10} | ${digits} * 10`);
+        calculation['magic_find'].push(`Golden Dragon Pet: ${digits * 2} | ${digits} * 2`);
     }
 
     if (pet.type == 'GRIFFIN') {
         if (pet.tier == 'LEGENDARY') {
             strengthMultiplier += 1 + 0.14 * pet.level
+            calculation['strengthMultiplier'].push(`Griffin Pet: ${1 + 0.14 * pet.level} | 1 + 0.14 * ${pet.level}`);
         }
     }
 
@@ -724,6 +648,10 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
             BASE_STATS['magic_find'] += 0.15 * pet.level;
             BASE_STATS['pet_luck'] += 0.15 * pet.level;
             BASE_STATS['speed_cap'] = 500;
+            calculation['speed'].push(`Black Cat Pet: ${pet.level} | ${pet.level}`);
+            calculation['magic_find'].push(`Black Cat Pet: ${0.15 * pet.level} | 0.15 * ${pet.level}`);
+            calculation['pet_luck'].push(`Black Cat Pet: ${0.15 * pet.level} | 0.15 * ${pet.level}`);
+            calculation['speed_cap'].push(`Black Cat Pet: 500`);
         }
     }
 
@@ -731,19 +659,24 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
         if (pet.tier == 'LEGENDARY') {
             BASE_STATS['speed'] += BASE_STATS['defense'] / (100 - pet.level * 0.5);
             BASE_STATS['mining_speed'] += BASE_STATS['defense'] / (100 - pet.level * 0.5);
+            calculation['speed'].push(`Armadillo Pet: ${BASE_STATS['defense'] / (100 - pet.level * 0.5)} | ${BASE_STATS['defense']} / (100 - ${pet.level} * 0.5)`);
+            calculation['mining_speed'].push(`Armadillo Pet: ${BASE_STATS['defense'] / (100 - pet.level * 0.5)} | ${BASE_STATS['defense']} / (100 - ${pet.level} * 0.5)`);
         }
     }
 
     // ? FEROCITY
     if (pet.type == 'TIGER') {
         if (pet.tier == 'COMMON') {
-            ferocityMultiplier += 0.1;
+            ferocityMultiplier += 0.1 * pet.level;
+            calculation['ferocityMultiplier'].push(`Tiger Pet: ${0.1 * pet.level} | 0.1 * ${pet.level}`);
         }
         if (pet.tier == 'UNCOMMON' || pet.tier == 'RARE') {
-            ferocityMultiplier += 0.2;
+            ferocityMultiplier += 0.2 * pet.level;
+            calculation['ferocityMultiplier'].push(`Tiger Pet: ${0.2 * pet.level} | 0.2 * ${pet.level}`);
         }
         if (pet.tier == 'EPIC' || pet.tier == 'LEGENDARY') {
-            ferocityMultiplier += 0.3;
+            ferocityMultiplier += 0.3 * pet.level;
+            calculation['ferocityMultiplier'].push(`Tiger Pet: ${0.3 * pet.level} | 0.3 * ${pet.level}`);
         }
     }
 
@@ -751,6 +684,7 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
     if (pet.type == 'GHOUL') {
         if (pet.tier == 'EPIC' || pet.tier == 'LEGENDARY') {
             BASE_STATS['vitality'] += 0.25 * pet.level
+            calculation['vitality'].push(`Ghoul Pet: ${0.25 * pet.level} | 0.25 * ${pet.level}`);
         }
     }
 
@@ -758,12 +692,14 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
     if (pet.type == 'HOUND') {
         if (pet.tier == 'LEGENDARY') {
             bonusAttackSpeedMultiplier += 0.1 * pet.level;
+            calculation['bonusAttackSpeedMultiplier'].push(`Hound Pet: ${0.1 * pet.level} | 0.1 * ${pet.level}`);
         }
     }
     // ? MINING FORTUNE
     if (pet.type == 'SCATHA') {
         if (pet.tier == 'LEGENDARY') {
             BASE_STATS['mining_fortune'] += 1.25 * pet.level;
+            calculation['mining_fortune'].push(`Scatha Pet: ${1.25 * pet.level} | 1.25 * ${pet.level}`);
         }
     }
 
@@ -771,9 +707,11 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
     if (pet.type == 'FLYING_FIISH') {
         if (pet.tier == 'RARE') {
             BASE_STATS['fishing_speed'] += 0.60 * pet.level;
+            calculation['fishing_speed'].push(`Flying Fish Pet: ${0.60 * pet.level} | 0.60 * ${pet.level}`);
         }
         if (pet.tier == 'EPIC' || pet.tier == 'LEGENDARY' || pet.tier == 'MYTHIC') {
             BASE_STATS['fishing_speed'] += 0.75 * pet.level;
+            calculation['fishing_speed'].push(`Flying Fish Pet: ${0.75 * pet.level} | 0.75 * ${pet.level}`);
         }
     }
 
@@ -781,6 +719,7 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
     if (pet.type == 'AMMONITE') {
         if (pet.tier == 'LEGENDARY') {
             BASE_STATS['sea_creature_chance'] += mining.hotM_tree.level ?? 0;
+            calculation['sea_creature_chance'].push(`Ammonite Pet: ${mining.hotM_tree.level ?? 0} | ${mining.hotM_tree.level ?? 0}`);
         }
     }
 
@@ -788,12 +727,15 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
     if (pet.type == 'MONKEY') {
         if (pet.tier == 'COMMON') {
             BASE_STATS['foraging_fortune'] += 0.4 * pet.level;
+            calculation['foraging_fortune'].push(`Monkey Pet: ${0.4 * pet.level} | 0.4 * ${pet.level}`);
         }
         if (pet.tier == 'UNCOMMON' || pet.tier == 'RARE') {
             BASE_STATS['foraging_fortune'] += 0.5 * pet.level;
+            calculation['foraging_fortune'].push(`Monkey Pet: ${0.5 * pet.level} | 0.5 * ${pet.level}`);
         }
         if (pet.tier == 'EPIC' || pet.tier == 'LEGENDARY') {
             BASE_STATS['foraging_fortune'] += 0.6 * pet.level;
+            calculation['foraging_fortune'].push(`Monkey Pet: ${0.6 * pet.level} | 0.6 * ${pet.level}`);
         }
     }
 
@@ -801,17 +743,20 @@ function getPetData(BASE_STATS, mining, collection, profile, profileData, pet, m
     if (pet.type == 'ELEPHANT') {
         if (pet.tier == 'LEGENDARY'){
             BASE_STATS['farming_fortune'] += 1.8 * 100;
+            calculation['farming_fortune'].push(`Elephant Pet: ${1.8 * 100} | 1.8 * 100`);
         }
     }
         
     if (pet.type == 'MOOSHROOM_COW') {
         if (pet.tier == 'LEGENDARY') {
             BASE_STATS['farming_fortune'] += BASE_STATS['strength'] / (40 - pet.level * 0.2);
+            calculation['farming_fortune'].push(`Mooshroom Cow Pet: ${BASE_STATS['strength'] / (40 - pet.level * 0.2)} | ${BASE_STATS['strength']} / (40 - ${pet.level} * 0.2)`);
         }
     }
 
     return { 
         BASE_STATS: BASE_STATS,
+        calculation: calculation,
         statsMultiplier: statsMultiplier,
         healthMultiplier: healthMultiplier,
         defenseMultiplier: defenseMultiplier,
