@@ -71,7 +71,8 @@ The API automatically updates upon starting. If you wish to not want that, chang
 
 ### `GET` /v2/profiles/:user
 
-### `GET` /v2/stats/:user/:profile
+### `GET` /v2/stats/:user/:profile<br/>
+<br/>
 
 | Parameter     | Description                                |
 | ------------- | ------------------------------------------ |
