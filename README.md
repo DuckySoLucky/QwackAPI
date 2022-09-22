@@ -4,7 +4,7 @@
 
 A hypixel skyblock API wrapper containing features that the [SkyHelper](https://top.gg/bot/710143953533403226) bot has to offer and even more.
 
-This API was made using the [skyHelperAPI](https://github.com/altpapier/skyhelperAPI)
+This API was made using the [skyHelperAPI](https://github.com/altpapier/skyhelperAPI), support them on [Patreon](https://www.patreon.com/skyhelper)
 
 ## What does QwackAPI have but SkyHelper doesn't?
 
@@ -12,10 +12,11 @@ This API was made using the [skyHelperAPI](https://github.com/altpapier/skyhelpe
 - `auctionHouse` Endpoint <br/>
 - `bingo` Endpoint <br/>
 - `calendar` Endpoint <br/>
+- `stats` Endpoint <br/>
 - Description in `fetchur` Endpoint <br/>
 - `farming`, `enchanting`, `auto_pet` tag in `/profile(s)` Endpoints <br/>
 - Better pets display in `/profile(s)` Endpoint <br/>
-- And more coming soon.. <br/>
+- And a lot more.. <br/>
 
 # Installing
 
@@ -70,6 +71,8 @@ The API automatically updates upon starting. If you wish to not want that, chang
 
 ### `GET` /v2/profiles/:user
 
+### `GET` /v2/stats/:user/:profile
+
 | Parameter     | Description                                |
 | ------------- | ------------------------------------------ |
 | user          | This can be the UUID of a user or the name |
@@ -91,6 +94,7 @@ The API automatically updates upon starting. If you wish to not want that, chang
 | bingo          | Get a player's bingo profile and progress                               | bingo                     |
 | calendar       | Get Skyblock's calendar including all events                            | calendar                  |
 | items          | Check what item fetchur wants today including description of the item   | fetchur                   |
+| stats          | Get player's skyblock stats (Not 100% accurate )                                           |
 | skills         | Get a player's skills                                                   | profile/profiles          |
 | networth       | Get a player's networth including all information about the calculation | profile/profiles          |
 | weight         | Get a player's Senither and Lily weight                                 | profile/profiles/networth |
