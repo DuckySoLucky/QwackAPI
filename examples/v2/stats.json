@@ -1,427 +1,427 @@
 {
-    "status": 200,
-    "data": {
-      "BASE_STATS": {
-        "health": 2736.4,
-        "defense": 648.4,
-        "effective_health": 20479.2176,
-        "strength": 593.6800000000001,
-        "intelligence": 459.84,
-        "crit_chance": 138.36,
-        "crit_damage": 1338.7328000000002,
-        "bonus_attack_speed": 65.52,
-        "ability_damage": 31.2,
-        "true_defense": 289.16,
-        "ferocity": 4.08,
-        "health_regen": 208.6,
-        "vitality": 119.6,
-        "mending": 104,
-        "mining_speed": 3671.2,
-        "mining_fortune": 1066,
-        "farming_fortune": 271,
-        "foraging_fortune": 205,
-        "pristine": 1.04,
-        "speed": 371.52,
-        "magic_find": 168.6,
-        "pet_luck": 74.08,
-        "sea_creature_chance": 23.92,
-        "fishing_speed": 11.44,
-        "combat_wisdom": 61.2,
-        "mining_wisdom": 25.2,
-        "farming_wisdom": 20,
-        "foraging_wisdom": 20,
-        "fishing_wisdom": 21.04,
-        "enchanting_wisdom": 20,
-        "alchemy_wisdom": 20,
-        "carpentry_wisdom": 0,
-        "runecrafting_wisdom": 0,
-        "social_wisdom": 0,
-        "health_cap": 0,
-        "speed_cap": 416
-      },
-      "calculation": {
-        "health": [
-          "Bestiary Level Bonus: 228 | 114 * 2",
-          "Cakebag Bonus: 108 | 54 * 2",
-          "Catacombs Levels Bonus: 100 | 50 * 2",
-          "Reaper Peppers Eaten: 10 | 5 * 2",
-          "Wither Essence Shop: 2 * 5 = 10",
-          "Fairy Souls: 670 | 47 Exchanges",
-          "Zombie Slayer 1 Reward: 2 | 2",
-          "Zombie Slayer 2 Reward: 2 | 2",
-          "Zombie Slayer 3 Reward: 3 | 3",
-          "Zombie Slayer 4 Reward: 3 | 3",
-          "Zombie Slayer 5 Reward: 4 | 4",
-          "Zombie Slayer 6 Reward: 4 | 4",
-          "Zombie Slayer 7 Reward: 5 | 5",
-          "Zombie Slayer 8 Reward: 5 | 5",
-          "Zombie Slayer 9 Reward: 6 | 6",
-          "Wolf Slayer 2 Reward: 2 | 2",
-          "Wolf Slayer 4 Reward: 2 | 2",
-          "Wolf Slayer 6 Reward: 3 | 3",
-          "Wolf Slayer 9 Reward: 5 | 5",
-          "Enderman Slayer 1 Reward: 1 | 1",
-          "Enderman Slayer 3 Reward: 2 | 2",
-          "Enderman Slayer 5 Reward: 3 | 3",
-          "Enderman Slayer 7 Reward: 4 | 4",
-          "Enderman Slayer 9 Reward: 5 | 5",
-          "Blaze Slayer 1 Reward: 3 | 3",
-          "Blaze Slayer 3 Reward: 4 | 4",
-          "Blaze Slayer 5 Reward: 5 | 5",
-          "Blaze Slayer 7 Reward: 6 | 6",
-          "Blaze Slayer 9 Reward: 7 | 7",
-          "Farming Level: 238 | 238",
-          "Fishing Level: 192 | 192",
-          "Carpentry Level: 98 | 98",
-          "Equipment Necklace: 30 | 30",
-          "Equipment Cloak: 30 | 30",
-          "POWER_ARTIFACT: 12 | 12",
-          "DAY_CRYSTAL Ability: 5 | 5",
-          "BAT_ARTIFACT: 5 | 5",
-          "JACOBUS_REGISTER: 10 | 10",
-          "BEASTMASTER_CREST_LEGENDARY: 3 | 3",
-          "PANDORAS_BOX: 10 | 10",
-          "SORROW_BOOTS: 160 | 160",
-          "SORROW_LEGGINGS: 160 | 160",
-          "SORROW_CHESTPLATE: 160 | 160",
-          "SORROW_HELMET: 160 | 160",
-          "Active Potion Effect: 100 | Jerry Candy"
-        ],
-        "defense": [
-          "Wither Essence Shop: 1 * 5 = 5",
-          "Fairy Souls: 56 | 47 Exchanges",
-          "Mining Level: 106 | 106",
-          "Century Cake: 3 | 3",
-          "Equipment Necklace: 20 | 20",
-          "Equipment Cloak: 28 | 28",
-          "Equipment Belt: 70 | 70",
-          "POWER_ARTIFACT: 12 | 12",
-          "SORROW_BOOTS: 65 | 65",
-          "SORROW_LEGGINGS: 65 | 65",
-          "SORROW_CHESTPLATE: 65 | 65",
-          "SORROW_HELMET: 65 | 65",
-          "Active Potion Effect: 66 | Resistance 8 Potion"
-        ],
-        "effective_health": [
-          "20479.2176 | 2736.4 * ( 1 + (648.4 / 100))"
-        ],
-        "strength": [
-          "Wither Essence Shop: 1 * 5 = 5",
-          "Fairy Souls: 56 | 47 Exchanges",
-          "Blaze Slayer 2 Reward: 1 | 1",
-          "Blaze Slayer 6 Reward: 2 | 2",
-          "Foraging Level: 86 | 86",
-          "Century Cake: 2 | 2",
-          "Equipment Necklace: 20 | 20",
-          "Equipment Cloak: 26 | 26",
-          "POWER_ARTIFACT: 6.5 | 6.5",
-          "DAY_CRYSTAL Ability: 5 | 5",
-          "BLOOD_GOD_CREST: 8 | 8",
-          "BURSTSTOPPER_ARTIFACT: 2 | 2",
-          "RAZOR_SHARP_SHARK_TOOTH_NECKLACE: 10 | 10",
-          "PANDORAS_BOX: 10 | 10",
-          "SORROW_BOOTS: 28 | 28",
-          "SORROW_LEGGINGS: 28 | 28",
-          "SORROW_CHESTPLATE: 28 | 28",
-          "SORROW_HELMET: 28 | 28",
-          "[Lvl 152] Golden Dragon Pet: 38 | 0.25 * 152",
-          "Golden Dragon Pet: 90 | 9 * 10",
-          "Active Potion Effect: 75 | Strength 8 Potion",
-          "Active Potion Effect: 20 | Jerry Candy"
-        ],
-        "intelligence": [
-          "Wither Essence Shop: 2 * 5 = 10",
-          "Enderman Slayer 2 Reward: 1 | 1",
-          "Enderman Slayer 4 Reward: 2 | 2",
-          "Enderman Slayer 6 Reward: 3 | 3",
-          "Enderman Slayer 8 Reward: 4 | 4",
-          "Enchanting Level: 106 | 106",
-          "Alchemy Level: 86 | 86",
-          "Century Cake: 5 | 5",
-          "Equipment Necklace: 6 | 6",
-          "Equipment Belt: 6 | 6",
-          "Equipment Gloves: 21 | 21",
-          "POWER_ARTIFACT: 12 | 12",
-          "JERRY_TALISMAN_GOLDEN: -4 | -4",
-          "BAT_ARTIFACT: 3 | 3",
-          "MELODY_HAIR: 6 | 6",
-          "BEASTMASTER_CREST_LEGENDARY: 3 | 3",
-          "Song_hymn_joy_best_completion: 1 | 1",
-          "Song_frere_jacques_best_completion: 1 | 1",
-          "Song_amazing_grace_best_completion: 1 | 1",
-          "Song_brahms_best_completion: 2 | 2",
-          "Song_happy_birthday_best_completion: 2 | 2",
-          "Song_greensleeves_best_completion: 2 | 2",
-          "Song_jeopardy_best_completion: 3 | 3",
-          "Song_minuet_best_completion: 3 | 3",
-          "Song_joy_world_best_completion: 3 | 3",
-          "Song_pure_imagination_best_completion: 4 | 4",
-          "Song_vie_en_rose_best_completion: 4 | 4",
-          "Song_fire_and_flames_best_completion: 1 | 1",
-          "Song_pachelbel_best_completion: 1 | 1",
-          "SORROW_BOOTS: 12 | 12",
-          "SORROW_LEGGINGS: 12 | 12",
-          "SORROW_CHESTPLATE: 12 | 12",
-          "SORROW_HELMET: 12 | 12",
-          "Active Potion Effect: 100 | Jerry Candy"
-        ],
-        "crit_chance": [
-          "Spider Slayer 7 Reward: 1 | 1",
-          "Combat Level: 30 | 30",
-          "SORROW_BOOTS: 12 | 12",
-          "SORROW_LEGGINGS: 12 | 12",
-          "SORROW_CHESTPLATE: 12 | 12",
-          "SORROW_HELMET: 12 | 12",
-          "Active Potion Effect: 25 | Critical 4 Potion"
-        ],
-        "crit_damage": [
-          "Spider Slayer 1 Reward: 1 | 1",
-          "Spider Slayer 2 Reward: 1 | 1",
-          "Spider Slayer 3 Reward: 1 | 1",
-          "Spider Slayer 4 Reward: 1 | 1",
-          "Spider Slayer 5 Reward: 2 | 2",
-          "Spider Slayer 6 Reward: 2 | 2",
-          "Spider Slayer 8 Reward: 3 | 3",
-          "Spider Slayer 9 Reward: 3 | 3",
-          "Wolf Slayer 5 Reward: 1 | 1",
-          "Wolf Slayer 7 Reward: 2 | 2",
-          "RED_CLAW_ARTIFACT: 5 | 5",
-          "Silky Reforge: 1090.3200000000002 | 0.924 * 1180",
-          "SORROW_BOOTS: 12 | 12",
-          "SORROW_LEGGINGS: 12 | 12",
-          "SORROW_CHESTPLATE: 12 | 12",
-          "SORROW_HELMET: 12 | 12",
-          "Active Potion Effect: 40 | Critical 4 Potion",
-          "Active Potion Effect: 40 | Spirit 4 Potion"
-        ],
-        "bonus_attack_speed": [
-          "silky Reforge Bonus: 5 | 5",
-          "SORROW_BOOTS: 5 | 5",
-          "SORROW_LEGGINGS: 5 | 5",
-          "SORROW_CHESTPLATE: 5 | 5",
-          "SORROW_HELMET: 5 | 5",
-          "[Lvl 152] Golden Dragon Pet: 38 | 0.25 * 152"
-        ],
-        "ability_damage": [
-          "Enchanting Level: 30 | 30"
-        ],
-        "true_defense": [
-          "Blaze Slayer 4 Reward: 1 | 1",
-          "Blaze Slayer 8 Reward: 2 | 2",
-          "BLAZE_TALISMAN: 3 | 3",
-          "BURSTSTOPPER_ARTIFACT: 3 | 3",
-          "SORROW_BOOTS: 40 | 40",
-          "SORROW_LEGGINGS: 70 | 70",
-          "SORROW_CHESTPLATE: 85 | 85",
-          "SORROW_HELMET: 50 | 50",
-          "Active Potion Effect: 20 | True Resistance 4 Potion",
-          "Active Potion Effect: 5 | Gabagoey Mixin"
-        ],
-        "ferocity": [
-          "Century Cake: 2 | 2",
-          "Active Potion Effect: 2 | Jerry Candy"
-        ],
-        "health_regen": [
-          "SORROW_BOOTS: 10 | 10",
-          "SORROW_LEGGINGS: 10 | 10",
-          "SORROW_CHESTPLATE: 10 | 10",
-          "SORROW_HELMET: 10 | 10",
-          "Active Potion Effect: 63 | Regeneration 9 Potion"
-        ],
-        "vitality": [
-          "SURVIVOR_CUBE: 5 | 5",
-          "HEALING_RING: 10 | 10"
-        ],
-        "mending": [
-          
-        ],
-        "mining_speed": [
-          "POWER_ARTIFACT: 40 | 40",
-          "TITANIUM_RELIC: 60 | 60",
-          "Mining Speed: 3050 | 50 * 20 + 50 * 40 + 50 * 1",
-          "SORROW_BOOTS: 95 | 95",
-          "SORROW_LEGGINGS: 95 | 95",
-          "SORROW_CHESTPLATE: 95 | 95",
-          "SORROW_HELMET: 95 | 95"
-        ],
-        "mining_fortune": [
-          "Mining Level: 240 | 240",
-          "Century Cake: 5 | 5",
-          "Equipment Necklace: 12 | 12",
-          "Equipment Belt: 12 | 12",
-          "Equipment Gloves: 19 | 19",
-          "POWER_ARTIFACT: 20 | 20",
-          "MINERAL_TALISMAN: 3 | 3",
-          "Mining Fortune: 550 | 50 * 5 + 50 * 5 + 50 * 1",
-          "SORROW_BOOTS: 45 | 45",
-          "SORROW_LEGGINGS: 45 | 45",
-          "SORROW_CHESTPLATE: 45 | 45",
-          "SORROW_HELMET: 45 | 45",
-          "Active Potion Effect: 25 | Spelunker 5 Potion"
-        ],
-        "farming_fortune": [
-          "Jacob's Farming Shop: 15 * 2 = 30",
-          "Farming Level: 236 | 236",
-          "Century Cake: 5 | 5"
-        ],
-        "foraging_fortune": [
-          "Foraging Level: 200 | 200",
-          "Century Cake: 5 | 5"
-        ],
-        "pristine": [
-          "POWER_ARTIFACT: 1 | 1"
-        ],
-        "speed": [
-          "Wither Essence Shop: 1 * 2 = 2",
-          "Fairy Souls: 4 | 47 Exchanges",
-          "Wolf Slayer 1 Reward: 1 | 1",
-          "Wolf Slayer 3 Reward: 1 | 1",
-          "Wolf Slayer 8 Reward: 1 | 1",
-          "Century Cake: 10 | 10",
-          "PIGS_FOOT: 1 | 1",
-          "FROZEN_CHICKEN: 1 | 1",
-          "WOLF_PAW: 1 | 1",
-          "SPEED_ARTIFACT: 5 | 5",
-          "POTATO_TALISMAN: 1 | 1",
-          "BAT_ARTIFACT: 3 | 3",
-          "CHEETAH_TALISMAN: 3 | 3",
-          "SORROW_BOOTS: 1 | 1",
-          "SORROW_LEGGINGS: 1 | 1",
-          "SORROW_CHESTPLATE: 1 | 1",
-          "SORROW_HELMET: 1 | 1",
-          "Active Potion Effect: 60 | Rabbit 6 Potion",
-          "Active Potion Effect: 40 | Agility 4 Potion",
-          "Active Potion Effect: 48 | Speed 8 Potion",
-          "Active Potion Effect: 40 | Adrenaline 8 Potion",
-          "Active Potion Effect: 40 | Spirit 4 Potion"
-        ],
-        "magic_find": [
-          "Unique Pets Score: 9 | 9 * 2",
-          "Century Cake: 1 | 1",
-          "POWER_ARTIFACT: 0.5 | 0.5",
-          "CATACOMBS_EXPERT_RING: 0.5 | 0.5",
-          "SPIDER_ARTIFACT: 0.5 | 0.5",
-          "HEGEMONY_ARTIFACT: 0.5 | 0.5",
-          "JERRY_TALISMAN_GOLDEN: 0.5 | 0.5",
-          "RED_CLAW_ARTIFACT: 0.5 | 0.5",
-          "NETHER_ARTIFACT: 0.5 | 0.5",
-          "AUTO_RECOMBOBULATOR: 0.5 | 0.5",
-          "WITHER_RELIC: 0.5 | 0.5",
-          "EXPERIENCE_ARTIFACT: 0.5 | 0.5",
-          "SCARF_GRIMOIRE: 0.5 | 0.5",
-          "WEDDING_RING_9: 0.5 | 0.5",
-          "BAT_ARTIFACT: 0.5 | 0.5",
-          "SPIKED_ATROCITY: 0.5 | 0.5",
-          "SEAL_OF_THE_FAMILY: 0.5 | 0.5",
-          "MASTER_SKULL_TIER_7: 0.5 | 0.5",
-          "PERSONAL_DELETOR_7000: 0.5 | 0.5",
-          "CHEETAH_TALISMAN: 0.5 | 0.5",
-          "PULSE_RING: 1.5 | 1.5",
-          "BURSTSTOPPER_ARTIFACT: 0.5 | 0.5",
-          "ODGERS_DIAMOND_TOOTH: 0.5 | 0.5",
-          "SHENS_REGALIA: 0.5 | 0.5",
-          "PERSONAL_COMPACTOR_7000: 0.5 | 0.5",
-          "ENDER_RELIC: 0.5 | 0.5",
-          "TITANIUM_RELIC: 0.5 | 0.5",
-          "MELODY_HAIR: 0.5 | 0.5",
-          "CAMPFIRE_TALISMAN_29: 0.5 | 0.5",
-          "TARANTULA_TALISMAN: 0.5 | 0.5",
-          "JACOBUS_REGISTER: 0.5 | 0.5",
-          "TREASURE_ARTIFACT: 0.5 | 0.5",
-          "RAZOR_SHARP_SHARK_TOOTH_NECKLACE: 0.5 | 0.5",
-          "BEASTMASTER_CREST_LEGENDARY: 0.5 | 0.5",
-          "SOULFLOW_SUPERCELL: 0.5 | 0.5",
-          "REAPER_ORB: 0.5 | 0.5",
-          "CANDY_RELIC: 0.5 | 0.5",
-          "PARTY_HAT_CRAB: 1.5 | 1.5",
-          "PARTY_HAT_CRAB_ANIMATED: 1.5 | 1.5",
-          "ARTIFACT_OF_CONTROL: 0.5 | 0.5",
-          "SORROW_BOOTS: 5 | 5",
-          "SORROW_LEGGINGS: 5 | 5",
-          "SORROW_CHESTPLATE: 5 | 5",
-          "SORROW_HELMET: 5 | 5",
-          "[Lvl 152] Golden Dragon Pet: 7.5 | 0.049342105263157895 * 152",
-          "Golden Dragon Pet: 18 | 9 * 2",
-          "Active Potion Effect: 75 | Magic Find 4 Potion",
-          "Active Potion Effect: 10 | Critical 4 Potion",
-          "Active Potion Effect: 3 | Jerry Candy"
-        ],
-        "pet_luck": [
-          "Taming Level: 50 | 50",
-          "Century Cake: 1 | 1",
-          "JACOBUS_REGISTER: 1 | 1",
-          "Active Potion Effect: 20 | Pet Luck 4 Potion"
-        ],
-        "sea_creature_chance": [
-          "Century Cake: 1 | 1",
-          "ODGERS_DIAMOND_TOOTH: 2 | 2"
-        ],
-        "fishing_speed": [
-          "FISH_AFFINITY_TALISMAN: 10 | 10",
-          "CHUMMING_TALISMAN: 1 | 1"
-        ],
-        "combat_wisdom": [
-          "Slayer Tier Completion: 5 | 5",
-          "Slayer Tier Completion: 5 | 5",
-          "Slayer Tier Completion: 5 | 5",
-          "Slayer Tier Completion: 5 | 5",
-          "Slayer Tier Completion: 5 | 5",
-          "HUNTER_RING: 5 | 5",
-          "Active Potion Effect: 10 | Experience 4 Potion",
-          "Active Potion Effect: 20 | Combat XP Boost III Potion"
-        ],
-        "mining_wisdom": [
-          "Active Potion Effect: 20 | Mining XP Boost III Potion"
-        ],
-        "farming_wisdom": [
-          "Active Potion Effect: 20 | Farming XP Boost III Potion"
-        ],
-        "foraging_wisdom": [
-          "Active Potion Effect: 20 | Foraging XP Boost III Potion"
-        ],
-        "fishing_wisdom": [
-          "CHUMMING_TALISMAN: 1 | 1",
-          "Active Potion Effect: 20 | Fishing XP Boost III Potion"
-        ],
-        "enchanting_wisdom": [
-          "Active Potion Effect: 20 | Enchanting XP Boost III Potion"
-        ],
-        "alchemy_wisdom": [
-          "Active Potion Effect: 20 | Alchemy XP Boost III Potion"
-        ],
-        "carpentry_wisdom": [
-          
-        ],
-        "runecrafting_wisdom": [
-          
-        ],
-        "social_wisdom": [
-          
-        ],
-        "health_cap": [
-          
-        ],
-        "speed_cap": [
-          
-        ],
-        "statsMultiplier": [
-          "Renowned Armor Reforge: 1% | 1%",
-          "Renowned Armor Reforge: 1% | 1%",
-          "Renowned Armor Reforge: 1% | 1%",
-          "Renowned Armor Reforge: 1% | 1%"
-        ],
-        "strengthMultiplier": [
-          
-        ],
-        "healthMultiplier": [
-          
-        ],
-        "defenseMultiplier": [
-          
-        ],
-        "bonusAttackSpeedMultiplier": [
-          
-        ]
-      }
+  "status": 200,
+  "data": {
+    "BASE_STATS": {
+      "health": 2736.4,
+      "defense": 648.4,
+      "effective_health": 20479.2176,
+      "strength": 593.6800000000001,
+      "intelligence": 459.84,
+      "crit_chance": 138.36,
+      "crit_damage": 1338.7328000000002,
+      "bonus_attack_speed": 65.52,
+      "ability_damage": 31.2,
+      "true_defense": 289.16,
+      "ferocity": 4.08,
+      "health_regen": 208.6,
+      "vitality": 119.6,
+      "mending": 104,
+      "mining_speed": 3671.2,
+      "mining_fortune": 1066,
+      "farming_fortune": 271,
+      "foraging_fortune": 205,
+      "pristine": 1.04,
+      "speed": 371.52,
+      "magic_find": 168.6,
+      "pet_luck": 74.08,
+      "sea_creature_chance": 23.92,
+      "fishing_speed": 11.44,
+      "combat_wisdom": 61.2,
+      "mining_wisdom": 25.2,
+      "farming_wisdom": 20,
+      "foraging_wisdom": 20,
+      "fishing_wisdom": 21.04,
+      "enchanting_wisdom": 20,
+      "alchemy_wisdom": 20,
+      "carpentry_wisdom": 0,
+      "runecrafting_wisdom": 0,
+      "social_wisdom": 0,
+      "health_cap": 0,
+      "speed_cap": 416
+    },
+    "calculation": {
+      "health": [
+        "Bestiary Level Bonus: 228 | 114 * 2",
+        "Cakebag Bonus: 108 | 54 * 2",
+        "Catacombs Levels Bonus: 100 | 50 * 2",
+        "Reaper Peppers Eaten: 10 | 5 * 2",
+        "Wither Essence Shop: 2 * 5 = 10",
+        "Fairy Souls: 670 | 47 Exchanges",
+        "Zombie Slayer 1 Reward: 2 | 2",
+        "Zombie Slayer 2 Reward: 2 | 2",
+        "Zombie Slayer 3 Reward: 3 | 3",
+        "Zombie Slayer 4 Reward: 3 | 3",
+        "Zombie Slayer 5 Reward: 4 | 4",
+        "Zombie Slayer 6 Reward: 4 | 4",
+        "Zombie Slayer 7 Reward: 5 | 5",
+        "Zombie Slayer 8 Reward: 5 | 5",
+        "Zombie Slayer 9 Reward: 6 | 6",
+        "Wolf Slayer 2 Reward: 2 | 2",
+        "Wolf Slayer 4 Reward: 2 | 2",
+        "Wolf Slayer 6 Reward: 3 | 3",
+        "Wolf Slayer 9 Reward: 5 | 5",
+        "Enderman Slayer 1 Reward: 1 | 1",
+        "Enderman Slayer 3 Reward: 2 | 2",
+        "Enderman Slayer 5 Reward: 3 | 3",
+        "Enderman Slayer 7 Reward: 4 | 4",
+        "Enderman Slayer 9 Reward: 5 | 5",
+        "Blaze Slayer 1 Reward: 3 | 3",
+        "Blaze Slayer 3 Reward: 4 | 4",
+        "Blaze Slayer 5 Reward: 5 | 5",
+        "Blaze Slayer 7 Reward: 6 | 6",
+        "Blaze Slayer 9 Reward: 7 | 7",
+        "Farming Level: 238 | 238",
+        "Fishing Level: 192 | 192",
+        "Carpentry Level: 98 | 98",
+        "Equipment Necklace: 30 | 30",
+        "Equipment Cloak: 30 | 30",
+        "POWER_ARTIFACT: 12 | 12",
+        "DAY_CRYSTAL Ability: 5 | 5",
+        "BAT_ARTIFACT: 5 | 5",
+        "JACOBUS_REGISTER: 10 | 10",
+        "BEASTMASTER_CREST_LEGENDARY: 3 | 3",
+        "PANDORAS_BOX: 10 | 10",
+        "SORROW_BOOTS: 160 | 160",
+        "SORROW_LEGGINGS: 160 | 160",
+        "SORROW_CHESTPLATE: 160 | 160",
+        "SORROW_HELMET: 160 | 160",
+        "Active Potion Effect: 100 | Jerry Candy"
+      ],
+      "defense": [
+        "Wither Essence Shop: 1 * 5 = 5",
+        "Fairy Souls: 56 | 47 Exchanges",
+        "Mining Level: 106 | 106",
+        "Century Cake: 3 | 3",
+        "Equipment Necklace: 20 | 20",
+        "Equipment Cloak: 28 | 28",
+        "Equipment Belt: 70 | 70",
+        "POWER_ARTIFACT: 12 | 12",
+        "SORROW_BOOTS: 65 | 65",
+        "SORROW_LEGGINGS: 65 | 65",
+        "SORROW_CHESTPLATE: 65 | 65",
+        "SORROW_HELMET: 65 | 65",
+        "Active Potion Effect: 66 | Resistance 8 Potion"
+      ],
+      "effective_health": [
+        "20479.2176 | 2736.4 * ( 1 + (648.4 / 100))"
+      ],
+      "strength": [
+        "Wither Essence Shop: 1 * 5 = 5",
+        "Fairy Souls: 56 | 47 Exchanges",
+        "Blaze Slayer 2 Reward: 1 | 1",
+        "Blaze Slayer 6 Reward: 2 | 2",
+        "Foraging Level: 86 | 86",
+        "Century Cake: 2 | 2",
+        "Equipment Necklace: 20 | 20",
+        "Equipment Cloak: 26 | 26",
+        "POWER_ARTIFACT: 6.5 | 6.5",
+        "DAY_CRYSTAL Ability: 5 | 5",
+        "BLOOD_GOD_CREST: 8 | 8",
+        "BURSTSTOPPER_ARTIFACT: 2 | 2",
+        "RAZOR_SHARP_SHARK_TOOTH_NECKLACE: 10 | 10",
+        "PANDORAS_BOX: 10 | 10",
+        "SORROW_BOOTS: 28 | 28",
+        "SORROW_LEGGINGS: 28 | 28",
+        "SORROW_CHESTPLATE: 28 | 28",
+        "SORROW_HELMET: 28 | 28",
+        "[Lvl 152] Golden Dragon Pet: 38 | 0.25 * 152",
+        "Golden Dragon Pet: 90 | 9 * 10",
+        "Active Potion Effect: 75 | Strength 8 Potion",
+        "Active Potion Effect: 20 | Jerry Candy"
+      ],
+      "intelligence": [
+        "Wither Essence Shop: 2 * 5 = 10",
+        "Enderman Slayer 2 Reward: 1 | 1",
+        "Enderman Slayer 4 Reward: 2 | 2",
+        "Enderman Slayer 6 Reward: 3 | 3",
+        "Enderman Slayer 8 Reward: 4 | 4",
+        "Enchanting Level: 106 | 106",
+        "Alchemy Level: 86 | 86",
+        "Century Cake: 5 | 5",
+        "Equipment Necklace: 6 | 6",
+        "Equipment Belt: 6 | 6",
+        "Equipment Gloves: 21 | 21",
+        "POWER_ARTIFACT: 12 | 12",
+        "JERRY_TALISMAN_GOLDEN: -4 | -4",
+        "BAT_ARTIFACT: 3 | 3",
+        "MELODY_HAIR: 6 | 6",
+        "BEASTMASTER_CREST_LEGENDARY: 3 | 3",
+        "Song_hymn_joy_best_completion: 1 | 1",
+        "Song_frere_jacques_best_completion: 1 | 1",
+        "Song_amazing_grace_best_completion: 1 | 1",
+        "Song_brahms_best_completion: 2 | 2",
+        "Song_happy_birthday_best_completion: 2 | 2",
+        "Song_greensleeves_best_completion: 2 | 2",
+        "Song_jeopardy_best_completion: 3 | 3",
+        "Song_minuet_best_completion: 3 | 3",
+        "Song_joy_world_best_completion: 3 | 3",
+        "Song_pure_imagination_best_completion: 4 | 4",
+        "Song_vie_en_rose_best_completion: 4 | 4",
+        "Song_fire_and_flames_best_completion: 1 | 1",
+        "Song_pachelbel_best_completion: 1 | 1",
+        "SORROW_BOOTS: 12 | 12",
+        "SORROW_LEGGINGS: 12 | 12",
+        "SORROW_CHESTPLATE: 12 | 12",
+        "SORROW_HELMET: 12 | 12",
+        "Active Potion Effect: 100 | Jerry Candy"
+      ],
+      "crit_chance": [
+        "Spider Slayer 7 Reward: 1 | 1",
+        "Combat Level: 30 | 30",
+        "SORROW_BOOTS: 12 | 12",
+        "SORROW_LEGGINGS: 12 | 12",
+        "SORROW_CHESTPLATE: 12 | 12",
+        "SORROW_HELMET: 12 | 12",
+        "Active Potion Effect: 25 | Critical 4 Potion"
+      ],
+      "crit_damage": [
+        "Spider Slayer 1 Reward: 1 | 1",
+        "Spider Slayer 2 Reward: 1 | 1",
+        "Spider Slayer 3 Reward: 1 | 1",
+        "Spider Slayer 4 Reward: 1 | 1",
+        "Spider Slayer 5 Reward: 2 | 2",
+        "Spider Slayer 6 Reward: 2 | 2",
+        "Spider Slayer 8 Reward: 3 | 3",
+        "Spider Slayer 9 Reward: 3 | 3",
+        "Wolf Slayer 5 Reward: 1 | 1",
+        "Wolf Slayer 7 Reward: 2 | 2",
+        "RED_CLAW_ARTIFACT: 5 | 5",
+        "Silky Reforge: 1090.3200000000002 | 0.924 * 1180",
+        "SORROW_BOOTS: 12 | 12",
+        "SORROW_LEGGINGS: 12 | 12",
+        "SORROW_CHESTPLATE: 12 | 12",
+        "SORROW_HELMET: 12 | 12",
+        "Active Potion Effect: 40 | Critical 4 Potion",
+        "Active Potion Effect: 40 | Spirit 4 Potion"
+      ],
+      "bonus_attack_speed": [
+        "silky Reforge Bonus: 5 | 5",
+        "SORROW_BOOTS: 5 | 5",
+        "SORROW_LEGGINGS: 5 | 5",
+        "SORROW_CHESTPLATE: 5 | 5",
+        "SORROW_HELMET: 5 | 5",
+        "[Lvl 152] Golden Dragon Pet: 38 | 0.25 * 152"
+      ],
+      "ability_damage": [
+        "Enchanting Level: 30 | 30"
+      ],
+      "true_defense": [
+        "Blaze Slayer 4 Reward: 1 | 1",
+        "Blaze Slayer 8 Reward: 2 | 2",
+        "BLAZE_TALISMAN: 3 | 3",
+        "BURSTSTOPPER_ARTIFACT: 3 | 3",
+        "SORROW_BOOTS: 40 | 40",
+        "SORROW_LEGGINGS: 70 | 70",
+        "SORROW_CHESTPLATE: 85 | 85",
+        "SORROW_HELMET: 50 | 50",
+        "Active Potion Effect: 20 | True Resistance 4 Potion",
+        "Active Potion Effect: 5 | Gabagoey Mixin"
+      ],
+      "ferocity": [
+        "Century Cake: 2 | 2",
+        "Active Potion Effect: 2 | Jerry Candy"
+      ],
+      "health_regen": [
+        "SORROW_BOOTS: 10 | 10",
+        "SORROW_LEGGINGS: 10 | 10",
+        "SORROW_CHESTPLATE: 10 | 10",
+        "SORROW_HELMET: 10 | 10",
+        "Active Potion Effect: 63 | Regeneration 9 Potion"
+      ],
+      "vitality": [
+        "SURVIVOR_CUBE: 5 | 5",
+        "HEALING_RING: 10 | 10"
+      ],
+      "mending": [
+        
+      ],
+      "mining_speed": [
+        "POWER_ARTIFACT: 40 | 40",
+        "TITANIUM_RELIC: 60 | 60",
+        "Mining Speed: 3050 | 50 * 20 + 50 * 40 + 50 * 1",
+        "SORROW_BOOTS: 95 | 95",
+        "SORROW_LEGGINGS: 95 | 95",
+        "SORROW_CHESTPLATE: 95 | 95",
+        "SORROW_HELMET: 95 | 95"
+      ],
+      "mining_fortune": [
+        "Mining Level: 240 | 240",
+        "Century Cake: 5 | 5",
+        "Equipment Necklace: 12 | 12",
+        "Equipment Belt: 12 | 12",
+        "Equipment Gloves: 19 | 19",
+        "POWER_ARTIFACT: 20 | 20",
+        "MINERAL_TALISMAN: 3 | 3",
+        "Mining Fortune: 550 | 50 * 5 + 50 * 5 + 50 * 1",
+        "SORROW_BOOTS: 45 | 45",
+        "SORROW_LEGGINGS: 45 | 45",
+        "SORROW_CHESTPLATE: 45 | 45",
+        "SORROW_HELMET: 45 | 45",
+        "Active Potion Effect: 25 | Spelunker 5 Potion"
+      ],
+      "farming_fortune": [
+        "Jacob's Farming Shop: 15 * 2 = 30",
+        "Farming Level: 236 | 236",
+        "Century Cake: 5 | 5"
+      ],
+      "foraging_fortune": [
+        "Foraging Level: 200 | 200",
+        "Century Cake: 5 | 5"
+      ],
+      "pristine": [
+        "POWER_ARTIFACT: 1 | 1"
+      ],
+      "speed": [
+        "Wither Essence Shop: 1 * 2 = 2",
+        "Fairy Souls: 4 | 47 Exchanges",
+        "Wolf Slayer 1 Reward: 1 | 1",
+        "Wolf Slayer 3 Reward: 1 | 1",
+        "Wolf Slayer 8 Reward: 1 | 1",
+        "Century Cake: 10 | 10",
+        "PIGS_FOOT: 1 | 1",
+        "FROZEN_CHICKEN: 1 | 1",
+        "WOLF_PAW: 1 | 1",
+        "SPEED_ARTIFACT: 5 | 5",
+        "POTATO_TALISMAN: 1 | 1",
+        "BAT_ARTIFACT: 3 | 3",
+        "CHEETAH_TALISMAN: 3 | 3",
+        "SORROW_BOOTS: 1 | 1",
+        "SORROW_LEGGINGS: 1 | 1",
+        "SORROW_CHESTPLATE: 1 | 1",
+        "SORROW_HELMET: 1 | 1",
+        "Active Potion Effect: 60 | Rabbit 6 Potion",
+        "Active Potion Effect: 40 | Agility 4 Potion",
+        "Active Potion Effect: 48 | Speed 8 Potion",
+        "Active Potion Effect: 40 | Adrenaline 8 Potion",
+        "Active Potion Effect: 40 | Spirit 4 Potion"
+      ],
+      "magic_find": [
+        "Unique Pets Score: 9 | 9 * 2",
+        "Century Cake: 1 | 1",
+        "POWER_ARTIFACT: 0.5 | 0.5",
+        "CATACOMBS_EXPERT_RING: 0.5 | 0.5",
+        "SPIDER_ARTIFACT: 0.5 | 0.5",
+        "HEGEMONY_ARTIFACT: 0.5 | 0.5",
+        "JERRY_TALISMAN_GOLDEN: 0.5 | 0.5",
+        "RED_CLAW_ARTIFACT: 0.5 | 0.5",
+        "NETHER_ARTIFACT: 0.5 | 0.5",
+        "AUTO_RECOMBOBULATOR: 0.5 | 0.5",
+        "WITHER_RELIC: 0.5 | 0.5",
+        "EXPERIENCE_ARTIFACT: 0.5 | 0.5",
+        "SCARF_GRIMOIRE: 0.5 | 0.5",
+        "WEDDING_RING_9: 0.5 | 0.5",
+        "BAT_ARTIFACT: 0.5 | 0.5",
+        "SPIKED_ATROCITY: 0.5 | 0.5",
+        "SEAL_OF_THE_FAMILY: 0.5 | 0.5",
+        "MASTER_SKULL_TIER_7: 0.5 | 0.5",
+        "PERSONAL_DELETOR_7000: 0.5 | 0.5",
+        "CHEETAH_TALISMAN: 0.5 | 0.5",
+        "PULSE_RING: 1.5 | 1.5",
+        "BURSTSTOPPER_ARTIFACT: 0.5 | 0.5",
+        "ODGERS_DIAMOND_TOOTH: 0.5 | 0.5",
+        "SHENS_REGALIA: 0.5 | 0.5",
+        "PERSONAL_COMPACTOR_7000: 0.5 | 0.5",
+        "ENDER_RELIC: 0.5 | 0.5",
+        "TITANIUM_RELIC: 0.5 | 0.5",
+        "MELODY_HAIR: 0.5 | 0.5",
+        "CAMPFIRE_TALISMAN_29: 0.5 | 0.5",
+        "TARANTULA_TALISMAN: 0.5 | 0.5",
+        "JACOBUS_REGISTER: 0.5 | 0.5",
+        "TREASURE_ARTIFACT: 0.5 | 0.5",
+        "RAZOR_SHARP_SHARK_TOOTH_NECKLACE: 0.5 | 0.5",
+        "BEASTMASTER_CREST_LEGENDARY: 0.5 | 0.5",
+        "SOULFLOW_SUPERCELL: 0.5 | 0.5",
+        "REAPER_ORB: 0.5 | 0.5",
+        "CANDY_RELIC: 0.5 | 0.5",
+        "PARTY_HAT_CRAB: 1.5 | 1.5",
+        "PARTY_HAT_CRAB_ANIMATED: 1.5 | 1.5",
+        "ARTIFACT_OF_CONTROL: 0.5 | 0.5",
+        "SORROW_BOOTS: 5 | 5",
+        "SORROW_LEGGINGS: 5 | 5",
+        "SORROW_CHESTPLATE: 5 | 5",
+        "SORROW_HELMET: 5 | 5",
+        "[Lvl 152] Golden Dragon Pet: 7.5 | 0.049342105263157895 * 152",
+        "Golden Dragon Pet: 18 | 9 * 2",
+        "Active Potion Effect: 75 | Magic Find 4 Potion",
+        "Active Potion Effect: 10 | Critical 4 Potion",
+        "Active Potion Effect: 3 | Jerry Candy"
+      ],
+      "pet_luck": [
+        "Taming Level: 50 | 50",
+        "Century Cake: 1 | 1",
+        "JACOBUS_REGISTER: 1 | 1",
+        "Active Potion Effect: 20 | Pet Luck 4 Potion"
+      ],
+      "sea_creature_chance": [
+        "Century Cake: 1 | 1",
+        "ODGERS_DIAMOND_TOOTH: 2 | 2"
+      ],
+      "fishing_speed": [
+        "FISH_AFFINITY_TALISMAN: 10 | 10",
+        "CHUMMING_TALISMAN: 1 | 1"
+      ],
+      "combat_wisdom": [
+        "Slayer Tier Completion: 5 | 5",
+        "Slayer Tier Completion: 5 | 5",
+        "Slayer Tier Completion: 5 | 5",
+        "Slayer Tier Completion: 5 | 5",
+        "Slayer Tier Completion: 5 | 5",
+        "HUNTER_RING: 5 | 5",
+        "Active Potion Effect: 10 | Experience 4 Potion",
+        "Active Potion Effect: 20 | Combat XP Boost III Potion"
+      ],
+      "mining_wisdom": [
+        "Active Potion Effect: 20 | Mining XP Boost III Potion"
+      ],
+      "farming_wisdom": [
+        "Active Potion Effect: 20 | Farming XP Boost III Potion"
+      ],
+      "foraging_wisdom": [
+        "Active Potion Effect: 20 | Foraging XP Boost III Potion"
+      ],
+      "fishing_wisdom": [
+        "CHUMMING_TALISMAN: 1 | 1",
+        "Active Potion Effect: 20 | Fishing XP Boost III Potion"
+      ],
+      "enchanting_wisdom": [
+        "Active Potion Effect: 20 | Enchanting XP Boost III Potion"
+      ],
+      "alchemy_wisdom": [
+        "Active Potion Effect: 20 | Alchemy XP Boost III Potion"
+      ],
+      "carpentry_wisdom": [
+        
+      ],
+      "runecrafting_wisdom": [
+        
+      ],
+      "social_wisdom": [
+        
+      ],
+      "health_cap": [
+        
+      ],
+      "speed_cap": [
+        
+      ],
+      "statsMultiplier": [
+        "Renowned Armor Reforge: 1% | 1%",
+        "Renowned Armor Reforge: 1% | 1%",
+        "Renowned Armor Reforge: 1% | 1%",
+        "Renowned Armor Reforge: 1% | 1%"
+      ],
+      "strengthMultiplier": [
+        
+      ],
+      "healthMultiplier": [
+        
+      ],
+      "defenseMultiplier": [
+        
+      ],
+      "bonusAttackSpeedMultiplier": [
+        
+      ]
     }
   }
+}

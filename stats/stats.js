@@ -23,7 +23,6 @@ const { symbols } = require('../constants/symbols');
 const { decodeData } = require("../utils/nbt");
 
 let BASE_STATS = {
-    //absorption: 0, Not in hypixel's menu
     health: 100,
     defense: 0,
     effective_health: 100,
@@ -51,8 +50,6 @@ let BASE_STATS = {
     sea_creature_chance: 20,
     fishing_speed: 0,
 
-    //damage: 0,
-    //damage_increase: 0,
     combat_wisdom: 0,
     mining_wisdom: 0,
     farming_wisdom: 0,
@@ -73,16 +70,14 @@ for (const stat in BASE_STATS) {
     calculation[stat] = [];
 }
 
-calculation['statsMultiplier'] ??= [];
-calculation['strengthMultiplier'] ??= [];
-calculation['healthMultiplier'] ??= [];
-calculation['defenseMultiplier'] ??= [];
-calculation['bonusAttackSpeedMultiplier'] ??= [];
+['statsMultiplier', 'strengthMultiplier', 'healthMultiplier', 'defenseMultiplier', 'bonusAttackSpeedMultiplier'].forEach((key) => {
+    calculation[key] = [];
+});
 
 async function getStats(player, profileData, profile, uuid, res) {
-    // ! INACURRATE DATE:
+    // ! INACURRATE DATA
     // ! - Intelligence, this is due to hypixel not having "Defuse Kit" in an API, so intelligence will be offset by 1-10 points.
-    // ! - -15 Magic find and -25 Wisdom, this is due to Hypixel not having booster cookie in AP
+    // ! - 15 Magic find and 25 Wisdom, this is due to Hypixel not having booster cookie in API
 
     const bestiaryLevel = toFixed(((getBestiary(profile)).level), 0);
     const catacombsLevel = toFixed((getDungeons(player, profile)).catacombs.skill.level, 0);
@@ -315,10 +310,10 @@ async function getStats(player, profileData, profile, uuid, res) {
         // * REFORGES
 
         // ? Loving (Increases ability damage by 5%)
-        // * Reforge doesn't seem to work, tested with multiple armor pieces. You get 0% boost from reforge.
-        //if (data.tag.ExtraAttributes.reforge == 'loving') BASE_STATS['ability_damage'] += 5;
+        // ? Reforge doesn't seem to work, tested with multiple armor pieces. You get 0% boost from reforge.
+        // if (data.tag.ExtraAttributes.reforge == 'loving') BASE_STATS['ability_damage'] += 5;
 
-        // ? Renown (Increases most of stats by 1%)
+        // ? Renowned (Increases most of stats by 1%)
         if (data.tag.ExtraAttributes.reforge == 'renowned') {
             statsMultiplier += 0.01;
             calculation['statsMultiplier'].push(`Renowned Armor Reforge: 1% | 1%`);
@@ -336,9 +331,7 @@ async function getStats(player, profileData, profile, uuid, res) {
         }
     }
   
-    // *
     // * ARMOR ABILTIES
-    // *
     if (armorPiece) {
         for (const armorSet of Object.keys(armorSets)) {
             if (armorPiece['helmet']?.tag.ExtraAttributes.id == armorSets[armorSet].helmet && armorPiece['chestplate']?.tag.ExtraAttributes.id == armorSets[armorSet].chestplate && armorPiece['leggings']?.tag.ExtraAttributes.id == armorSets[armorSet].leggings && armorPiece['boots']?.tag.ExtraAttributes.id == armorSets[armorSet].boots) {
@@ -393,6 +386,7 @@ async function getStats(player, profileData, profile, uuid, res) {
             piece = armorPiece[piece];
             let defense = 0;
 
+            // TODO: Clean code, all 3 slayers could be done with just one loop
             // ? Enderman
             if (piece.tag.ExtraAttributes?.eman_kills) {
                 const kills = piece.tag.ExtraAttributes.eman_kills;
@@ -480,7 +474,7 @@ async function getStats(player, profileData, profile, uuid, res) {
 
     return {
         BASE_STATS,
-        calculation: calculation
+        calculation
     };
 }
 
@@ -584,48 +578,26 @@ function getPetData(calculation, BASE_STATS, mining, collection, profile, profil
     }
 
     // ? TRUE DEFENSE (DEFENSE, COMBAT WISDOM)
-
-    if (pet.type.includes('WISP')) {
-        const blaze_kills = pet.extra?.blaze_kills ?? 0;
-
-        let maxTier = false;
-        let bonusIndex = misc.WISP_PET_KILLS.findIndex((x) => x.kills > blaze_kills);
-    
-        if (bonusIndex === -1) {
-          bonusIndex = misc.WISP_PET_KILLS.length;
-          maxTier = true;
-        }
-    
-        const current = misc.WISP_PET_KILLS[bonusIndex - 1];
-    
-        let next = null;
-        if (!maxTier)  next = misc.WISP_PET_KILLS[bonusIndex];
-        
-        // ! Hypixel does not add pet kill stats unless player is in combat with specific entity (blaze), so this is useless
-        // BASE_STATS['true_defense'] += current.true_defense;
-        // BASE_STATS['defense'] += current.defense;
-
-        if (pet.type == 'DROPLET_WISP') {
-            BASE_STATS['combat_wisdom'] += 0.3 * pet.level;
-            calculation['combat_wisdom'].push(`Droplet Wisp Pet: ${0.3 * pet.level} | 0.3 * ${pet.level}`);
-        }
-    
-        if (pet.type == 'FROST_WISP') {
-            BASE_STATS['combat_wisdom'] += 0.4 * pet.level;
-            calculation['combat_wisdom'].push(`Frost Wisp Pet: ${0.4 * pet.level} | 0.4 * ${pet.level}`);
-        }
-    
-        if (pet.type == 'GLACIAL_WISP') {
-            BASE_STATS['combat_wisdom'] += 0.45 * pet.level;
-            calculation['combat_wisdom'].push(`Glacial Wisp Pet: ${0.45 * pet.level} | 0.45 * ${pet.level}`);
-        }
-    
-        if (pet.type == 'SUBZERO_WISP') {
-            BASE_STATS['combat_wisdom'] += 0.5 * pet.level;
-            calculation['combat_wisdom'].push(`Subzero Wisp Pet: ${0.5 * pet.level} | 0.5 * ${pet.level}`);
-
-        }
+    if (pet.type == 'DROPLET_WISP') {
+        BASE_STATS['combat_wisdom'] += 0.3 * pet.level;
+        calculation['combat_wisdom'].push(`Droplet Wisp Pet: ${0.3 * pet.level} | 0.3 * ${pet.level}`);
     }
+
+    if (pet.type == 'FROST_WISP') {
+        BASE_STATS['combat_wisdom'] += 0.4 * pet.level;
+        calculation['combat_wisdom'].push(`Frost Wisp Pet: ${0.4 * pet.level} | 0.4 * ${pet.level}`);
+    }
+
+    if (pet.type == 'GLACIAL_WISP') {
+        BASE_STATS['combat_wisdom'] += 0.45 * pet.level;
+        calculation['combat_wisdom'].push(`Glacial Wisp Pet: ${0.45 * pet.level} | 0.45 * ${pet.level}`);
+    }
+
+    if (pet.type == 'SUBZERO_WISP') {
+        BASE_STATS['combat_wisdom'] += 0.5 * pet.level;
+        calculation['combat_wisdom'].push(`Subzero Wisp Pet: ${0.5 * pet.level} | 0.5 * ${pet.level}`);
+    }
+    
 
     // ? STRENGTH (MAGIC FIND)
 
