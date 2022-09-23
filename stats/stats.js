@@ -385,42 +385,15 @@ async function getStats(player, profileData, profile, uuid, res) {
         for (let piece in armorPiece) {
             piece = armorPiece[piece];
             let defense = 0;
-
-            // TODO: Clean code, all 3 slayers could be done with just one loop
-            // ? Enderman
-            if (piece.tag.ExtraAttributes?.eman_kills) {
-                const kills = piece.tag.ExtraAttributes.eman_kills;
-                for (const amountKills of Object.keys(misc.FINAL_DESTIONATION_ARMOR_KILLS)) {
-                    if (kills >= amountKills) {
-                        defense = misc.FINAL_DESTIONATION_ARMOR_KILLS[amountKills];
+            for (const key of Object.keys(piece.tag.ExtraAttributes)) {
+                if (!key.includes('_kills')) continue;
+                for (const amountKills of Object.keys(misc[`${key.toUpperCase()}_ARMOR`])) {
+                    if (piece.tag.ExtraAttributes[key] >= amountKills) {
+                        defense = misc[`${key.toUpperCase()}_ARMOR`][amountKills];
                     }
                 }
                 BASE_STATS['defense'] += defense;
-                calculation['defense'].push(`Enderman Slayer Armor Kill Bonus: ${defense} | ${kills} kills`);
-            }
-
-            // ? Tarantula 
-            if (piece.tag.ExtraAttributes?.spider_kills) {
-                const kills = piece.tag.ExtraAttributes.spider_kills;
-                for (const amountKills of Object.keys(misc.TARANTULA_ARMOR_KILLS)) {
-                    if (kills >= amountKills) {
-                        defense = misc.TARANTULA_ARMOR_KILLS[amountKills];
-                    }
-                }
-                BASE_STATS['defense'] += defense;
-                calculation['defense'].push(`Tarantula Slayer Armor Kill Bonus: ${defense} | ${kills} kills`);
-            }
-
-            // ? Zombie
-            if (piece.tag.ExtraAttributes?.zombie_kills) {
-                const kills = piece.tag.ExtraAttributes.zombie_kills;
-                for (const amountKills of Object.keys(misc.REVENANT_ARMOR_KILLS)) {
-                    if (kills >= amountKills) {
-                        defense = misc.REVENANT_ARMOR_KILLS[amountKills];
-                    }
-                }
-                BASE_STATS['defense'] += defense;
-                calculation['defense'].push(`Zombie Slayer Armor Kill Bonus: ${defense} | ${kills} kills`);
+                calculation['defense'].push(`${capitalize(key.toLowerCase().replaceAll('_kills', ''))} Slayer Armor Kill Bonus: ${defense} | ${piece.tag.ExtraAttributes[key]} Kills`);
             }
         }
     }

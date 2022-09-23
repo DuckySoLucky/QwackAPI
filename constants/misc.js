@@ -58,7 +58,7 @@ module.exports = {
             name: "Adaptive Armor",
         },
     ],
-    FINAL_DESTIONATION_ARMOR_KILLS: {
+    EMAN_KILLS_ARMOR: {
         100: 20,
         200: 40,
         300: 60,
@@ -78,7 +78,7 @@ module.exports = {
         175000: 395,
         200000: 400,
     },
-    TARANTULA_ARMOR_KILLS: {
+    SPIDER_KILLS_ARMOR: {
         50: 20,
         300: 45,
         1000: 80,
@@ -93,7 +93,7 @@ module.exports = {
         100000: 270,
         200000: 280,
     },
-    REVENANT_ARMOR_KILLS: {
+    ZOMBIE_KILLS_ARMOR: {
         50: 20,
         300: 50,
         1000: 90,
