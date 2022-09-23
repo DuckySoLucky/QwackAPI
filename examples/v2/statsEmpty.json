@@ -1,0 +1,168 @@
+{
+    "status": 200,
+    "data": {
+      "BASE_STATS": {
+        "health": 100,
+        "defense": 0,
+        "effective_health": 100,
+        "strength": 0,
+        "intelligence": 0,
+        "crit_chance": 30,
+        "crit_damage": 50,
+        "bonus_attack_speed": 0,
+        "ability_damage": 0,
+        "true_defense": 0,
+        "ferocity": 0,
+        "health_regen": 100,
+        "vitality": 100,
+        "mending": 100,
+        "mining_speed": 0,
+        "mining_fortune": 0,
+        "farming_fortune": 0,
+        "foraging_fortune": 0,
+        "pristine": 0,
+        "speed": 100,
+        "magic_find": 0,
+        "pet_luck": 0,
+        "sea_creature_chance": 20,
+        "fishing_speed": 0,
+        "combat_wisdom": 0,
+        "mining_wisdom": 5,
+        "farming_wisdom": 0,
+        "foraging_wisdom": 0,
+        "fishing_wisdom": 0,
+        "enchanting_wisdom": 0,
+        "alchemy_wisdom": 0,
+        "carpentry_wisdom": 0,
+        "runecrafting_wisdom": 0,
+        "social_wisdom": 0,
+        "health_cap": null,
+        "speed_cap": 400
+      },
+      "calculation": {
+        "health": [
+          
+        ],
+        "defense": [
+          
+        ],
+        "effective_health": [
+          "100 | 100 * ( 1 + (0 / 100))"
+        ],
+        "strength": [
+          
+        ],
+        "intelligence": [
+          
+        ],
+        "crit_chance": [
+          
+        ],
+        "crit_damage": [
+          
+        ],
+        "bonus_attack_speed": [
+          
+        ],
+        "ability_damage": [
+          
+        ],
+        "true_defense": [
+          
+        ],
+        "ferocity": [
+          
+        ],
+        "health_regen": [
+          
+        ],
+        "vitality": [
+          
+        ],
+        "mending": [
+          
+        ],
+        "mining_speed": [
+          
+        ],
+        "mining_fortune": [
+          
+        ],
+        "farming_fortune": [
+          
+        ],
+        "foraging_fortune": [
+          
+        ],
+        "pristine": [
+          
+        ],
+        "speed": [
+          
+        ],
+        "magic_find": [
+          
+        ],
+        "pet_luck": [
+          
+        ],
+        "sea_creature_chance": [
+          
+        ],
+        "fishing_speed": [
+          
+        ],
+        "combat_wisdom": [
+          
+        ],
+        "mining_wisdom": [
+          
+        ],
+        "farming_wisdom": [
+          
+        ],
+        "foraging_wisdom": [
+          
+        ],
+        "fishing_wisdom": [
+          
+        ],
+        "enchanting_wisdom": [
+          
+        ],
+        "alchemy_wisdom": [
+          
+        ],
+        "carpentry_wisdom": [
+          
+        ],
+        "runecrafting_wisdom": [
+          
+        ],
+        "social_wisdom": [
+          
+        ],
+        "health_cap": [
+          
+        ],
+        "speed_cap": [
+          
+        ],
+        "statsMultiplier": [
+          
+        ],
+        "strengthMultiplier": [
+          
+        ],
+        "healthMultiplier": [
+          
+        ],
+        "defenseMultiplier": [
+          
+        ],
+        "bonusAttackSpeedMultiplier": [
+          
+        ]
+      }
+    }
+  }

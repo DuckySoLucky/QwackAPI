@@ -1,0 +1,213 @@
+{
+    "status": 200,
+    "data": {
+      "uuid": "c3b9402747b1433d8b20cd54c7da3f5d",
+      "profile": {
+        "points": 18,
+        "id": 9,
+        "player": [
+          {
+            "completed": true,
+            "id": "wear_accessories",
+            "name": "Bedazzled",
+            "lore": "§7Equip §a7 §7unique Accessories.",
+            "requiredAmount": 7
+          },
+          {
+            "completed": false,
+            "id": "collection_cactus",
+            "name": "Cactus Collector",
+            "lore": "§7Reach §a50,000 §7Cactus Collection.",
+            "requiredAmount": 50000
+          },
+          {
+            "completed": true,
+            "id": "stat_walk_speed",
+            "name": "I Am Speed",
+            "lore": "§7Reach §f200 §f✦ Speed§7.",
+            "requiredAmount": 200
+          },
+          {
+            "completed": false,
+            "id": "skill_average",
+            "name": "Skill Average",
+            "lore": "§7Reach a non-cosmetic Skill Average of §7§m17§a14§7.",
+            "requiredAmount": 17
+          },
+          {
+            "completed": true,
+            "id": "GET_SKILL_mining_10",
+            "name": "Miner",
+            "lore": "§7Obtain level §e10§7 in the §6Mining §7Skill."
+          },
+          {
+            "completed": false,
+            "id": "collection_gravel",
+            "name": "Gravel Collector",
+            "lore": "§7Reach §a25,000 §7Gravel Collection.",
+            "requiredAmount": 25000
+          },
+          {
+            "completed": false,
+            "id": "complete_commissions",
+            "name": "Commission Master",
+            "lore": "§7Complete §e8 Commissions§7 in the §2Dwarven Mines§7 or §5Crystal Hollows§7.",
+            "requiredAmount": 8
+          },
+          {
+            "completed": false,
+            "id": "collection_ender_pearl",
+            "name": "Ender Pearl Collector",
+            "lore": "§7Reach §a25,000 §7Ender Pearl Collection.",
+            "requiredAmount": 25000
+          },
+          {
+            "completed": false,
+            "id": "bank_coins",
+            "name": "Meiser",
+            "lore": "§7Store §61,000,000 Coins §7in your Bank.",
+            "requiredAmount": 1000000
+          },
+          {
+            "completed": false,
+            "id": "reforge_dirty",
+            "name": "Dirty Reforger",
+            "lore": "§7Apply the §9Dirty §7reforge to an item."
+          },
+          {
+            "completed": true,
+            "id": "craft_minions",
+            "name": "Minion Machine",
+            "lore": "§7Obtain §a40 §7unique Minions.",
+            "requiredAmount": 40
+          },
+          {
+            "completed": false,
+            "id": "UNLOCK_DUNGEON_CHEST_WOOD",
+            "name": "Wooden Treasure",
+            "lore": "§7Unlock a §fWood§7 Dungeon Chest."
+          },
+          {
+            "completed": false,
+            "id": "collect_powder_mithril",
+            "name": "Powder Collector",
+            "lore": "§7Collect 25,000 §2Mithril Powder§7.",
+            "requiredAmount": 25000
+          },
+          {
+            "completed": false,
+            "id": "consume_mushroomsoup_mystical",
+            "name": "Taking Flight",
+            "lore": "§7Consume a §bMystical Mushroom Soup§7."
+          },
+          {
+            "completed": false,
+            "id": "stat_sea_creature_chance",
+            "name": "Sea Summoner",
+            "lore": "§7Reach §330% §3α Sea Creature Chance§7.",
+            "requiredAmount": 30
+          },
+          {
+            "completed": false,
+            "id": "slayer_level",
+            "name": "Slayer",
+            "lore": "§7Reach §aLevel 3 §7for any Slayer boss.",
+            "requiredAmount": 0
+          },
+          {
+            "completed": true,
+            "id": "obtain_item_grand_exp_bottle",
+            "name": "Experienced",
+            "lore": "§7Obtain a §aGrand Experience Bottle§7."
+          },
+          {
+            "completed": false,
+            "id": "obtain_pets",
+            "name": "Pet Hoarder",
+            "lore": "§7Obtain §a6 §7unique Pets.",
+            "requiredAmount": 6
+          },
+          {
+            "completed": true,
+            "id": "craft_item_cleaver",
+            "name": "Multitasking",
+            "lore": "§7Craft a §aCleaver§7."
+          },
+          {
+            "completed": false,
+            "id": "stat_strength",
+            "name": "Strongman",
+            "lore": "§7Reach §c200 §c❁ Strength§7.",
+            "requiredAmount": 200
+          }
+        ],
+        "community": [
+          {
+            "completed": false,
+            "id": "kill_team_treasurite",
+            "name": "Let the StarFall",
+            "tiers": [
+              100000,
+              200000,
+              300000,
+              400000,
+              500000
+            ],
+            "progress": 126955
+          },
+          {
+            "completed": true,
+            "id": "coin_scavenger",
+            "name": "Scavenger",
+            "tiers": [
+              50000000,
+              100000000,
+              150000000,
+              200000000,
+              250000000
+            ],
+            "progress": 678454133
+          },
+          {
+            "completed": true,
+            "id": "kill_slayer_zombie",
+            "name": "Revenant Horror",
+            "tiers": [
+              2000,
+              4000,
+              6000,
+              8000,
+              10000
+            ],
+            "progress": 56939
+          },
+          {
+            "completed": true,
+            "id": "loot_drop",
+            "name": "Lucky Looter",
+            "tiers": [
+              50000,
+              100000,
+              150000,
+              200000,
+              250000
+            ],
+            "progress": 683123
+          },
+          {
+            "completed": true,
+            "id": "summon_sea_creatures",
+            "name": "Poseidon",
+            "tiers": [
+              20000,
+              40000,
+              60000,
+              80000,
+              100000
+            ],
+            "progress": 204516
+          }
+        ]
+      }
+    }
+  }

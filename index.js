@@ -9,6 +9,7 @@ const profileRoute = require("./routes/v1/profile");
 const profilesRoute = require("./routes/v1/profiles");
 const profileItemsRoute = require("./routes/v1/profileItems");
 const profilesItemsRoute = require("./routes/v1/profilesItems");
+const auctionHouseRoute = require("./routes/v1/auctionHouse");
 
 // ? v2
 const profileV2Route = require("./routes/v2/profile");
@@ -57,7 +58,7 @@ app.get("/v1/items/:uuid", profilesItemsRoute);
 app.get("/v1/bingo/:uuid", bingoRoute);
 app.get("/v1/calendar", calendarRoute);
 app.get("/v1/auctions/:uuid", auctionsRoute);
-app.get("/v1/auctionhouse", auctionsRoute);
+app.get("/v1/auctionhouse", auctionHouseRoute);
 
 app.get("/v2/profile/:uuid/:profileid", profileV2Route);
 app.get("/v2/profiles/:uuid", profilesV2Route);

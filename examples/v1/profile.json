@@ -1,0 +1,2315 @@
+{
+    "status": 200,
+    "data": {
+      "username": "DuckySoSkilled",
+      "uuid": "4855c53ee4fb4100997600a92fc50984",
+      "name": "Coconut",
+      "id": "eb33f3d7bdc647df95b29c71aa1abb4b",
+      "rank": "§b[MVP§2+§b]",
+      "hypixelLevel": 98.34453182994108,
+      "karma": 4228495,
+      "isIronman": false,
+      "gamemode": "normal",
+      "last_save": 1663498605865,
+      "first_join": 1663412676183,
+      "fairy_souls": 0,
+      "purse": 2,
+      "bank": 0,
+      "skills": {
+        "farming": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "mining": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "combat": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "foraging": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "fishing": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "enchanting": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "alchemy": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "carpentry": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "runecrafting": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "social": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        },
+        "taming": {
+          "totalXp": 0,
+          "xp": 0,
+          "level": 0,
+          "xpCurrent": 0,
+          "xpForNext": 50,
+          "progress": 0
+        }
+      },
+      "networth": {
+        "no_inventory": true
+      },
+      "weight": {
+        "total_weight": 0,
+        "total_weight_with_overflow": 0,
+        "weight": {
+          "skills": {
+            "farming": {
+              "weight": 0,
+              "weight_overflow": 0
+            },
+            "mining": {
+              "weight": 0,
+              "weight_overflow": 0
+            },
+            "combat": {
+              "weight": 0,
+              "weight_overflow": 0
+            },
+            "foraging": {
+              "weight": 0,
+              "weight_overflow": 0
+            },
+            "fishing": {
+              "weight": 0,
+              "weight_overflow": 0
+            },
+            "enchanting": {
+              "weight": 0,
+              "weight_overflow": 0
+            },
+            "alchemy": {
+              "weight": 0,
+              "weight_overflow": 0
+            },
+            "taming": {
+              "weight": 0,
+              "weight_overflow": 0
+            },
+            "slayer": {
+              "revenant": {
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "tarantula": {
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "sven": {
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "enderman": {
+                "weight": 0,
+                "weight_overflow": 0
+              }
+            },
+            "dungeons": {
+              "catacombs": {
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "classes": {
+                "healer": {
+                  "weight": 0,
+                  "weight_overflow": 0
+                },
+                "mage": {
+                  "weight": 0,
+                  "weight_overflow": 0
+                },
+                "berserk": {
+                  "weight": 0,
+                  "weight_overflow": 0
+                },
+                "archer": {
+                  "total": 0,
+                  "weight": 0,
+                  "weight_overflow": 0
+                },
+                "tank": {
+                  "weight": 0,
+                  "weight_overflow": 0
+                }
+              }
+            }
+          },
+          "senither": {
+            "total": 0,
+            "weight": 0,
+            "weight_overflow": 0,
+            "skills": {
+              "farming": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "mining": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "combat": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "foraging": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "fishing": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "enchanting": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "alchemy": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "taming": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              }
+            },
+            "slayer": {
+              "total": 0,
+              "weight": 0,
+              "weight_overflow": 0,
+              "revenant": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "tarantula": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "sven": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "enderman": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              }
+            },
+            "dungeons": {
+              "total": 0,
+              "weight": 0,
+              "weight_overflow": 0,
+              "catacombs": {
+                "total": 0,
+                "weight": 0,
+                "weight_overflow": 0
+              },
+              "classes": {
+                "healer": {
+                  "total": 0,
+                  "weight": 0,
+                  "weight_overflow": 0
+                },
+                "mage": {
+                  "total": 0,
+                  "weight": 0,
+                  "weight_overflow": 0
+                },
+                "berserk": {
+                  "total": 0,
+                  "weight": 0,
+                  "weight_overflow": 0
+                },
+                "archer": {
+                  "total": 0,
+                  "weight": 0,
+                  "weight_overflow": 0
+                },
+                "tank": {
+                  "total": 0,
+                  "weight": 0,
+                  "weight_overflow": 0
+                }
+              }
+            }
+          },
+          "lily": {
+            "total": 3199.9822249371273,
+            "skills": {
+              "total": 3022.001225415622,
+              "base": 3022.001225415622,
+              "overflow": 0
+            },
+            "slayer": {
+              "total": 33.093708696462656
+            },
+            "catacombs": {
+              "total": 144.88729082504244,
+              "completion": {
+                "base": 46.05641159060439,
+                "master": 0
+              },
+              "experience": 98.83087923443806
+            }
+          }
+        }
+      },
+      "bestiary": {
+        "level": 0,
+        "categories": {
+          "private": {
+            "zombie": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "skeleton": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "spider": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "cave_spider": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "enderman_private": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "slime": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "witch": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            }
+          },
+          "hub": {
+            "zombie_villager": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "unburried_zombie": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "ruin_wolf": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "old_wolf": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            }
+          },
+          "spiders": {
+            "dasher_spider": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "spider_jockey": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "weaver_spider": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "voracious_spider": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "splitter_spider": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "brood_mother_spider": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "respawning_skeleton": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "random_slime": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "arachne_keeper": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "arachne_brood": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "arachne": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            }
+          },
+          "fortress": {
+            "ashfang": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "barbarian_duke_x": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "bladesoul": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "blaze": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "flaming_spider": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "ghast": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "mage_outlaw": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "magma_cube": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "magma_cube_boss": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "matcho": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "charging_mushroom_cow": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "pigman": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "wither_skeleton": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "wither_spectre": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            }
+          },
+          "end": {
+            "enderman": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "obsidian_wither": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "watcher": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "zealot_enderman": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "endermite": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "dragon": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "corrupted_protector": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "voidling_fanatic": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "voidling_extremist": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            }
+          },
+          "caverns": {
+            "invisible_creeper": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "lapis_zombie": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "redstone_pigman": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "emerald_slime": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "diamond_zombie": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "diamond_skeleton": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "caverns_ghost": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "goblin": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "treasure_hoarder": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "ice_walker": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "automaton": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "butterfly": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "team_treasurite": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "sludge": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "thyst": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "worms": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "yog": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            }
+          },
+          "park": {
+            "pack_spirit": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "howling_spirit": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "soul_of_the_alpha": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            }
+          },
+          "spooky": {
+            "trick_or_treater": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "wither_gourd": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "phantom_spirit": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "scary_jerry": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "wraith": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "batty_witch": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "headless_horseman": {
+              "tier": 0,
+              "nextTier": 2,
+              "kills": 0,
+              "killsForNext": 2,
+              "progress": 0,
+              "levelWithProgress": 0
+            }
+          },
+          "catacombs": {
+            "lost_adventurer": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "zombie_grunt": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "zombie_soldier": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "zombie_knight": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "skeleton_grunt": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "skeleton_soldier": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "skeleton_master": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "scared_skeleton": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "diamond_guy": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "dungeon_respawning_skeleton": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "skeletor": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "sniper_skeleton": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "crypt_souleater": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "crypt_dreadlord": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "crypt_tank_zombie": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "super_tank_zombie": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "crypt_lurker": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "cellar_spider": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "watcher_summon_undead": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "lonely_spider": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "shadow_assassin": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "king_midas": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "super_archer": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "crypt_witherskeleton": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            },
+            "zombie_commander": {
+              "tier": 0,
+              "nextTier": 10,
+              "kills": 0,
+              "killsForNext": 10,
+              "progress": 0,
+              "levelWithProgress": 0
+            }
+          }
+        }
+      },
+      "dungeons": {
+        "selected_class": null,
+        "secrets_found": 1661,
+        "classes": {
+          "healer": {
+            "totalXp": 0,
+            "xp": 0,
+            "level": 0,
+            "xpCurrent": 0,
+            "xpForNext": 50,
+            "progress": 0
+          },
+          "mage": {
+            "totalXp": 0,
+            "xp": 0,
+            "level": 0,
+            "xpCurrent": 0,
+            "xpForNext": 50,
+            "progress": 0
+          },
+          "berserk": {
+            "totalXp": 0,
+            "xp": 0,
+            "level": 0,
+            "xpCurrent": 0,
+            "xpForNext": 50,
+            "progress": 0
+          },
+          "archer": {
+            "totalXp": 0,
+            "xp": 0,
+            "level": 0,
+            "xpCurrent": 0,
+            "xpForNext": 50,
+            "progress": 0
+          },
+          "tank": {
+            "totalXp": 0,
+            "xp": 0,
+            "level": 0,
+            "xpCurrent": 0,
+            "xpForNext": 50,
+            "progress": 0
+          }
+        },
+        "catacombs": {
+          "skill": {
+            "totalXp": 0,
+            "xp": 0,
+            "level": 0,
+            "xpCurrent": 0,
+            "xpForNext": 50,
+            "progress": 0
+          },
+          "perks": {
+            "catacombs_boss_luck": 0,
+            "catacombs_looting": 0,
+            "catacombs_intelligence": 0,
+            "catacombs_health": 0,
+            "catacombs_strength": 0,
+            "catacombs_crit_damage": 0,
+            "catacombs_defense": 0,
+            "permanent_speed": 0,
+            "permanent_intelligence": 0,
+            "permanent_health": 0,
+            "permanent_defense": 0,
+            "permanent_strength": 0,
+            "forbidden_blessing": 0,
+            "revive_stone": 0
+          },
+          "highest_tier_completed": null,
+          "floors": {
+            
+          },
+          "master_mode_floors": {
+            
+          }
+        }
+      },
+      "crimson": {
+        "factions": {
+          
+        },
+        "matriarch": {
+          
+        },
+        "kuudra_completed_tiers": {
+          "none": 0,
+          "hot": 0
+        },
+        "dojo": {
+          "DOJO_POINTS_MOB_KB": 0,
+          "DOJO_TIME_MOB_KB": 0,
+          "DOJO_POINTS_WALL_JUMP": 0,
+          "DOJO_TIME_WALL_JUMP": 0,
+          "DOJO_POINTS_ARCHER": 0,
+          "DOJO_TIME_ARCHER": 0,
+          "DOJO_POINTS_SWORD_SWAP": 0,
+          "DOJO_TIME_SWORD_SWAP": 0,
+          "DOJO_POINTS_SNAKE": 0,
+          "DOJO_TIME_SNAKE": 0,
+          "DOJO_POINTS_FIREBALL": 0,
+          "DOJO_TIME_FIREBALL": 0
+        }
+      },
+      "trophy_fish": {
+        "rewards": [
+          
+        ],
+        "fish": {
+          "BLOBFISH": 0,
+          "BLOBFISH_BRONZE": 0,
+          "BLOBFISH_SILVER": 0,
+          "BLOBFISH_GOLD": 0,
+          "BLOBFISH_DIAMOND": 0,
+          "FLYFISH": 0,
+          "FLYFISH_BRONZE": 0,
+          "FLYFISH_SILVER": 0,
+          "FLYFISH_GOLD": 0,
+          "FLYFISH_DIAMOND": 0,
+          "GOLDEN_FISH": 0,
+          "GOLDEN_FISH_BRONZE": 0,
+          "GOLDEN_FISH_SILVER": 0,
+          "GOLDEN_FISH_GOLD": 0,
+          "GOLDEN_FISH_DIAMOND": 0,
+          "GUSHER": 0,
+          "GUSHER_BRONZE": 0,
+          "GUSHER_SILVER": 0,
+          "GUSHER_GOLD": 0,
+          "GUSHER_DIAMOND": 0,
+          "KARATE_FISH": 0,
+          "KARATE_FISH_BRONZE": 0,
+          "KARATE_FISH_SILVER": 0,
+          "KARATE_FISH_GOLD": 0,
+          "KARATE_FISH_DIAMOND": 0,
+          "LAVA_HORSE": 0,
+          "LAVA_HORSE_BRONZE": 0,
+          "LAVA_HORSE_SILVER": 0,
+          "LAVA_HORSE_GOLD": 0,
+          "LAVA_HORSE_DIAMOND": 0,
+          "MANA_RAY": 0,
+          "MANA_RAY_BRONZE": 0,
+          "MANA_RAY_SILVER": 0,
+          "MANA_RAY_GOLD": 0,
+          "MANA_RAY_DIAMOND": 0,
+          "MOLDFIN": 0,
+          "MOLDFIN_BRONZE": 0,
+          "MOLDFIN_SILVER": 0,
+          "MOLDFIN_GOLD": 0,
+          "MOLDFIN_DIAMOND": 0,
+          "OBFUSCATED_FISH_1": 0,
+          "OBFUSCATED_FISH_1_BRONZE": 0,
+          "OBFUSCATED_FISH_1_SILVER": 0,
+          "OBFUSCATED_FISH_1_GOLD": 0,
+          "OBFUSCATED_FISH_1_DIAMOND": 0,
+          "OBFUSCATED_FISH_2": 0,
+          "OBFUSCATED_FISH_2_BRONZE": 0,
+          "OBFUSCATED_FISH_2_SILVER": 0,
+          "OBFUSCATED_FISH_2_GOLD": 0,
+          "OBFUSCATED_FISH_2_DIAMOND": 0,
+          "OBFUSCATED_FISH_3": 0,
+          "OBFUSCATED_FISH_3_BRONZE": 0,
+          "OBFUSCATED_FISH_3_SILVER": 0,
+          "OBFUSCATED_FISH_3_GOLD": 0,
+          "OBFUSCATED_FISH_3_DIAMOND": 0,
+          "SKELETON_FISH": 0,
+          "SKELETON_FISH_BRONZE": 0,
+          "SKELETON_FISH_SILVER": 0,
+          "SKELETON_FISH_GOLD": 0,
+          "SKELETON_FISH_DIAMOND": 0,
+          "SLUGFISH": 0,
+          "SLUGFISH_BRONZE": 0,
+          "SLUGFISH_SILVER": 0,
+          "SLUGFISH_GOLD": 0,
+          "SLUGFISH_DIAMOND": 0,
+          "SOUL_FISH": 0,
+          "SOUL_FISH_BRONZE": 0,
+          "SOUL_FISH_SILVER": 0,
+          "SOUL_FISH_GOLD": 0,
+          "SOUL_FISH_DIAMOND": 0,
+          "STEAMING_HOT_FLOUNDER": 0,
+          "STEAMING_HOT_FLOUNDER_BRONZE": 0,
+          "STEAMING_HOT_FLOUNDER_SILVER": 0,
+          "STEAMING_HOT_FLOUNDER_GOLD": 0,
+          "STEAMING_HOT_FLOUNDER_DIAMOND": 0,
+          "SULPHUR_SKITTER": 0,
+          "SULPHUR_SKITTER_BRONZE": 0,
+          "SULPHUR_SKITTER_SILVER": 0,
+          "SULPHUR_SKITTER_GOLD": 0,
+          "SULPHUR_SKITTER_DIAMOND": 0,
+          "VANILLE": 0,
+          "VANILLE_BRONZE": 0,
+          "VANILLE_SILVER": 0,
+          "VANILLE_GOLD": 0,
+          "VANILLE_DIAMOND": 0,
+          "VOLCANIC_STONEFISH": 0,
+          "VOLCANIC_STONEFISH_BRONZE": 0,
+          "VOLCANIC_STONEFISH_SILVER": 0,
+          "VOLCANIC_STONEFISH_GOLD": 0,
+          "VOLCANIC_STONEFISH_DIAMOND": 0
+        }
+      },
+      "enchanting": {
+        "enchanting": 0,
+        "experimentation": {
+          "simon": {
+            
+          },
+          "pairings": {
+            
+          },
+          "numbers": {
+            
+          },
+          "claims_resets": 0,
+          "claims_resets_timestamp": "None"
+        }
+      },
+      "farming": {
+        "farming": 0,
+        "trapper_quest": {
+          "last_task_time": "None",
+          "pelt_count": 0
+        },
+        "jacob": {
+          "talked": false
+        }
+      },
+      "mining": {
+        "mining": 0,
+        "mithril_powder": {
+          "current": 0,
+          "total": 0
+        },
+        "gemstone_powder": {
+          "current": 0,
+          "total": 0
+        },
+        "hotM_tree": {
+          "tokens": {
+            "current": 0,
+            "total": 0
+          },
+          "level": 0,
+          "perks": [
+            
+          ],
+          "disabled_perks": [
+            
+          ],
+          "last_reset": null,
+          "pickaxe_ability": null
+        },
+        "crystal_hollows": {
+          "last_pass": null,
+          "crystals": [
+            {
+              "name": "Jade Crystal",
+              "id": "jade_crystal",
+              "total_placed": 0,
+              "statues_placed": [
+                
+              ],
+              "state": "Not Found"
+            },
+            {
+              "name": "Amber Crystal",
+              "total_placed": 0,
+              "king_quests_completed": 0,
+              "state": "Not Found"
+            },
+            {
+              "name": "Sapphire Crystal",
+              "total_placed": 0,
+              "parts_delivered": [
+                
+              ],
+              "state": "Not Found"
+            },
+            {
+              "name": "Amethyst Crystal",
+              "total_placed": 0,
+              "state": "Not Found"
+            },
+            {
+              "name": "Topaz Crystal",
+              "total_placed": 0,
+              "state": "Not Found"
+            },
+            {
+              "name": "Jasper Crystal",
+              "total_placed": 0,
+              "state": "Not Found"
+            },
+            {
+              "name": "Ruby Crystal",
+              "total_placed": 0,
+              "state": "Not Found"
+            }
+          ]
+        },
+        "forge": [
+          
+        ]
+      },
+      "slayer": {
+        "zombie": {
+          "xp": 0,
+          "level": 0,
+          "xpForNext": 5,
+          "progress": 0,
+          "kills": {
+            
+          }
+        },
+        "spider": {
+          "xp": 0,
+          "level": 0,
+          "xpForNext": 5,
+          "progress": 0,
+          "kills": {
+            
+          }
+        },
+        "wolf": {
+          "xp": 0,
+          "level": 0,
+          "xpForNext": 5,
+          "progress": 0,
+          "kills": {
+            
+          }
+        },
+        "enderman": {
+          "xp": 0,
+          "level": 0,
+          "xpForNext": 10,
+          "progress": 0,
+          "kills": {
+            
+          }
+        },
+        "blaze": {
+          "xp": 0,
+          "level": 0,
+          "xpForNext": 10,
+          "progress": 0,
+          "kills": {
+            
+          }
+        }
+      },
+      "milestones": {
+        "fishing": {
+          "next_pet": 250,
+          "sea_creatures_killed": 0,
+          "nextRarity": 250,
+          "progress": 0
+        },
+        "mining": {
+          "next_pet": 2500,
+          "ores_mined": 0,
+          "nextRarity": 2500,
+          "progress": 0
+        }
+      },
+      "missing": null,
+      "kills": {
+        "types": [
+          
+        ]
+      },
+      "deaths": {
+        "totalDeaths": 1,
+        "types": [
+          {
+            "name": "Void",
+            "id": "void",
+            "deaths": 1
+          }
+        ]
+      },
+      "armor": {
+        "helmet": {
+          
+        },
+        "chestplate": {
+          
+        },
+        "leggings": {
+          
+        },
+        "boots": {
+          
+        }
+      },
+      "equipment": {
+        "necklace": [
+          
+        ],
+        "cloak": [
+          
+        ],
+        "belt": [
+          
+        ],
+        "gloves": [
+          
+        ]
+      },
+      "pets": {
+        "auto_pet": {
+          
+        },
+        "pets": [
+          
+        ]
+      },
+      "talismans": {
+        "common": [
+          
+        ],
+        "uncommon": [
+          
+        ],
+        "rare": [
+          
+        ],
+        "epic": [
+          
+        ],
+        "legendary": [
+          
+        ],
+        "mythic": [
+          
+        ]
+      },
+      "collections": [
+        {
+          "name": "Cocoa Beans",
+          "id": "INK_SACK:3",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Carrot",
+          "id": "CARROT_ITEM",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Cactus",
+          "id": "CACTUS",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Raw Chicken",
+          "id": "RAW_CHICKEN",
+          "category": "FARMING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Sugar Cane",
+          "id": "SUGAR_CANE",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Pumpkin",
+          "id": "PUMPKIN",
+          "category": "FARMING",
+          "maxTiers": 11,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Wheat",
+          "id": "WHEAT",
+          "category": "FARMING",
+          "maxTiers": 11,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Seeds",
+          "id": "SEEDS",
+          "category": "FARMING",
+          "maxTiers": 6,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Mushroom",
+          "id": "MUSHROOM_COLLECTION",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Raw Rabbit",
+          "id": "RABBIT",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Nether Wart",
+          "id": "NETHER_STALK",
+          "category": "FARMING",
+          "maxTiers": 12,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Mutton",
+          "id": "MUTTON",
+          "category": "FARMING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Melon",
+          "id": "MELON",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Potato",
+          "id": "POTATO_ITEM",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Leather",
+          "id": "LEATHER",
+          "category": "FARMING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Raw Porkchop",
+          "id": "PORK",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Feather",
+          "id": "FEATHER",
+          "category": "FARMING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Lapis Lazuli",
+          "id": "INK_SACK:4",
+          "category": "MINING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Redstone",
+          "id": "REDSTONE",
+          "category": "MINING",
+          "maxTiers": 16,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Coal",
+          "id": "COAL",
+          "category": "MINING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Mycelium",
+          "id": "MYCEL",
+          "category": "MINING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "End Stone",
+          "id": "ENDER_STONE",
+          "category": "MINING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Nether Quartz",
+          "id": "QUARTZ",
+          "category": "MINING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Sand",
+          "id": "SAND",
+          "category": "MINING",
+          "maxTiers": 7,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Iron Ingot",
+          "id": "IRON_INGOT",
+          "category": "MINING",
+          "maxTiers": 12,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Gemstone",
+          "id": "GEMSTONE_COLLECTION",
+          "category": "MINING",
+          "maxTiers": 11,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Obsidian",
+          "id": "OBSIDIAN",
+          "category": "MINING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Diamond",
+          "id": "DIAMOND",
+          "category": "MINING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Cobblestone",
+          "id": "COBBLESTONE",
+          "category": "MINING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Glowstone Dust",
+          "id": "GLOWSTONE_DUST",
+          "category": "MINING",
+          "maxTiers": 7,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Gold Ingot",
+          "id": "GOLD_INGOT",
+          "category": "MINING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Gravel",
+          "id": "GRAVEL",
+          "category": "MINING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Hard Stone",
+          "id": "HARD_STONE",
+          "category": "MINING",
+          "maxTiers": 7,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Mithril",
+          "id": "MITHRIL_ORE",
+          "category": "MINING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Emerald",
+          "id": "EMERALD",
+          "category": "MINING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Red Sand",
+          "id": "SAND:1",
+          "category": "MINING",
+          "maxTiers": 8,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Ice",
+          "id": "ICE",
+          "category": "MINING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Sulphur",
+          "id": "SULPHUR_ORE",
+          "category": "MINING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Netherrack",
+          "id": "NETHERRACK",
+          "category": "MINING",
+          "maxTiers": 5,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Ender Pearl",
+          "id": "ENDER_PEARL",
+          "category": "COMBAT",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Chili Pepper",
+          "id": "CHILI_PEPPER",
+          "category": "COMBAT",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Slimeball",
+          "id": "SLIME_BALL",
+          "category": "COMBAT",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Magma Cream",
+          "id": "MAGMA_CREAM",
+          "category": "COMBAT",
+          "maxTiers": 8,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Ghast Tear",
+          "id": "GHAST_TEAR",
+          "category": "COMBAT",
+          "maxTiers": 7,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Gunpowder",
+          "id": "SULPHUR",
+          "category": "COMBAT",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Rotten Flesh",
+          "id": "ROTTEN_FLESH",
+          "category": "COMBAT",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Spider Eye",
+          "id": "SPIDER_EYE",
+          "category": "COMBAT",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Bone",
+          "id": "BONE",
+          "category": "COMBAT",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Blaze Rod",
+          "id": "BLAZE_ROD",
+          "category": "COMBAT",
+          "maxTiers": 8,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "String",
+          "id": "STRING",
+          "category": "COMBAT",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Acacia Wood",
+          "id": "LOG_2",
+          "category": "FORAGING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Spruce Wood",
+          "id": "LOG:1",
+          "category": "FORAGING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Jungle Wood",
+          "id": "LOG:3",
+          "category": "FORAGING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Birch Wood",
+          "id": "LOG:2",
+          "category": "FORAGING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Oak Wood",
+          "id": "LOG",
+          "category": "FORAGING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Dark Oak Wood",
+          "id": "LOG_2:1",
+          "category": "FORAGING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Lily Pad",
+          "id": "WATER_LILY",
+          "category": "FISHING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Prismarine Shard",
+          "id": "PRISMARINE_SHARD",
+          "category": "FISHING",
+          "maxTiers": 6,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Ink Sac",
+          "id": "INK_SACK",
+          "category": "FISHING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Raw Fish",
+          "id": "RAW_FISH",
+          "category": "FISHING",
+          "maxTiers": 11,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Pufferfish",
+          "id": "RAW_FISH:3",
+          "category": "FISHING",
+          "maxTiers": 10,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Clownfish",
+          "id": "RAW_FISH:2",
+          "category": "FISHING",
+          "maxTiers": 7,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Raw Salmon",
+          "id": "RAW_FISH:1",
+          "category": "FISHING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Magmafish",
+          "id": "MAGMA_FISH",
+          "category": "FISHING",
+          "maxTiers": 12,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Prismarine Crystals",
+          "id": "PRISMARINE_CRYSTALS",
+          "category": "FISHING",
+          "maxTiers": 7,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Clay",
+          "id": "CLAY_BALL",
+          "category": "FISHING",
+          "maxTiers": 5,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        },
+        {
+          "name": "Sponge",
+          "id": "SPONGE",
+          "category": "FISHING",
+          "maxTiers": 9,
+          "tier": 0,
+          "amount": 0,
+          "contributions": [
+            
+          ]
+        }
+      ],
+      "minions": {
+        "uniqueMinions": 0,
+        "minionSlots": 5,
+        "bonusSlots": 0,
+        "nextSlot": 0,
+        "unlockedMinions": [
+          
+        ]
+      },
+      "cakebag": [
+        
+      ]
+    }
+  }

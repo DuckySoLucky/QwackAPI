@@ -73,6 +73,7 @@ for (const stat in BASE_STATS) {
     calculation[stat] = [];
 }
 
+calculation['statsMultiplier'] ??= [];
 calculation['strengthMultiplier'] ??= [];
 calculation['healthMultiplier'] ??= [];
 calculation['defenseMultiplier'] ??= [];
@@ -93,20 +94,20 @@ async function getStats(player, profileData, profile, uuid, res) {
     const pets = getPets(profile)
     const mining = getMining(player, profile)
     const farming = getFarming(player, profile)
-    let statsMultiplier = 0, temp = 0, templist = [];
+    let statsMultiplier = 0, temp = 0;
 
     const [armor, talismans, equipment, accessories, inventory, cakebag,] =
     await Promise.all([
         getArmor(profile),
         getTalismans(profile),
         getEquipment(profile),
-        decodeData(Buffer.from(profile.talisman_bag.data, "base64")),
-        decodeData(Buffer.from(profile.inv_contents.data, "base64")),
+        profile?.talisman_bag?.data ? decodeData(Buffer.from(profile?.talisman_bag?.data, "base64")) : null,
+        profile?.inv_contents?.data ? decodeData(Buffer.from(profile?.inv_contents?.data, "base64")) : null,
         getCakeBag(profile),   
     ]);
 
     // ? Bestiary
-    if (bestiaryLevel) {
+    if (bestiaryLevel > 0) {
         BASE_STATS['health'] += (toFixed(bestiaryLevel, 0) * 2);
         calculation['health'].push(`Bestiary Level Bonus: ${toFixed(bestiaryLevel, 0) * 2} | ${bestiaryLevel} * 2`);
     }
@@ -118,14 +119,14 @@ async function getStats(player, profileData, profile, uuid, res) {
     }
 
     // ? Catacombs
-    if (catacombsLevel) {
+    if (catacombsLevel > 0) {
         toFixed(catacombsLevel, 0) * 2 > 50 ?  BASE_STATS['health'] += 50 : BASE_STATS['health'] += (toFixed(catacombsLevel, 0) * 2);
         calculation['health'].push(`Catacombs Levels Bonus: ${toFixed(catacombsLevel, 0) * 2} | ${toFixed(catacombsLevel, 0) * 2 > 50 ? 50 : catacombsLevel} * 2`);
     }
 
     // ? Reaper Peppers
     if (profile.reaper_peppers_eaten) {
-        BASE_STATS['health'] += (profile.reaper_peppers_eaten * 2);
+        BASE_STATS['health'] += (profile?.reaper_peppers_eaten * 2);
         calculation['health'].push(`Reaper Peppers Eaten: ${profile.reaper_peppers_eaten * 2} | ${profile.reaper_peppers_eaten} * 2`);
     }
 
@@ -136,9 +137,9 @@ async function getStats(player, profileData, profile, uuid, res) {
     }
 
     // ? Jacob's Farming Shop
-    if (farming.jacob.perks.double_drops) {
-        BASE_STATS['farming_fortune'] += farming.jacob.perks.double_drops * 2;
-        calculation['farming_fortune'].push(`Jacob's Farming Shop: ${farming.jacob.perks.double_drops} * 2 = ${farming.jacob.perks.double_drops * 2}`);
+    if (farming?.jacob.perks?.double_drops) {
+        BASE_STATS['farming_fortune'] += farming?.jacob.perks?.double_drops * 2;
+        calculation['farming_fortune'].push(`Jacob's Farming Shop: ${farming.jacob?.perks?.double_drops} * 2 = ${farming.jacob?.perks?.double_drops * 2}`);
     }
 
     // ? Permanent stats from Wither Essence Shop 
@@ -219,27 +220,29 @@ async function getStats(player, profileData, profile, uuid, res) {
 
     // ? Accessories
     let talismanDupes = [];
-    for (const item of Object.keys(accessories.i)) {
-        const talisman = accessories.i[item]
-        if (Object.keys(talisman).length === 0) continue;
-
-        // ? Temporary talisman dupe fix
-        if (talismanDupes.includes(talisman.tag.ExtraAttributes.id)) continue;
-        talismanDupes.push(talisman.tag.ExtraAttributes.id)
-
-        for (const [stat, value] of Object.entries(getStatsFromItem(talisman))) {
-            BASE_STATS[stat] += value;
-            calculation[stat].push(`${capitalize(talisman.tag.ExtraAttributes.id)}: ${value} | ${value}`);
+    if (accessories?.i.length > 0) {
+        for (const item of Object.keys(accessories.i)) {
+            const talisman = accessories.i[item]
+            if (Object.keys(talisman).length === 0) continue;
+    
+            // ? Temporary talisman dupe fix
+            if (talismanDupes.includes(talisman.tag.ExtraAttributes.id)) continue;
+            talismanDupes.push(talisman.tag.ExtraAttributes.id)
+    
+            for (const [stat, value] of Object.entries(getStatsFromItem(talisman))) {
+                BASE_STATS[stat] += value;
+                calculation[stat].push(`${capitalize(talisman.tag.ExtraAttributes.id)}: ${value} | ${value}`);
+            }
+    
+            if (talisman.tag.ExtraAttributes.id == 'NIGHT_CRYSTAL' || talisman.tag.ExtraAttributes.id == 'DAY_CRYSTAL') {
+                talismanDupes.push('NIGHT_CRYSTAL'); talismanDupes.push('DAY_CRYSTAL');
+                BASE_STATS['health'] += 5;
+                BASE_STATS['strength'] += 5;
+                calculation['health'].push(`${capitalize(talisman.tag.ExtraAttributes.id)} Ability: 5 | 5`);
+                calculation['strength'].push(`${capitalize(talisman.tag.ExtraAttributes.id)} Ability: 5 | 5`);
+            }        
         }
-
-        if (talisman.tag.ExtraAttributes.id == 'NIGHT_CRYSTAL' || talisman.tag.ExtraAttributes.id == 'DAY_CRYSTAL') {
-            talismanDupes.push('NIGHT_CRYSTAL'); talismanDupes.push('DAY_CRYSTAL');
-            BASE_STATS['health'] += 5;
-            BASE_STATS['strength'] += 5;
-            calculation['health'].push(`${capitalize(talisman.tag.ExtraAttributes.id)} Ability: 5 | 5`);
-            calculation['strength'].push(`${capitalize(talisman.tag.ExtraAttributes.id)} Ability: 5 | 5`);
-        }        
-    }
+    } 
 
     // ? Magical Power
     let magicalPower = 0;
@@ -255,15 +258,17 @@ async function getStats(player, profileData, profile, uuid, res) {
     }
 
     // ? Accessory reforge
-    for (const [stat, value] of Object.entries(reforges[currentReforge].reforge)) {
-        BASE_STATS[stat] += value * magicalPower;
-        calculation[stat].push(`${capitalize(currentReforge)} Reforge: ${value * magicalPower} | ${value} * ${magicalPower}`);
-    }
-
-     // ? Power Bonus from Reforge
-    for (const [stat, value] of Object.entries(reforges[currentReforge].power_bonus)) {
-        BASE_STATS[stat] += value;
-        calculation[stat].push(`${currentReforge} Reforge Bonus: ${value} | ${value}`);
+    if (reforges[currentReforge]?.reforge) {
+        for (const [stat, value] of Object.entries(reforges[currentReforge].reforge)) {
+            BASE_STATS[stat] += value * magicalPower;
+            calculation[stat].push(`${capitalize(currentReforge)} Reforge: ${value * magicalPower} | ${value} * ${magicalPower}`);
+        }
+    
+         // ? Power Bonus from Reforge
+        for (const [stat, value] of Object.entries(reforges[currentReforge].power_bonus)) {
+            BASE_STATS[stat] += value;
+            calculation[stat].push(`${currentReforge} Reforge Bonus: ${value} | ${value}`);
+        }
     }
 
    // ? Heart of the Mountain
@@ -278,9 +283,9 @@ async function getStats(player, profileData, profile, uuid, res) {
    BASE_STATS['mining_speed'] += ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed * 20) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2 * 40) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness);
    BASE_STATS['mining_fortune'] += ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2 * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness);
 
-    if (seasonedMineman != 0) calculation['mining_wisdom'].push(`Seasoned Mineman: ${5 + seasonedMineman * 0.1} | 5 + (${seasonedMineman} * 0.1)`);
-    calculation['mining_speed'].push(`Mining Speed: ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed * 20) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2 * 40) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness)} | ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed)} * 20 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2)} * 40 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50)} * ${miningMadness}`);
-    calculation['mining_fortune'].push(`Mining Fortune: ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2 * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness)} | ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune)} * 5 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2)} * 5 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50)} * ${miningMadness}`);
+    if (seasonedMineman > 0) calculation['mining_wisdom'].push(`Seasoned Mineman: ${5 + seasonedMineman * 0.1} | 5 + (${seasonedMineman} * 0.1)`);
+    if (((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed * 20) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2 * 40) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness) > 0) calculation['mining_speed'].push(`Mining Speed: ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed * 20) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2 * 40) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness)} | ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed') ? 0 : miningSpeed)} * 20 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_speed_2') ? 0 : miningSpeed2)} * 40 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50)} * ${miningMadness}`);
+    if (((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2 * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness) > 0) calculation['mining_fortune'].push(`Mining Fortune: ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2 * 5) + ((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50 * miningMadness)} | ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune') ? 0 : miningFortune)} * 5 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_fortune_2') ? 0 : miningFortune2)} * 5 + ${((mining.hotM_tree.disabled_perks ?? []).includes('mining_madness') ? 0 : 50)} * ${miningMadness}`);
     
     // ? Harp 
     for (const harp in profile.harp_quest) {
