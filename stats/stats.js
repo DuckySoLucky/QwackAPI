@@ -422,7 +422,7 @@ async function getStats(player, profileData, profile, uuid, res) {
 
     if (statsMultiplier > 0) {
         for (const stat of Object.keys(BASE_STATS)) {
-            if (stat.includes('fortune' || stat == 'pristine')) continue;
+            if (stat.includes('fortune' || stat == 'pristine' || stat == 'effective_health')) continue;
             BASE_STATS[stat] += BASE_STATS[stat] * statsMultiplier;
         }
     }
