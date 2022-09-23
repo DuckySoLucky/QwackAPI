@@ -15,6 +15,7 @@ This API was made using the [skyHelperAPI](https://github.com/altpapier/skyhelpe
 - `stats` Endpoint <br/>
 - Description in `fetchur` Endpoint <br/>
 - `farming`, `enchanting`, `auto_pet` tag in `/profile(s)` Endpoints <br/>
+- Current reforge, tunings etc.. In the `/profile(s)` Endpoints <br/>
 - Better pets display in `/profile(s)` Endpoint <br/>
 - And a lot more.. <br/>
 
