@@ -25,7 +25,7 @@
     "lilyweight": "^2.7.0",
     "moment": "^2.29.4",
     "nodemon": "^2.0.20",
-    "prismarine-nbt": "^1.6.0",
+    "prismarine-nbt": "^2.2.1",
     "util": "^0.12.4"
   },
   "engines": {
