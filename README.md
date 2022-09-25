@@ -6,7 +6,7 @@ A hypixel skyblock API wrapper containing features that the [SkyHelper](https://
 
 This API was made using the [skyHelperAPI](https://github.com/altpapier/skyhelperAPI), support them on [Patreon](https://www.patreon.com/skyhelper)
 
-## What does QwackAPI have but SkyHelper doesn't?
+## Difference between QwackAPI and SkyHelperAPI
 
 - `auctions` Endpoint <br/>
 - `auctionHouse` Endpoint <br/>
