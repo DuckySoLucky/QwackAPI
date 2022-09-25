@@ -25,7 +25,7 @@ const getMissing = require("../stats/missing");
 const getOldNetworth = require("../stats/networth");
 const getBestiary = require("../stats/bestiary");
 const getContent = require("../stats/items");
-const { getPrices, getNetworth } = require("skyhelper-networth")
+const { getPrices, getNetworth } = require("skyhelper-networth");
 const { isUuid } = require("./uuid");
 
 let prices = {};
@@ -114,11 +114,7 @@ module.exports = {
     const profile = profileData.members[uuid];
     const [networth, weight, missing, armor, equipment, talismans, cakebag] =
       await Promise.all([
-        getNetworth(
-          profile,
-          profileData?.banking?.balance,
-          { prices }
-        ),
+        getNetworth(profile, profileData?.banking?.balance, { prices }),
         getWeight(profile, uuid),
         getMissing(profile),
         getArmor(profile),
@@ -331,7 +327,12 @@ module.exports = {
       });
     return result.sort((a, b) => b.last_save - a.last_save);
   },
-  parseV2Profiles: async function parseV2Profile(player, profileRes, uuid, res) {
+  parseV2Profiles: async function parseV2Profile(
+    player,
+    profileRes,
+    uuid,
+    res
+  ) {
     if (
       profileRes.data.hasOwnProperty("profiles") &&
       profileRes.data.profiles == null
@@ -351,11 +352,7 @@ module.exports = {
       const profile = profileData.members[uuid];
       const [networth, weight, missing, armor, equipment, talismans, cakebag] =
         await Promise.all([
-          getNetworth(
-            profile,
-            profileData?.banking?.balance,
-            { prices }
-          ),
+          getNetworth(profile, profileData?.banking?.balance, { prices }),
           getWeight(profile, uuid),
           getMissing(profile),
           getArmor(profile),
