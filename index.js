@@ -62,7 +62,7 @@ app.get("/v1/auctionhouse", auctionHouseRoute);
 
 app.get("/v2/profile/:uuid/:profileid", profileV2Route);
 app.get("/v2/profiles/:uuid", profilesV2Route);
-app.get("/v2/networth", networthRoute);
+app.get("/v2/networth/:uuid/:profileid", networthRoute);
 app.get("/v2/stats/:uuid/:profileid", statsRoute);
 
 app.use(NotFound);
