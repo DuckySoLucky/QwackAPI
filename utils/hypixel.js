@@ -104,7 +104,7 @@ module.exports = {
       });
     }
 
-    if (!isValidProfile(profileData.members, uuid)) {
+    if (!Object.keys(profileData.members).includes(uuid)) {
       return res.status(404).json({
         status: 404,
         reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'`,
@@ -195,7 +195,7 @@ module.exports = {
       });
     }
 
-    if (!isValidProfile(profileData.members, uuid)) {
+    if (!Object.keys(profileData.members).includes(uuid)) {
       return res.status(404).json({
         status: 404,
         reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'`,
@@ -266,7 +266,7 @@ module.exports = {
     const result = [];
 
     for (const profileData of profileRes.data.profiles) {
-      if (!isValidProfile(profileData.members, uuid)) {
+      if (!Object.keys(profileData.members).includes(uuid)) {
         continue;
       }
       const profile = profileData.members[uuid];
@@ -321,7 +321,7 @@ module.exports = {
       });
     }
     if (result.length == 0)
-      res.status(404).json({
+      return res.status(404).json({
         status: 404,
         reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
       });
@@ -346,7 +346,7 @@ module.exports = {
     const result = [];
 
     for (const profileData of profileRes.data.profiles) {
-      if (!isValidProfile(profileData.members, uuid)) {
+      if (!Object.keys(profileData.members).includes(uuid)) {
         continue;
       }
       const profile = profileData.members[uuid];
@@ -442,7 +442,7 @@ module.exports = {
       });
     }
 
-    if (!isValidProfile(profileData.members, uuid)) {
+    if (!Object.keys(profileData.members).includes(uuid)) {
       return res.status(404).json({
         status: 404,
         reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'`,
@@ -480,7 +480,7 @@ module.exports = {
     const result = [];
 
     for (const profileData of profileRes.data.profiles) {
-      if (!isValidProfile(profileData.members, uuid)) {
+      if (!Object.keys(profileData.members).includes(uuid)) {
         continue;
       }
       const profile = profileData.members[uuid];
