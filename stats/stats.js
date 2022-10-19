@@ -146,15 +146,6 @@ async function getStats(player, profileData, profile, uuid, res) {
         }
     }
 
-    // ? Fairy souls
-    if (profile.fairy_exchanges) {
-        const bonusStats = getFairyBonus(profile.fairy_exchanges);
-        for (const [key, value] of Object.entries(bonusStats)) {
-            BASE_STATS[key] += value;
-            calculation[key].push(`Fairy Souls: ${value} | ${profile.fairy_exchanges} Exchanges`);
-        }
-    }
-
     // ? Slayer
     if (slayer) {
         for (const [name, slayerData] of Object.entries(slayer)) {
@@ -713,23 +704,6 @@ function getPetData(calculation, BASE_STATS, mining, collection, profile, profil
         strengthMultiplier: strengthMultiplier,
         bonusAttackSpeedMultiplier: bonusAttackSpeedMultiplier,
     }
-}
-
-function getFairyBonus(fairyExchanges) {
-    const bonus = {};
-  
-    bonus.speed = Math.floor(fairyExchanges / 10);
-    bonus.health = 0;
-    bonus.defense = 0;
-    bonus.strength = 0;
-  
-    for (let i = 0; i < fairyExchanges; i++) {
-      bonus.health += 3 + Math.floor(i / 2);
-      bonus.defense += (i + 1) % 5 == 0 ? 2 : 1;
-      bonus.strength += (i + 1) % 5 == 0 ? 2 : 1;
-    }
-  
-    return bonus;
 }
 
 function getBonusStats(skill, type, maxLvL) {

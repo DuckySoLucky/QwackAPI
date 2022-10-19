@@ -132,7 +132,7 @@ module.exports = {
       karma: player.karma,
       isIronman: profileData?.game_mode === "ironman" ? true : false,
       selected: profileData.selected ?? false,
-      gamemode: profileData?.game_mode ?? "normal",
+      gamemode: profileData?.game_mode || "normal",
       last_save: profile.last_save,
       first_join: profile.first_join,
       fairy_souls: profile.fairy_souls_collected || 0,
@@ -224,7 +224,7 @@ module.exports = {
       karma: player.karma,
       isIronman: profileData?.game_mode === "ironman" ? true : false,
       selected: profileData.selected ?? false,
-      gamemode: profileData?.game_mode ?? "normal",
+      gamemode: profileData?.game_mode || "normal",
       last_save: profile.last_save,
       first_join: profile.first_join,
       fairy_souls: profile.fairy_souls_collected || 0,
@@ -293,7 +293,7 @@ module.exports = {
         karma: player.karma,
         isIronman: profileData?.game_mode === "ironman" ? true : false,
         selected: profileData.selected ?? false,
-        gamemode: profileData?.game_mode ?? "normal",
+        gamemode: profileData?.game_mode || "normal",
         last_save: profile.last_save,
         first_join: profile.first_join,
         fairy_souls: profile.fairy_souls_collected || 0,
@@ -328,7 +328,7 @@ module.exports = {
         status: 404,
         reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
       });
-    return result.sort((a, b) => b.selected || b.last_save - a.last_save);
+    return result.sort((a, b) => b.selected - a.selected);
   },
   parseV2Profiles: async function parseV2Profile(
     player,
@@ -374,7 +374,7 @@ module.exports = {
         karma: player.karma,
         isIronman: profileData?.game_mode === "ironman" ? true : false,
         selected: profileData.selected ?? false,
-        gamemode: profileData?.game_mode ?? "normal",
+        gamemode: profileData?.game_mode || "normal",
         last_save: profile.last_save,
         first_join: profile.first_join,
         fairy_souls: profile.fairy_souls_collected || 0,
@@ -409,7 +409,7 @@ module.exports = {
         status: 404,
         reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
       });
-    return result.sort((a, b) => b.selected || b.last_save - a.last_save);
+    return result.sort((a, b) => b.selected - a.selected);
   },
   parseProfileItems: async function parseProfileItems(
     player,
@@ -503,7 +503,7 @@ module.exports = {
         status: 404,
         reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
       });
-    return result.sort((a, b) => b.selected || b.last_save - a.last_save);
+    return result.sort((a, b) => b.selected - a.selected);
   },
   parseBingoProfile: function parseBingoProfile(profile, bingo, uuid) {
     return {
@@ -512,10 +512,3 @@ module.exports = {
     };
   },
 };
-
-function isValidProfile(profileMembers, uuid) {
-  return (
-    profileMembers.hasOwnProperty(uuid) &&
-    profileMembers[uuid].last_save != undefined
-  );
-}
