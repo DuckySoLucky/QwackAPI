@@ -13,10 +13,10 @@ module.exports = wrap(async function (req, res) {
   if (!isUuid(uuid)) {
     const mojang_response = await makeRequest(
       res,
-      `https://api.ashcon.app/mojang/v2/user/${uuid}`
+      `https://api.ashcon.app/mojang/v2/uuid/${uuid}`
     );
-    if (mojang_response?.data?.uuid) {
-      uuid = mojang_response.data.uuid.replace(/-/g, "");
+    if (mojang_response?.data) {
+      uuid = mojang_response.data.replace(/-/g, "");
     }
   }
 

@@ -1,17 +1,17 @@
 //CREDIT: https://github.com/Senither/hypixel-skyblock-facade (Modified)
 const { isUuid } = require("../../utils/uuid");
 const { makeRequest, wrap } = require("../../utils/request");
-const { parseHypixel, parseV2Profiles } = require("../../utils/hypixel");
+const { parseHypixel, parseProfiles } = require("../../utils/hypixel");
 
 module.exports = wrap(async function (req, res) {
   let uuid = req.params.uuid;
   if (!isUuid(uuid)) {
     const mojang_response = await makeRequest(
       res,
-      `https://api.ashcon.app/mojang/v2/user/${uuid}`
+      `https://api.ashcon.app/mojang/v2/uuid/${uuid}`
     );
-    if (mojang_response?.data?.uuid) {
-      uuid = mojang_response.data.uuid.replace(/-/g, "");
+    if (mojang_response?.data) {
+      uuid = mojang_response.data.replace(/-/g, "");
     }
   }
 
@@ -25,9 +25,10 @@ module.exports = wrap(async function (req, res) {
       `https://api.hypixel.net/skyblock/profiles?key=${process.env.HYPIXEL_API_KEY}&uuid=${uuid}`
     ),
   ]);
+
   const player = parseHypixel(playerRes, uuid, res);
 
-  const profile = await parseV2Profiles(player, profileRes, uuid, res);
+  const profile = await parseProfiles(player, profileRes, uuid, res);
 
   return res.status(200).json({ status: 200, data: profile });
 });

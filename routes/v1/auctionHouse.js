@@ -16,12 +16,10 @@ const retrieveAuctions = async function (res) {
           "ENOENT: no such file or directory, open '../data/auctions.json'"
         )
     ) {
-      return res
-        .status(102)
-        .json({
-          status: 102,
-          data: "Auctions haven't been updated yet. Please wait a bit",
-        });
+      return res.status(102).json({
+        status: 102,
+        data: "Auctions haven't been updated yet. Please wait a bit",
+      });
     } else {
       return res.status(404).json({ status: 404, data: error.toString() });
     }
@@ -44,7 +42,7 @@ module.exports = wrap(async function (req, res) {
         query = `player=${((
           await makeRequest(
             res,
-            `https://api.ashcon.app/mojang/v2/user/${query.split("=")[1]}`
+            `https://api.ashcon.app/mojang/v2/uuid/${query.split("=")[1]}`
           )
         )?.data?.uuid).replace(/-/g, "")}`;
       }

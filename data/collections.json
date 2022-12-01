@@ -1659,7 +1659,7 @@
     "name": "Ice",
     "id": "ICE",
     "category": "MINING",
-    "maxTiers": 10,
+    "maxTiers": 11,
     "tiers": [
       {
         "tier": 1,
@@ -1700,6 +1700,10 @@
       {
         "tier": 10,
         "amountRequired": 250000
+      },
+      {
+        "tier": 11,
+        "amountRequired": 500000
       }
     ]
   },
