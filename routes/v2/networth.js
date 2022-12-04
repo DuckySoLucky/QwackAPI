@@ -19,8 +19,8 @@ module.exports = wrap(async function (req, res) {
       res,
       `https://api.ashcon.app/mojang/v2/uuid/${uuid}`
     );
-    if (mojang_response?.data?.uuid)
-      uuid = mojang_response.data.uuid.replace(/-/g, "");
+    if (mojang_response?.data)
+      uuid = mojang_response.data.replace(/-/g, "");
   }
 
   const profileRes = (
