@@ -1,6 +1,5 @@
 //CREDIT: https://github.com/Senither/hypixel-skyblock-facade (Modified)
 
-// ? v1
 const auctionsRoute = require("./routes/v1/auctions");
 const bingoRoute = require("./routes/v1/bingo");
 const calendarRoute = require("./routes/v1/calendar");
@@ -11,9 +10,6 @@ const profileItemsRoute = require("./routes/v1/profileItems");
 const profilesItemsRoute = require("./routes/v1/profilesItems");
 const auctionHouseRoute = require("./routes/v1/auctionHouse");
 
-// ? v2
-const profileV2Route = require("./routes/v2/profile");
-const profilesV2Route = require("./routes/v2/profiles");
 const networthRoute = require("./routes/v2/networth");
 const statsRoute = require("./routes/v2/stats");
 
@@ -60,8 +56,8 @@ app.get("/v1/calendar", calendarRoute);
 app.get("/v1/auctions/:uuid", auctionsRoute);
 app.get("/v1/auctionhouse", auctionHouseRoute);
 
-app.get("/v2/profile/:uuid/:profileid", profileV2Route);
-app.get("/v2/profiles/:uuid", profilesV2Route);
+app.get("/v2/profile/:uuid/:profileid", profileRoute);
+app.get("/v2/profiles/:uuid", profilesRoute);
 app.get("/v2/networth/:uuid/:profileid", networthRoute);
 app.get("/v2/stats/:uuid/:profileid", statsRoute);
 
