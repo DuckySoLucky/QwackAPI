@@ -17,6 +17,8 @@ This API was made using the [skyHelperAPI](https://github.com/altpapier/skyhelpe
 - `farming`, `enchanting`, `auto_pet` tag in `/profile(s)` Endpoints <br/>
 - Current reforge, tunings etc.. In the `/profile(s)` Endpoints <br/>
 - Better pets display in `/profile(s)` Endpoint <br/>
+- More Crimson Isle information <br/>
+- New Minions, Accessories and other stuff <br/>
 - And a lot more.. <br/>
 
 # Installing
