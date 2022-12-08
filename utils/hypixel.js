@@ -199,7 +199,6 @@ module.exports = {
         bestiary: getBestiary(profile),
         dungeons: getDungeons(player, profile),
         crimson: getCrimson(profile),
-        trophy_fish: getTrophyFish(profile),
         enchanting: getEnchanting(player, profile),
         farming: getFarming(player, profile),
         mining: getMining(player, profile),
