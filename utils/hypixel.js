@@ -193,7 +193,7 @@ module.exports = {
         fairy_souls: profile.fairy_souls_collected || 0,
         purse: profile.coin_purse || 0,
         bank: profileData.banking?.balance || 0,
-        skills: getSkills(player, profile),
+        skills: getSkills(profile),
         networth: networth,
         weight: weight,
         bestiary: getBestiary(profile),
