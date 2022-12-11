@@ -36,7 +36,7 @@ module.exports = (player, profile) => {
 
     const master_mode_floors = {};
 
-    for (let i = 1; i <= dungeons?.dungeon_types.master_catacombs.highest_tier_completed; i++) {
+    for (let i = 1; i <= dungeons?.dungeon_types?.master_catacombs?.highest_tier_completed || 0; i++) {
       master_mode_floors[`floor_${i}`] = {
         completions: master_catacombs?.tier_completions[i] ?? 0,
         best_score: {
