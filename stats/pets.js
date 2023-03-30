@@ -195,12 +195,12 @@ module.exports = (profile) => {
       lore.push(
         "",
         `§6Held Item: §${
-          constants.rarityColors[heldItemObj.tier.toLowerCase()]
-        }${heldItemObj.name}`
+          constants.rarityColors[(heldItemObj?.tier ?? "common").toLowerCase()]
+        }${heldItemObj?.name ?? "Unknown"}`
       );
 
       if (heldItem in constants.pet_items) {
-        lore.push(constants.pet_items[heldItem].description);
+        lore.push(constants.pet_items[heldItem]?.description ?? "");
       }
       // extra line
       lore.push(" ");
