@@ -35,8 +35,8 @@ module.exports = wrap(async function (req, res) {
 
   for (let query of queries) {
     if (query.startsWith("key=")) continue;
-    if (query.startsWith("name=")) query = query.replaceAll("%20", " ");
-    if (query.startsWith("lore=")) query = query.replaceAll("%20", " ");
+    if (query.startsWith("name=")) query = decodeURIComponent(query);
+    if (query.startsWith("lore=")) query = decodeURIComponent(query);
     if (query.startsWith("player=")) {
       if (!isUuid(query.split("=")[1])) {
         query = `player=${((
